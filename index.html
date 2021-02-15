@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Betten Konfigurator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <h1>Betten Konfigurator</h1>
+        <label for="schmerz_art">Die Art des Schmerzes:</label>
+        <select id="schmerz_art">
+            <option value="druckschmerz">Druckschmerz</option>
+            <option value="verspannung">Verspannung</option>
+        </select>
+        <br>
+        <label for="schmerz_bereich">Der Schmerzende Bereich:</label>
+        <select id="schmerz_bereich">
+            <option value="lordose-huefte">Lordose / Hüfte</option>
+            <option value="nacken-schulter">Nacken / Schulter</option>
+        </select>
+        <br>
+        <label for="schlafposition">Ihre Schlafposition:</label>
+        <select id="schlafposition">
+            <option value="bauchschlaefer">Bauchschläfer</option>
+            <option value="seitenschlaefer">Seitenschläfer</option>
+            <option value="rueckenschlaefer">Rückenschläfer</option>
+        </select>
+        <br>
+        <button id="submit_button">Abschicken</button>
+        <div class="cart_wrapper">
+            <h1>Diese Produkte haben wir nach ihren Angaben für sie zusammengestellt!</h1>
+            <ul class="cart_list">
+                <li class="cart_item" id="recommended_mattress">placeholder</li>
+                <li class="cart_item" id="recommended_topper">placeholder</li>
+                <li class="cart_item" id="recommended_pillow">placeholder</li>
+                <li class="cart_item" id="recommended_blanket">placeholder</li>
+            </ul>
+            <button class="cart_submit" id="buy_button">Jetzt kaufen!</button>
+        </div>
+    <script src="js/bedconfig.js"></script>
+</body>
+</html>
+
