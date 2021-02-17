@@ -9,6 +9,18 @@
 </head>
 <body>
     <h1>Betten Konfigurator</h1>
+        <label for="height_input">Ihre Körpergröße (in cm):</label>
+        <input type="number" id="height_input" min="0" max="300" value="175">
+        <br>
+        <label for="weight_input">Ihr Gewicht (in kg):</label>
+        <input type="number" id="weight_input" min="0" max="300" value="80">
+        <br>
+        <label for="bed_size">Die Größe ihres Bettes:</label>
+        <select id="bed_size">
+            <option value="70x200cm">70x200cm</option>
+            <option value="80x200cm">80x200cm</option>
+        </select>
+        <br>
         <label for="schmerz_art">Die Art des Schmerzes:</label>
         <select id="schmerz_art">
             <option value="druckschmerz">Druckschmerz</option>
@@ -35,6 +47,9 @@
                 <li class="cart_item" id="recommended_mattress">placeholder</li>
                 <li class="cart_item" id="recommended_topper">placeholder</li>
                 <li class="cart_item" id="recommended_pillow">placeholder</li>
+                
+                <input type="radio" class="pillowSelectRadio" name="pillowSelect" id="big_pillow_radio">
+                <input type="radio" class="pillowSelectRadio" name="pillowSelect" id="small_pillow_radio">
                 <li class="cart_item" id="recommended_blanket">placeholder</li>
             </ul>
             <button class="cart_submit" id="buy_button">Jetzt kaufen!</button>
