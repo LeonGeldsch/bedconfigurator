@@ -294,14 +294,24 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
 
     console.log(calculatedPillow, calculatedMattress, calculatedBlanket, calculatedTopper);
 
-    let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
-    + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
-    + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId + "-" 
-    + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
+    if (calculatedTopper.name === "Kein Topper") {
+        let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
+        + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
+        + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId;
 
-    console.log(link);
+        console.log(link);
 
-    //window.location.href = link;
+        //window.location.href = link;
+    } else {
+        let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
+        + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
+        + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId + "-" 
+        + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
+    
+        console.log(link);
+    
+        //window.location.href = link;
+    }
 }
 
 
