@@ -29,9 +29,9 @@ const bodyWeightInput = document.querySelector('#weight_input');
 
 const bedSizeInput = document.querySelector('#bed_size');
 
-const bigPillowRadio = document.querySelector('#big_pillow_radio');
+const pillowSelectWrapper = document.querySelector('#pillow_select_wrapper');
 
-const smallPillowRadio = document.querySelector('#small_pillow_radio');
+const allPillowSelectRadios = document.querySelectorAll('.pillow_select_radio');
 
 var schmerzArt = schmerzArtInput.value;
 
@@ -111,7 +111,28 @@ var blankets = [
 var mattresses = [
     new Mattress("DIE MATRATZE 24cm 70x200cm", 23, 279.00, 70, 200, 24),
     new Mattress("DIE MATRATZE 24cm 80x200cm", 24, 279.00, 80, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 90x200cm", 25, 279.00, 90, 200, 24)
+    new Mattress("DIE MATRATZE 24cm 90x200cm", 25, 279.00, 90, 200, 24),
+    new Mattress("DIE MATRATZE 24cm 100x200cm", 26, 299.00, 100, 200, 24),
+    new Mattress("DIE MATRATZE 24cm 140x200cm", 27, 409.00, 140, 200, 24),
+    new Mattress("DIE MATRATZE 24cm 160x200cm", 28, 509.00, 160, 200, 24),
+    new Mattress("DIE MATRATZE 24cm 180x200cm", 29, 529.00, 180, 200, 24),
+    new Mattress("DIE MATRATZE 24cm 200x200cm", 30, 579.00, 200, 200, 24),
+    new Mattress("DIE MATRATZE 18cm 70x200cm", 31, 179.00, 70, 200, 18),
+    new Mattress("DIE MATRATZE 18cm 90x200cm", 33, 179.00, 90, 200, 18),
+    new Mattress("DIE MATRATZE 18cm 100x200cm", 34, 199.00, 100, 200, 18),
+    new Mattress("DIE MATRATZE 18cm 140x200cm", 35, 309.00, 140, 200, 18),
+    new Mattress("DIE MATRATZE 18cm 160x200cm", 36, 409.00, 160, 200, 18),
+    new Mattress("DIE MATRATZE 18cm 180x200cm", 37, 429.00, 180, 200, 18),
+    new Mattress("DIE MATRATZE 18cm 200x200cm", 38, 479.00, 200, 200, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße 80x190cm", 39, 279.00, 80, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße 90x190cm", 40, 279.00, 90, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge 90x210cm", 41, 279.00, 90, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge 100x210cm", 42, 279.00, 100, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge 100x220cm", 43, 279.00, 100, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge 200x210cm", 44, 579.00, 200, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge 180x210cm", 45, 529.00, 180, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge 200x220cm", 46, 579.00, 200, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge 120x200cm", 56, 309.00, 120, 200, 18),
 ];
 
 // all topper options
@@ -119,7 +140,13 @@ var toppers = [
     new Topper("Kein Topper"),
     new Topper("90x190cm", 222, 0.00, 90, 190),
     new Topper("80x200cm", 223, 0.00, 80, 200),
-    new Topper("90x200cm", 224, 10.00, 90, 200)
+    new Topper("90x200cm", 224, 10.00, 90, 200),
+    new Topper("100x200cm", 225, 20.00, 100, 200),
+    new Topper("120x200cm", 226, 30.00, 120, 200),
+    new Topper("140x200cm", 227, 50.00, 140, 200),
+    new Topper("160x200cm", 228, 70.00, 160, 200),
+    new Topper("180x200cm", 229, 100.00, 180, 200),
+    new Topper("200x200cm", 230, 120.00, 200, 200),
 ];
 
 
@@ -133,7 +160,7 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition) {
     if (schmerzArt == "druckschmerz") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "rueckenschlaefer" || schlafposition == "bauchschlaefer") {
-                return pillows.find(element => element.name == "80x80cm normal-weich");
+                return [pillows.find(element => element.name == "80x80cm normal-weich")];
             }
         }
     }
@@ -143,7 +170,7 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition) {
                 return [pillows.find(element => element.name == "80x80cm extra pral"), pillows.find(element => element.name == "40x80cm extra pral")];
             }
             if (schlafposition == "bauchschlaefer") {
-                return pillows.find(element => element.name == "80x80cm normal-weich");
+                return [pillows.find(element => element.name == "80x80cm normal-weich")];
             }
         }
     }
@@ -214,16 +241,29 @@ function calculateBlanket (bedSize) {
 }
 
 
-function createCart (calculatedMattress, calculatedTopper, calculatedPillow, calculatedBlanket) {
+function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
     recommendedMattressItem.innerHTML = calculatedMattress.name;
     recommendedTopperItem.innerHTML = calculatedTopper.name;
-    recommendedPillowItem.innerHTML = calculatedPillow.name;
     recommendedBlanketItem.innerHTML = calculatedBlanket.name;
+
+    console.log(calculatedPillowOptions);
+
+    if (calculatedPillowOptions.length >= 2) {
+        recommendedPillowItem.style.display = "none";
+        pillowSelectWrapper.style.display = "list-item";
+        allPillowSelectRadios[0].previousElementSibling.innerHTML = calculatedPillowOptions[0].name;
+        allPillowSelectRadios[0].value = calculatedPillowOptions[0].name;
+        allPillowSelectRadios[1].previousElementSibling.innerHTML = calculatedPillowOptions[1].name;
+        allPillowSelectRadios[1].value = calculatedPillowOptions[1].name;
+    } else {
+        recommendedPillowItem.style.display = "list-item";
+        pillowSelectWrapper.style.display = "none";
+    }
 
     cartWrapper.style.display = "block";
 }
 
-
+/*
 function getID (item) {
     switch (item) {
         case "Weiche Matratze":
@@ -242,10 +282,37 @@ function getID (item) {
             break;
     }
 }
+*/
 
 
-function buyItems (calculatedMattress, calculatedTopper, calculatedPillow, calculatedBlanket) {
-    window.location.href = 'https://www.weltbett.de/dpa/add/tocart/id/' + getID(calculatedMattress) + getID(calculatedPillow) + getID(calculatedBlanket) + getID(calculatedTopper);
+function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
+    if (calculatedPillowOptions.length >= 2) {
+        var calculatedPillow = pillows.find(element => element.name == (getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML));
+    } else {
+        var calculatedPillow = calculatedPillowOptions[0];
+    }
+
+    console.log(calculatedPillow, calculatedMattress, calculatedBlanket, calculatedTopper);
+
+    let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
+    + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
+    + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId + "-" 
+    + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
+
+    console.log(link);
+
+    //window.location.href = link;
+}
+
+
+function getSelectedRadioButton (radioButtons) {
+    let radioButtonsArray = Array.from(radioButtons);
+    //console.log(radioButtonsArray);
+    for (let i = 0; i < radioButtonsArray.length; i++) {
+        if (radioButtonsArray[i].checked === true) {
+            return radioButtonsArray[i];
+        }
+    }
 }
 
 
@@ -260,14 +327,17 @@ function handleSubmit () {
 
     let calculatedMattress = calculateMatress(schmerzArt, bedSize, bmi);
     let calculatedTopper = calculateTopper(schmerzArt, bedSize);
-    let calculatedPillow = calculatePillow(schmerzArt, schmerzBereich, schlafposition);
+    let calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition);
     let calculatedBlanket = calculateBlanket(bedSize);
 
-    console.log(calculatedPillow);
+    //console.log(calculatedPillowOptions.length, calculatedPillowOptions);
+
+
+
     
-    createCart(calculatedMattress, calculatedTopper, calculatedPillow, calculatedBlanket);
+    createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
     buyButton.addEventListener('click', function () {
-        buyItems(calculatedMattress, calculatedTopper, calculatedPillow, calculatedBlanket)
+        buyItems(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket)
     });
 }
 
