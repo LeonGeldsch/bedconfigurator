@@ -29,6 +29,8 @@ const bodyWeightInput = document.querySelector('#weight_input');
 
 const bedSizeInput = document.querySelector('#bed_size');
 
+const materialPreferenceInput = document.querySelector('#material_input');
+
 const pillowSelectWrapper = document.querySelector('#pillow_select_wrapper');
 
 const allPillowSelectRadios = document.querySelectorAll('.pillow_select_radio');
@@ -98,13 +100,19 @@ var pillows = [
     new Pillow("40x80cm normal-weich", 22, 0.90),
     new Pillow("40x80cm extra pral", 23, 0.90),
     new Pillow("80x80cm normal-weich", 24, 10.90),
-    new Pillow("80x80cm extra pral", 25, 10.90)
+    new Pillow("80x80cm extra pral", 25, 10.90),
+    new Pillow("40x80cm normal-weich (federfrei)", 119, 0.00),
+    new Pillow("40x80cm extra pral (federfrei)", 120, 0.00),
+    new Pillow("80x80cm normal-weich (federfrei)", 121, 10.00),
+    new Pillow("80x80cm extra pral (federfrei)", 122, 10.00)
 ];
 
 // all blanket options
 var blankets = [
     new Blanket("135x200cm Ganzjahr", 123, 40.00),
-    new Blanket("155x220cm Ganzjahr", 124, 80.00)
+    new Blanket("155x220cm Ganzjahr", 124, 80.00),
+    new Blanket("155x220cm Ganzjahr federfrei/synthetisch", 216, 80.00),
+    new Blanket("135x200cm Ganzjahr federfrei/synthetisch", 217, 80.00),
 ];
 
 // all mattress options
@@ -156,58 +164,43 @@ var toppers = [
  */
 
  
-function calculatePillow (schmerzArt, schmerzBereich, schlafposition) {
+function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPreference) {
     if (schmerzArt == "druckschmerz") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "rueckenschlaefer" || schlafposition == "bauchschlaefer") {
-                return [pillows.find(element => element.name == "80x80cm normal-weich")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm normal-weich")];
+                else return [pillows.find(element => element.name == "80x80cm normal-weich (federfrei)")];
             }
         }
     }
     if (schmerzArt == "verspannung") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "seitenschlaefer") {
-                return [pillows.find(element => element.name == "80x80cm extra pral"), pillows.find(element => element.name == "40x80cm extra pral")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm extra pral"), pillows.find(element => element.name == "40x80cm extra pral")];
+                else return [pillows.find(element => element.name == "80x80cm extra pral (federfrei)"), pillows.find(element => element.name == "40x80cm extra pral (federfrei)")];
             }
             if (schlafposition == "bauchschlaefer") {
-                return [pillows.find(element => element.name == "80x80cm normal-weich")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm normal-weich")];
+                else return [pillows.find(element => element.name == "80x80cm normal-weich (federfrei)")];
             }
         }
     }
-    return [pillows.find(element => element.name == "80x80cm extra pral"), pillows.find(element => element.name == "40x80cm extra pral")];
+    if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm extra pral"), pillows.find(element => element.name == "40x80cm extra pral")];
+    else return [pillows.find(element => element.name == "80x80cm extra pral (federfrei)"), pillows.find(element => element.name == "40x80cm extra pral (federfrei)")];
 }
-
-/*
-function calculatePillow (schmerzArt, schmerzBereich, schlafposition) {
-    if (schmerzArt == "druckschmerz") {
-        if (schmerzBereich == "nacken-schulter") {
-            if (schlafposition == "rueckenschlaefer" || schlafposition == "bauchschlaefer") {
-                return "80x80 Normalweiches Kissen";
-            }
-        }
-    }
-    if (schmerzArt == "verspannung") {
-        if (schmerzBereich == "nacken-schulter") {
-            if (schlafposition == "seitenschlaefer") {
-                return "80x80/40x80 Extrafestes Kissen";
-            }
-            if (schlafposition == "bauchschlaefer") {
-                return "80x80 Normalweiches Kissen";
-            }
-        }
-    }
-    return "80x80/40x80 Normalweiches Kissen";
-}
-*/
 
 
 function calculateTopper (schmerzArt, bedSize) {
     if (schmerzArt == "druckschmerz") {
-        for (let i = 0; i < toppers.length; i++) {
+        /*
+        for (let i = 1; i < toppers.length; i++) {
             if (toppers[i].width + "x" + toppers[i].length + "cm" == bedSize) {
+                console.log(toppers[i].width + "x" + toppers[i].length + "cm");
                 return toppers[i];
             }
         }
+        */
+        return toppers.find(element => element.width + "x" + element.length + "cm" === bedSize);
     }
     if (schmerzArt == "verspannung") {
         return toppers[0];
@@ -236,8 +229,14 @@ function calculateMatress (schmerzArt, bedSize, bmi) {
 }
 
 
-function calculateBlanket (bedSize) {
-    return blankets[1];
+function calculateBlanket (bodyHeight, materialPreference) {
+    if (bodyHeight >= 185) {
+        if (materialPreference === "federn") return blankets.find(element => element.name == "155x220cm Ganzjahr");
+        else return blankets.find(element => element.name == "155x220cm Ganzjahr federfrei/synthetisch");
+    } else {
+        if (materialPreference === "federn") return blankets.find(element => element.name == "135x200cm Ganzjahr");
+        else return blankets.find(element => element.name == "135x200cm Ganzjahr federfrei/synthetisch");
+    }
 }
 
 
@@ -246,7 +245,7 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     recommendedTopperItem.innerHTML = calculatedTopper.name;
     recommendedBlanketItem.innerHTML = calculatedBlanket.name;
 
-    console.log(calculatedPillowOptions);
+    //console.log(calculatedPillowOptions);
 
     if (calculatedPillowOptions.length >= 2) {
         recommendedPillowItem.style.display = "none";
@@ -257,42 +256,30 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
         allPillowSelectRadios[1].value = calculatedPillowOptions[1].name;
     } else {
         recommendedPillowItem.style.display = "list-item";
+        recommendedPillowItem.innerHTML = calculatedPillowOptions[0].name;
         pillowSelectWrapper.style.display = "none";
     }
 
     cartWrapper.style.display = "block";
 }
 
-/*
-function getID (item) {
-    switch (item) {
-        case "Weiche Matratze":
-            return lightMattressID;
-        case "Harte Matratze":
-            return hardMattressID;
-        case "80x80 Normalweiches Kissen":
-            return normalPillowID;
-        case "80x80/40x80 Extrafestes Kissen":
-            return hardPillowID;
-        case "Zusätzlicher Topper":
-            return topperID;
-        case "Kein Topper":
-            return "";
-        default:
-            break;
-    }
-}
-*/
-
 
 function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
+    var calculatedPillow;
+    var calculatedPillow;
+    console.log(calculatedPillowOptions);
+    console.log(getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML);
     if (calculatedPillowOptions.length >= 2) {
-        var calculatedPillow = pillows.find(element => element.name == (getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML));
+        calculatedPillow = pillows.find(element => element.name == (getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML));
+        console.log(calculatedPillow);
     } else {
-        var calculatedPillow = calculatedPillowOptions[0];
+        calculatedPillow = calculatedPillowOptions[0];
+        console.log(calculatedPillow);
     }
 
-    console.log(calculatedPillow, calculatedMattress, calculatedBlanket, calculatedTopper);
+    //console.log(pillows.find(element => element.name == (getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML)));
+
+    //console.log(calculatedPillow, calculatedMattress, calculatedBlanket, calculatedTopper);
 
     if (calculatedTopper.name === "Kein Topper") {
         let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
@@ -334,21 +321,20 @@ function handleSubmit () {
     let bodyWeight = bodyWeightInput.value;
     let bodyHeight = bodyHeightInput.value;
     let bmi = calculateBMI(bodyWeight, bodyHeight);
+    let materialPreference = materialPreferenceInput.value;
 
     let calculatedMattress = calculateMatress(schmerzArt, bedSize, bmi);
     let calculatedTopper = calculateTopper(schmerzArt, bedSize);
-    let calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition);
-    let calculatedBlanket = calculateBlanket(bedSize);
-
-    //console.log(calculatedPillowOptions.length, calculatedPillowOptions);
-
-
-
+    let calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition, materialPreference);
+    let calculatedBlanket = calculateBlanket(bodyHeight, materialPreference);
     
     createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
+    /*
     buyButton.addEventListener('click', function () {
         buyItems(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket)
-    });
+    }, {once: true});
+    */
+   buyButton.addEventListener('click', buyItems.bind(event, calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket));
 }
 
 
