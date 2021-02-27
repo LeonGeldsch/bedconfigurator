@@ -10,7 +10,6 @@ const painAreaInput = document.querySelector('#pain-area-input');
 
 var currentSite = 0;
 
-console.log(painTypeInput);
 
 function showNextSite () {
     currentSite++;
@@ -41,14 +40,14 @@ painTypeInput.forEach(option => {
     option.addEventListener('click', function () {
         if (option.checked && option.value != "kein") {
             painAreaInput.disabled = false;
-            painAreaInput.previousElementSibling.classList.remove('bedconfig-label-disabled');
             painAreaInput.classList.remove('bedconfig-select-disabled');
+            painAreaInput.previousElementSibling.classList.remove('bedconfig-label-disabled');
             console.log("false");
         } else {
             console.log("true");
             painAreaInput.disabled = true;
-            painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
             painAreaInput.classList.add('bedconfig-select-disabled');
+            painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
         }
     });
 });
@@ -56,12 +55,12 @@ painTypeInput.forEach(option => {
 
 painTypeInput.forEach(option => {
     if (option.checked && option.value != "kein") {
-        console.log("false");
         painAreaInput.disabled = false;
         painAreaInput.classList.remove('bedconfig-select-disabled');
+        painAreaInput.previousElementSibling.classList.remove('bedconfig-label-disabled');
     } else {
-        console.log("true");
-        painAreaInput.classList.add('bedconfig-select-disabled');
         painAreaInput.disabled = true;
+        painAreaInput.classList.add('bedconfig-select-disabled');
+        painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
     }
 });
