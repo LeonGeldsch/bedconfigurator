@@ -192,22 +192,13 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
 
 function calculateTopper (schmerzArt, bedSize) {
     if (schmerzArt == "druckschmerz") {
-        /*
-        for (let i = 1; i < toppers.length; i++) {
-            if (toppers[i].width + "x" + toppers[i].length + "cm" == bedSize) {
-                console.log(toppers[i].width + "x" + toppers[i].length + "cm");
-                return toppers[i];
-            }
-        }
-        */
-        return toppers.find(element => element.width + "x" + element.length + "cm" === bedSize);
+        if (toppers.find(element => element.width + "x" + element.length + "cm" === bedSize)) return toppers.find(element => element.width + "x" + element.length + "cm" === bedSize);
     }
     if (schmerzArt == "verspannung") {
         return toppers[0];
-    } else {
-        console.log("couldn't calculate topper.. choosing no topper as default");
-        return toppers[0];
     }
+    console.log("couldn't calculate topper.. choosing no topper as default");
+    return toppers[0];
 }
 
 
@@ -327,6 +318,8 @@ function handleSubmit () {
     let calculatedTopper = calculateTopper(schmerzArt, bedSize);
     let calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition, materialPreference);
     let calculatedBlanket = calculateBlanket(bodyHeight, materialPreference);
+
+    console.log(calculatedTopper);
     
     createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
     /*
