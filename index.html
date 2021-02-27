@@ -4,9 +4,152 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Betten Konfigurator</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
+    <div class="bedconfigurator-wrapper">
+        <div class="bedconfig-container" id="bedconfig-page-0">
+            <h1>Der Betten Konfigurator</h1>
+            <div class="bedconfig-text-wrapper">
+                <p>
+                    Wir helfen Dir mit unserem Betten Konfigurator, damit Du die perfekten Gegenheiten zum schlafen hast. 
+                    Beantworte in den kommenden 3 Schritten die Fragen zu Deinem Körper, Schlafgewohnheiten und gegebenfalls
+                    aufkommenden Schmerzen im Schlaf.
+                </p>
+            </div>
+            <div class="bedconfig-input-wrapper">
+                <a class="bedconfig-button bedconfig-next-button">Los geht's</a>
+            </div>
+        </div>
+        <div class="bedconfig-container" id="bedconfig-page-1">
+            <h1>Dein Body Index</h1>
+            <div class="bedconfig-index">
+                <div class="bedconfig-index-number bedconfig-index-number-active">1</div>
+                <div class="bedconfig-white-line"></div>
+                <div class="bedconfig-index-number">2</div>
+                <div class="bedconfig-white-line"></div>
+                <div class="bedconfig-index-number">3</div>
+            </div>
+            <div class="bedconfig-input-wrapper">
+                <label for="height">Deine Körpergröße:</label>
+                <input class="bedconfig-input" type="text" name="height" id="" placeholder="Angabe in cm">
+                <label for="weight">Dein Gewicht:</label>
+                <input class="bedconfig-input" type="text" name="weight" id="" placeholder="Angabe in kg">
+            </div>
+            <div>
+                <a class="bedconfig-button bedconfig-back-button">zurück</a>
+                <a class="bedconfig-button bedconfig-next-button">weiter</a>
+            </div>
+        </div>
+
+        <div class="bedconfig-container" id="bedconfig-page-2">
+            <h1>Deine Schlafposition</h1>
+            <div class="bedconfig-index">
+                <div class="bedconfig-index-number bedconfig-index-number-done">1</div>
+                <div class="bedconfig-white-line"></div>
+                <div class="bedconfig-index-number bedconfig-index-number-active">2</div>
+                <div class="bedconfig-white-line"></div>
+                <div class="bedconfig-index-number">3</div>
+            </div>
+            <div class="bedconfig-form-wrapper">
+                <label class="bedconfig-label">Deine Schlafposition:</label>
+                <div class="bedconfig-radio-wrapper">
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="sleepingposition" class="bedconfig-radio-button" checked="checked">
+                        <span class="bedconfig-radio-span">Rücken</span>
+                    </label>
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="sleepingposition" class="bedconfig-radio-button">
+                        <span class="bedconfig-radio-span">Bauch</span>
+                    </label>
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="sleepingposition" class="bedconfig-radio-button">
+                        <span class="bedconfig-radio-span">Seiten</span>
+                    </label>
+                </div>
+                <label class="bedconfig-label">Die Größe Deines Bettes:</label>
+                <select class="bedconfig-select">
+                    <option value="70x200cm">70x200cm</option>
+                    <option value="80x200cm">80x200cm</option>
+                    <option value="90x200cm">90x200cm</option>
+                    <option value="100x200cm">100x200cm</option>
+                    <option value="140x200cm">140x200cm</option>
+                    <option value="160x200cm">160x200cm</option>
+                    <option value="180x200cm">180x200cm</option>
+                    <option value="200x200cm">200x200cm</option>
+                    <option value="80x190cm">80x190cm</option>
+                    <option value="90x190cm">90x190cm</option>
+                    <option value="90x210cm">90x210cm</option>
+                    <option value="100x210cm">100x210cm</option>
+                    <option value="100x220cm">100x220cm</option>
+                    <option value="200x210cm">200x210cm</option>
+                    <option value="180x210cm">180x210cm</option>
+                    <option value="200x220cm">200x220cm</option>
+                    <option value="120x200cm">120x200cm</option>
+                </select>
+                <label class="bedconfig-label">Bevorzugst du Federn oder Synthetik?:</label>
+                <div class="bedconfig-radio-wrapper">
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="material-preference" class="bedconfig-radio-button" checked="checked">
+                        <span class="bedconfig-radio-span">Federn</span>
+                    </label>
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="material-preference" class="bedconfig-radio-button">
+                        <span class="bedconfig-radio-span">Synthetik</span>
+                    </label>
+                </div>
+
+            </div>
+            <div>
+                <a class="bedconfig-button bedconfig-back-button">zurück</a>
+                <a class="bedconfig-button bedconfig-next-button">weiter</a>
+            </div>
+        </div>
+
+        <div class="bedconfig-container" id="bedconfig-page-3">
+            <h1>Deine Schmerzen beim Schlafen</h1>
+            <div class="bedconfig-index">
+                <div class="bedconfig-index-number bedconfig-index-number-done">1</div>
+                <div class="bedconfig-white-line"></div>
+                <div class="bedconfig-index-number bedconfig-index-number-done">2</div>
+                <div class="bedconfig-white-line"></div>
+                <div class="bedconfig-index-number bedconfig-index-number-active">3</div>
+            </div>
+            <div class="bedconfig-form-wrapper">
+                <label class="bedconfig-label">Hast Du Schmerzen beim Schlafen?</label>
+                <div class="bedconfig-radio-wrapper">
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="pain" id="pain-input" class="bedconfig-radio-button" checked="checked" value="kein">
+                        <span class="bedconfig-radio-span">Keine</span>
+                    </label>
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="pain" id="pain-input" class="bedconfig-radio-button" value="druckschmerz">
+                        <span class="bedconfig-radio-span">Druck</span>
+                    </label>
+                    <label class="bedconfig-radio-label">
+                        <input type="radio" name="pain" id="pain-input" class="bedconfig-radio-button" value="verspannung">
+                        <span class="bedconfig-radio-span">Verspannung</span>
+                    </label>
+                </div>
+                <label class="bedconfig-label bedconfig-label-disabled">In welchem Bereich verspürst Du Schmerzen?</label>
+                <select class="bedconfig-select bedconfig-select-disabled" id="pain-area-input" disabled>
+                    <option value="lordose-huefte">Lordose / Hüfte</option>
+                    <option value="nacken-schulter">Nacken / Schulter</option>
+                </select>
+            </div>
+            <div>
+                <a class="bedconfig-button bedconfig-back-button">zurück</a>
+                <a class="bedconfig-button bedconfig-next-button">Produkte zusammenstellen</a>
+            </div>
+        </div>
+
+        <div class="bedconfig-container" id="bedconfig-page-4">
+            <h1>Diese Produkte haben wir nach Deinen Angaben für Dich zusammengestellt</h1>
+            <a class="bedconfig-button">Jetzt kaufen</a>
+        </div>
+    </div>
+    <script src="js/bedconfig.js"></script>
 </body>
 </html>
