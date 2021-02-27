@@ -34,9 +34,9 @@
             </div>
             <div class="bedconfig-input-wrapper">
                 <label for="height">Deine Körpergröße:</label>
-                <input class="bedconfig-input" type="text" name="height" id="" placeholder="Angabe in cm">
+                <input class="bedconfig-input" type="text" name="height" id="bedconfig-height-input" placeholder="Angabe in cm">
                 <label for="weight">Dein Gewicht:</label>
-                <input class="bedconfig-input" type="text" name="weight" id="" placeholder="Angabe in kg">
+                <input class="bedconfig-input" type="text" name="weight" id="bedconfig-weight-input" placeholder="Angabe in kg">
             </div>
             <div>
                 <a class="bedconfig-button bedconfig-back-button">zurück</a>
@@ -57,20 +57,20 @@
                 <label class="bedconfig-label">Deine Schlafposition:</label>
                 <div class="bedconfig-radio-wrapper">
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="sleepingposition" class="bedconfig-radio-button" checked="checked">
+                        <input type="radio" id="bedconfig-sleeping-position-input" name="sleepingposition" class="bedconfig-radio-button" checked="checked">
                         <span class="bedconfig-radio-span">Rücken</span>
                     </label>
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="sleepingposition" class="bedconfig-radio-button">
+                        <input type="radio" id="bedconfig-sleeping-position-input" name="sleepingposition" class="bedconfig-radio-button">
                         <span class="bedconfig-radio-span">Bauch</span>
                     </label>
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="sleepingposition" class="bedconfig-radio-button">
+                        <input type="radio" id="bedconfig-sleeping-position-input" name="sleepingposition" class="bedconfig-radio-button">
                         <span class="bedconfig-radio-span">Seiten</span>
                     </label>
                 </div>
                 <label class="bedconfig-label">Die Größe Deines Bettes:</label>
-                <select class="bedconfig-select">
+                <select class="bedconfig-select" id="bedconfig-bed-size-input">
                     <option value="70x200cm">70x200cm</option>
                     <option value="80x200cm">80x200cm</option>
                     <option value="90x200cm">90x200cm</option>
@@ -92,11 +92,11 @@
                 <label class="bedconfig-label">Bevorzugst du Federn oder Synthetik?:</label>
                 <div class="bedconfig-radio-wrapper">
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="material-preference" class="bedconfig-radio-button" checked="checked">
+                        <input type="radio" id="bedconfig-material-preference-input" name="material-preference" class="bedconfig-radio-button" checked="checked">
                         <span class="bedconfig-radio-span">Federn</span>
                     </label>
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="material-preference" class="bedconfig-radio-button">
+                        <input type="radio" id="bedconfig-material-preference-input" name="material-preference" class="bedconfig-radio-button">
                         <span class="bedconfig-radio-span">Synthetik</span>
                     </label>
                 </div>
@@ -121,20 +121,20 @@
                 <label class="bedconfig-label">Hast Du Schmerzen beim Schlafen?</label>
                 <div class="bedconfig-radio-wrapper">
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="pain" id="pain-input" class="bedconfig-radio-button" checked="checked" value="kein">
+                        <input type="radio" name="pain" id="bedconfig-pain-type-input" class="bedconfig-radio-button" checked="checked" value="kein">
                         <span class="bedconfig-radio-span">Keine</span>
                     </label>
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="pain" id="pain-input" class="bedconfig-radio-button" value="druckschmerz">
+                        <input type="radio" name="pain" id="bedconfig-pain-type-input" class="bedconfig-radio-button" value="druckschmerz">
                         <span class="bedconfig-radio-span">Druck</span>
                     </label>
                     <label class="bedconfig-radio-label">
-                        <input type="radio" name="pain" id="pain-input" class="bedconfig-radio-button" value="verspannung">
+                        <input type="radio" name="pain" id="bedconfig-pain-type-input" class="bedconfig-radio-button" value="verspannung">
                         <span class="bedconfig-radio-span">Verspannung</span>
                     </label>
                 </div>
                 <label class="bedconfig-label bedconfig-label-disabled">In welchem Bereich verspürst Du Schmerzen?</label>
-                <select class="bedconfig-select bedconfig-select-disabled" id="pain-area-input" disabled>
+                <select class="bedconfig-select bedconfig-select-disabled" id="bedconfig-pain-area-input" disabled>
                     <option value="lordose-huefte">Lordose / Hüfte</option>
                     <option value="nacken-schulter">Nacken / Schulter</option>
                 </select>
@@ -146,8 +146,73 @@
         </div>
 
         <div class="bedconfig-container" id="bedconfig-page-4">
-            <h1>Diese Produkte haben wir nach Deinen Angaben für Dich zusammengestellt</h1>
-            <a class="bedconfig-button">Jetzt kaufen</a>
+            <h1>Diese Produkte haben wir nach Deinen Angaben für Dich zusammengestellt.</h1>
+            <div class="bedconfig-cart-wrapper">
+                <div class="bedconfig-cart-item">
+                    <h2>DIE MATRATZE</h2>
+                    <div class="bedconfig-image-container">
+                        <img src="img/die_matratze.png" alt="">
+                    </div>
+                    <div class="bedconfig-cart-item-info">
+                        <span>Produkt:</span>
+                        <span>Größe:</span>
+                        <span>Seite:</span>
+                        <span>Die Matratze in 24cm</span>
+                        <span>140x200cm</span>
+                        <span>H3 (weicher)</span>
+                    </div>
+                    <span class="bedconfig-cart-item-price">459 €</span>
+                </div>
+                <div class="bedconfig-plus-sign">+</div>
+                <div class="bedconfig-cart-item">
+                    <h2>DER TOPPER</h2>
+                    <div class="bedconfig-image-container">
+                        <img src="img/der_topper.png" alt="">
+                    </div>
+                    <div class="bedconfig-cart-item-info">
+                        <span>Produkt:</span>
+                        <span>Größe:</span>
+                        <span>Seite:</span>
+                        <span>Die Matratze in 24cm</span>
+                        <span>140x200cm</span>
+                        <span>H3 (weicher)</span>
+                    </div>
+                    <span class="bedconfig-cart-item-price">459 €</span>
+                </div>
+                <div class="bedconfig-plus-sign">+</div>
+                <div class="bedconfig-cart-item">
+                    <h2>DAS KISSEN</h2>
+                    <div class="bedconfig-image-container">
+                        <img src="img/das_kissen.png" alt="">
+                    </div>
+                    <div class="bedconfig-cart-item-info">
+                        <span>Produkt:</span>
+                        <span>Größe:</span>
+                        <span>Seite:</span>
+                        <span>Die Matratze in 24cm</span>
+                        <span>140x200cm</span>
+                        <span>H3 (weicher)</span>
+                    </div>
+                    <span class="bedconfig-cart-item-price">459 €</span>
+                </div>
+                <div class="bedconfig-plus-sign">+</div>
+                <div class="bedconfig-cart-item">
+                    <h2>DIE DECKE</h2>
+                    <div class="bedconfig-image-container">
+                        <img src="img/die_decke.png" alt="">
+                    </div>
+                    <div class="bedconfig-cart-item-info">
+                        <span>Produkt:</span>
+                        <span>Größe:</span>
+                        <span>Seite:</span>
+                        <span>Die Matratze in 24cm</span>
+                        <span>140x200cm</span>
+                        <span>H3 (weicher)</span>
+                    </div>
+                    <span class="bedconfig-cart-item-price">459 €</span>
+                </div>
+            </div>
+            <a class="bedconfig-button" id="bedconfig-buy-button">Jetzt kaufen</a>
         </div>
     </div>
     <script src="js/bedconfig.js"></script>
