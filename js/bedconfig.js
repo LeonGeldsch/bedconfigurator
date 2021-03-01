@@ -1,3 +1,14 @@
+/*
+ * BUGS: -not all mattresses available in 24 and 18cm height
+ *
+ * 
+ * Questions: - What side is recommended when there is no pain?
+ *            - What mattress is recommended when there is only a 24cm version but you need the 18cm one? e.g. bedSize 80x200cm 
+ *            - How are the pillow options gonna be displayed if there are multiple ones?
+ * 
+ */
+
+
 const allNextButtons = document.querySelectorAll('.bedconfig-next-button');
 
 const allBackButtons = document.querySelectorAll('.bedconfig-back-button');
@@ -10,9 +21,9 @@ const sleepingPositionInput = document.querySelectorAll('#bedconfig-sleeping-pos
 
 const painAreaInput = document.querySelector('#bedconfig-pain-area-input');
 
-const weightInput = document.querySelector('#bedconfig-weight-input');
+const bodyWeightInput = document.querySelector('#bedconfig-weight-input');
 
-const heightInput = document.querySelector('#bedconfig-height-input');
+const bodyHeightInput = document.querySelector('#bedconfig-height-input');
 
 const bedSizeInput = document.querySelector('#bedconfig-bed-size-input');
 
@@ -20,26 +31,42 @@ const materialPreferenceInput = document.querySelectorAll('#bedconfig-material-p
 
 const submitButton = allNextButtons[3];
 
-const buyButton = document.querySelector('#buy-button');
+const buyButton = document.querySelector('#bedconfig-buy-button');
+
+const allCartItems = document.querySelectorAll('.bedconfig-cart-item');
+
+const recommendedMattressItem = allCartItems[0];
+
+const recommendedTopperItem = allCartItems[1];
+
+const recommendedPillowItem = allCartItems[2];
+
+const recommendedBlanketItem = allCartItems[3];
 
 var currentSite = 0;
 
 
 class Pillow {
-    constructor(name, sizeId, price) {
+    constructor(name, sizeId, price, width, length, material) {
         this.name = name;
         this.sizeId = sizeId;
         this.id = 5;
         this.price = price;
+        this.width = width;
+        this.length = length;
+        this.material = material;
     }
 }
 
 class Blanket {
-    constructor(name, sizeId, price) {
+    constructor(name, sizeId, price, width, length, material) {
         this.name = name;
         this.sizeId = sizeId;
         this.id = 7;
         this.price = price;
+        this.width = width;
+        this.length = length;
+        this.material = material;
     }
 }
 
@@ -68,64 +95,64 @@ class Topper {
 
 // all pillow options
 var pillows = [
-    new Pillow("40x80cm normal-weich", 22, 0.90),
-    new Pillow("40x80cm extra pral", 23, 0.90),
-    new Pillow("80x80cm normal-weich", 24, 10.90),
-    new Pillow("80x80cm extra pral", 25, 10.90),
-    new Pillow("40x80cm normal-weich (federfrei)", 119, 0.00),
-    new Pillow("40x80cm extra pral (federfrei)", 120, 0.00),
-    new Pillow("80x80cm normal-weich (federfrei)", 121, 10.00),
-    new Pillow("80x80cm extra pral (federfrei)", 122, 10.00)
+    new Pillow("Das Kissen normal-weich", 22, 0.90, 80, 40, "Federfüllung"),
+    new Pillow("Das Kissen extra pral", 23, 0.90, 80, 40, "Federfüllung"),
+    new Pillow("Das Kissen normal-weich", 24, 10.90, 80, 80, "Federfüllung"),
+    new Pillow("Das Kissen extra pral", 25, 10.90, 80, 80, "Federfüllung"),
+    new Pillow("Das Kissen normal-weich", 119, 0.00, 80, 40, "Synthetikfüllung"),
+    new Pillow("Das Kissen extra pral", 120, 0.00, 80, 40, "Synthetikfüllung"),
+    new Pillow("Das Kissen normal-weich", 121, 10.00, 80, 80, "Synthetikfüllung"),
+    new Pillow("Das Kissen extra pral", 122, 10.00, 80, 80, "Synthetikfüllung")
 ];
 
 // all blanket options
 var blankets = [
-    new Blanket("135x200cm Ganzjahr", 123, 40.00),
-    new Blanket("155x220cm Ganzjahr", 124, 80.00),
-    new Blanket("155x220cm Ganzjahr federfrei/synthetisch", 216, 80.00),
-    new Blanket("135x200cm Ganzjahr federfrei/synthetisch", 217, 80.00),
+    new Blanket("Die Decke / Ganzjahr", 123, 40.00, 135, 200, "Federfüllung"),
+    new Blanket("Die Decke / Ganzjahr", 124, 80.00, 155, 220, "Federfüllung"),
+    new Blanket("Die Decke / Ganzjahr", 216, 80.00, 155, 220, "Synthetikfüllung"),
+    new Blanket("Die Decke / Ganzjahr", 217, 80.00, 135, 200, "Synthetikfüllung"),
 ];
 
 // all mattress options
 var mattresses = [
-    new Mattress("DIE MATRATZE 24cm 70x200cm", 23, 279.00, 70, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 80x200cm", 24, 279.00, 80, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 90x200cm", 25, 279.00, 90, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 100x200cm", 26, 299.00, 100, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 140x200cm", 27, 409.00, 140, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 160x200cm", 28, 509.00, 160, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 180x200cm", 29, 529.00, 180, 200, 24),
-    new Mattress("DIE MATRATZE 24cm 200x200cm", 30, 579.00, 200, 200, 24),
-    new Mattress("DIE MATRATZE 18cm 70x200cm", 31, 179.00, 70, 200, 18),
-    new Mattress("DIE MATRATZE 18cm 90x200cm", 33, 179.00, 90, 200, 18),
-    new Mattress("DIE MATRATZE 18cm 100x200cm", 34, 199.00, 100, 200, 18),
-    new Mattress("DIE MATRATZE 18cm 140x200cm", 35, 309.00, 140, 200, 18),
-    new Mattress("DIE MATRATZE 18cm 160x200cm", 36, 409.00, 160, 200, 18),
-    new Mattress("DIE MATRATZE 18cm 180x200cm", 37, 429.00, 180, 200, 18),
-    new Mattress("DIE MATRATZE 18cm 200x200cm", 38, 479.00, 200, 200, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße 80x190cm", 39, 279.00, 80, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße 90x190cm", 40, 279.00, 90, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge 90x210cm", 41, 279.00, 90, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge 100x210cm", 42, 279.00, 100, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge 100x220cm", 43, 279.00, 100, 220, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge 200x210cm", 44, 579.00, 200, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge 180x210cm", 45, 529.00, 180, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge 200x220cm", 46, 579.00, 200, 220, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge 120x200cm", 56, 309.00, 120, 200, 18),
+    new Mattress("DIE MATRATZE 24cm", 23, 279.00, 70, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 24, 279.00, 80, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 25, 279.00, 90, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 26, 299.00, 100, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 27, 409.00, 140, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 28, 509.00, 160, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 29, 529.00, 180, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 30, 579.00, 200, 200, 24),
+    new Mattress("DIE MATRATZE 18cm", 31, 179.00, 70, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 33, 179.00, 90, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 34, 199.00, 100, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 35, 309.00, 140, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 36, 409.00, 160, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 37, 429.00, 180, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 38, 479.00, 200, 200, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 39, 279.00, 80, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 40, 279.00, 90, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 41, 279.00, 90, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 42, 279.00, 100, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 43, 279.00, 100, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 44, 579.00, 200, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 45, 529.00, 180, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 46, 579.00, 200, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 56, 309.00, 120, 200, 18),
 ];
 
 // all topper options
 var toppers = [
     new Topper("Kein Topper"),
-    new Topper("90x190cm", 222, 0.00, 90, 190),
-    new Topper("80x200cm", 223, 0.00, 80, 200),
-    new Topper("90x200cm", 224, 10.00, 90, 200),
-    new Topper("100x200cm", 225, 20.00, 100, 200),
-    new Topper("120x200cm", 226, 30.00, 120, 200),
-    new Topper("140x200cm", 227, 50.00, 140, 200),
-    new Topper("160x200cm", 228, 70.00, 160, 200),
-    new Topper("180x200cm", 229, 100.00, 180, 200),
-    new Topper("200x200cm", 230, 120.00, 200, 200),
+    new Topper("Der Topper", 222, 0.00, 90, 190),
+    new Topper("Der Topper", 223, 0.00, 80, 200),
+    new Topper("Der Topper", 224, 10.00, 90, 200),
+    new Topper("Der Topper", 225, 20.00, 100, 200),
+    new Topper("Der Topper", 226, 30.00, 120, 200),
+    new Topper("Der Topper", 227, 50.00, 140, 200),
+    new Topper("Der Topper", 228, 70.00, 160, 200),
+    new Topper("Der Topper", 229, 100.00, 180, 200),
+    new Topper("Der Topper", 230, 120.00, 200, 200),
 ];
 
 
@@ -156,25 +183,25 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
     if (schmerzArt == "druckschmerz") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "rueckenschlaefer" || schlafposition == "bauchschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm normal-weich")];
-                else return [pillows.find(element => element.name == "80x80cm normal-weich (federfrei)")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
     if (schmerzArt == "verspannung") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "seitenschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm extra pral"), pillows.find(element => element.name == "40x80cm extra pral")];
-                else return [pillows.find(element => element.name == "80x80cm extra pral (federfrei)"), pillows.find(element => element.name == "40x80cm extra pral (federfrei)")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 40 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Synthetikfüllung")];
             }
             if (schlafposition == "bauchschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm normal-weich")];
-                else return [pillows.find(element => element.name == "80x80cm normal-weich (federfrei)")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
-    if (materialPreference === "federn") return [pillows.find(element => element.name == "80x80cm extra pral"), pillows.find(element => element.name == "40x80cm extra pral")];
-    else return [pillows.find(element => element.name == "80x80cm extra pral (federfrei)"), pillows.find(element => element.name == "40x80cm extra pral (federfrei)")];
+    if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 40 && element.material == "Federfüllung")];
+    else return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Synthetikfüllung")];
 }
 
 
@@ -197,6 +224,9 @@ function calculateMatress (schmerzArt, bedSize, bmi) {
     if (schmerzArt == "verspannung") {
         recommendedMattressSide = "Harte Seite";
     }
+    if (schmerzArt == "kein") {
+        recommendedMattressSide = "Harte Seite";
+    }
 
     for (let i = 0; i < mattresses.length; i++) {
         if (mattresses[i].width + "x" + mattresses[i].length + "cm" == bedSize) {
@@ -210,20 +240,46 @@ function calculateMatress (schmerzArt, bedSize, bmi) {
 
 function calculateBlanket (bodyHeight, materialPreference) {
     if (bodyHeight >= 185) {
-        if (materialPreference === "federn") return blankets.find(element => element.name == "155x220cm Ganzjahr");
-        else return blankets.find(element => element.name == "155x220cm Ganzjahr federfrei/synthetisch");
+        if (materialPreference === "federn") return blankets.find(element => element.width == 155 && element.material == "Federfüllung");
+        else return blankets.find(element => element.width == 155 && element.material == "Synthetikfüllung");
     } else {
-        if (materialPreference === "federn") return blankets.find(element => element.name == "135x200cm Ganzjahr");
-        else return blankets.find(element => element.name == "135x200cm Ganzjahr federfrei/synthetisch");
+        if (materialPreference === "federn") return blankets.find(element => element.width == 135 && element.material == "Federfüllung");
+        else return blankets.find(element => element.width == 135 && element.material == "Synthetikfüllung");
     }
 }
 
 
 function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
-    recommendedMattressItem.innerHTML = calculatedMattress.name;
-    recommendedTopperItem.innerHTML = calculatedTopper.name;
-    recommendedBlanketItem.innerHTML = calculatedBlanket.name;
 
+    if (calculatedTopper.name === "Kein Topper") {
+        recommendedTopperItem.style.display = "none";
+        recommendedTopperItem.nextElementSibling.style.display = "none";
+    } else {
+        recommendedTopperItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedTopper.name;
+        recommendedTopperItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
+        recommendedTopperItem.childNodes.item(5).childNodes.item(11).innerHTML = "weich";
+        recommendedTopperItem.childNodes.item(7).innerHTML = calculatedTopper.price + "€";
+    }
+
+    recommendedMattressItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedMattress.name;
+    recommendedMattressItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
+    recommendedMattressItem.childNodes.item(5).childNodes.item(11).innerHTML = recommendedMattressSide;
+    recommendedMattressItem.childNodes.item(7).innerHTML = calculatedMattress.price + "€";
+    
+    recommendedBlanketItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedBlanket.name;
+    recommendedBlanketItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
+    recommendedBlanketItem.childNodes.item(5).childNodes.item(11).innerHTML = calculatedBlanket.material;
+    recommendedBlanketItem.childNodes.item(7).innerHTML = calculatedBlanket.price + "€";
+
+    recommendedPillowItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedPillowOptions[0].name;
+    recommendedPillowItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
+    recommendedPillowItem.childNodes.item(5).childNodes.item(11).innerHTML = calculatedPillowOptions[0].material;
+    recommendedPillowItem.childNodes.item(7).innerHTML = calculatedPillowOptions[0].price + "€";
+
+
+
+
+    /*
     if (calculatedPillowOptions.length >= 2) {
         recommendedPillowItem.style.display = "none";
         pillowSelectWrapper.style.display = "list-item";
@@ -236,8 +292,9 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
         recommendedPillowItem.innerHTML = calculatedPillowOptions[0].name;
         pillowSelectWrapper.style.display = "none";
     }
+    */
 
-    cartWrapper.style.display = "block";
+    //cartWrapper.style.display = "block";
 }
 
 
@@ -286,20 +343,24 @@ function getSelectedRadioButton (radioButtons) {
 
 
 function handleSubmit () {
-    let schmerzArt = schmerzArtInput.value;
-    let schmerzBereich = schmerzBereichInput.value;
-    let schlafposition = schlafpositionInput.value;
+    let schmerzArt = getSelectedRadioButton(painTypeInput).value;
+    let schmerzBereich = painAreaInput.value;
+    let schlafposition = getSelectedRadioButton(sleepingPositionInput).value;
     let bedSize = bedSizeInput.value;
     let bodyWeight = bodyWeightInput.value;
     let bodyHeight = bodyHeightInput.value;
     let bmi = calculateBMI(bodyWeight, bodyHeight);
-    let materialPreference = materialPreferenceInput.value;
+    let materialPreference = getSelectedRadioButton(materialPreferenceInput).value;
+
+    console.log(schmerzArt, schmerzBereich, schlafposition, bedSize, bodyWeight, bodyHeight, bmi, materialPreference);
 
     let calculatedMattress = calculateMatress(schmerzArt, bedSize, bmi);
     let calculatedTopper = calculateTopper(schmerzArt, bedSize);
     let calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition, materialPreference);
     let calculatedBlanket = calculateBlanket(bodyHeight, materialPreference);
     
+    console.log(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
+
     createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
     buyButton.addEventListener('click', buyItems.bind(event, calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket));
 }
@@ -332,30 +393,30 @@ for (let i = 0; i < allBackButtons.length; i++) {
 
 
 
-
+// disable pain area input if pain type is none
 painTypeInput.forEach(option => {
     option.addEventListener('click', function () {
-        if (option.checked && option.value != "kein") {
-            painAreaInput.disabled = false;
-            painAreaInput.classList.remove('bedconfig-select-disabled');
-            painAreaInput.previousElementSibling.classList.remove('bedconfig-label-disabled');
-            console.log("false");
-        } else {
-            console.log("true");
+        if (getSelectedRadioButton(painTypeInput).value === "kein") {
             painAreaInput.disabled = true;
             painAreaInput.classList.add('bedconfig-select-disabled');
             painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
+        } else {
+            painAreaInput.disabled = false;
+            painAreaInput.classList.remove('bedconfig-select-disabled');
+            painAreaInput.previousElementSibling.classList.remove('bedconfig-label-disabled');
         }
     });
 });
-painTypeInput.forEach(option => {
-    if (option.checked && option.value != "kein") {
-        painAreaInput.disabled = false;
-        painAreaInput.classList.remove('bedconfig-select-disabled');
-        painAreaInput.previousElementSibling.classList.remove('bedconfig-label-disabled');
-    } else {
-        painAreaInput.disabled = true;
-        painAreaInput.classList.add('bedconfig-select-disabled');
-        painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
-    }
-});
+// disable pain area input if pain type is none on refresh (if no cache deleted)
+if (getSelectedRadioButton(painTypeInput).value === "kein") {
+    painAreaInput.disabled = true;
+    painAreaInput.classList.add('bedconfig-select-disabled');
+    painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
+} else {
+    painAreaInput.disabled = false;
+    painAreaInput.classList.remove('bedconfig-select-disabled');
+    painAreaInput.previousElementSibling.classList.remove('bedconfig-label-disabled');
+}
+
+
+submitButton.addEventListener('click', handleSubmit);

@@ -31,8 +31,10 @@
 }
 
 .bedconfig-container {
-    margin-top: 100px;
+    position: absolute;
+    top: 15%;
     max-width: 880px;
+    margin: 40px;
     text-align: center;
     justify-content: center;
     display: none;
@@ -266,6 +268,10 @@
     font-weight: 100;
     line-height: 50px;
     margin: 11% auto;
+}
+
+#bedconfig-page-4 {
+    top: 0;
 }
 
 
