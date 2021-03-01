@@ -5,6 +5,12 @@
  * Questions: - What side is recommended when there is no pain?
  *            - What mattress is recommended when there is only a 24cm version but you need the 18cm one? e.g. bedSize 80x200cm 
  *            - How are the pillow options gonna be displayed if there are multiple ones?
+ *            - Was soll die Festigkeit bei dem Topper?
+ * 
+ * 
+ *  Was noch fehlt: - Validation auf dem Inputs
+ *                  - add to cart
+ *                  -
  * 
  */
 
@@ -191,7 +197,7 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
     if (schmerzArt == "verspannung") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "seitenschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 40 && element.material == "Federfüllung")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Federfüllung")];
                 else return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Synthetikfüllung")];
             }
             if (schlafposition == "bauchschlaefer") {
@@ -200,7 +206,7 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
             }
         }
     }
-    if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra prall" && element.length == 40 && element.material == "Federfüllung")];
+    if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Federfüllung")];
     else return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Synthetikfüllung")];
 }
 
@@ -276,7 +282,7 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     recommendedPillowItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedPillowOptions[0].name;
     recommendedPillowItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowItem.childNodes.item(5).childNodes.item(11).innerHTML = calculatedPillowOptions[0].material;
-    recommendedPillowItem.childNodes.item(7).innerHTML = calculatedPillowOptions[0].price + "€";
+    recommendedPillowItem.childNodes.item(7).innerHTML = calculatedPillowOptions[0].price + 0.00 + "€";
 
 
 
