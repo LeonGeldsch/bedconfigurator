@@ -184,7 +184,7 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "rueckenschlaefer" || schlafposition == "bauchschlaefer") {
                 if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
+                else return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
