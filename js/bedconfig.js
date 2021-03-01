@@ -196,7 +196,7 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
             }
             if (schlafposition == "bauchschlaefer") {
                 if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
+                else return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
@@ -250,6 +250,8 @@ function calculateBlanket (bodyHeight, materialPreference) {
 
 
 function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
+
+    console.log(calculatedPillowOptions);
 
     if (calculatedTopper.name === "Kein Topper") {
         recommendedTopperItem.style.display = "none";
