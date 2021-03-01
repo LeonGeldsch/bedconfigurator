@@ -10,7 +10,7 @@
  * 
  *  Was noch fehlt: - Validation auf dem Inputs
  *                  - add to cart
- *                  -
+ *                  - amount select
  * 
  */
 
@@ -307,10 +307,8 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
 
 
 function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
-    var calculatedPillow;
-    var calculatedPillow;
-    console.log(calculatedPillowOptions);
-    console.log(getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML);
+    var calculatedPillow = calculatedPillowOptions[0];
+    /*
     if (calculatedPillowOptions.length >= 2) {
         calculatedPillow = pillows.find(element => element.name == (getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML));
         console.log(calculatedPillow);
@@ -318,6 +316,7 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
         calculatedPillow = calculatedPillowOptions[0];
         console.log(calculatedPillow);
     }
+    */
 
     if (calculatedTopper.name === "Kein Topper") {
         let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
