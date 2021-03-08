@@ -265,7 +265,7 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
 
     if (calculatedTopper.name === "Kein Topper") {
         recommendedTopperItem.style.display = "none";
-        recommendedTopperItem.nextElementSibling.style.display = "none";
+        recommendedTopperItem.classList.remove("d-flex");
     } else {
         recommendedTopperItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedTopper.name;
         recommendedTopperItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
