@@ -29,7 +29,11 @@ const painAreaInput = document.querySelector('#bedconfig-pain-area-input');
 
 const bodyWeightInput = document.querySelector('#bedconfig-weight-input');
 
+const bodyWeightInputError = document.querySelector('#bedconfig-weight-input-error');
+
 const bodyHeightInput = document.querySelector('#bedconfig-height-input');
+
+const bodyHeightInputError = document.querySelector('#bedconfig-height-input-error');
 
 const bedSizeInput = document.querySelector('#bedconfig-bed-size-input');
 
@@ -263,26 +267,26 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
         recommendedTopperItem.style.display = "none";
         recommendedTopperItem.nextElementSibling.style.display = "none";
     } else {
-        recommendedTopperItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedTopper.name;
-        recommendedTopperItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
-        recommendedTopperItem.childNodes.item(5).childNodes.item(11).innerHTML = "weich";
-        recommendedTopperItem.childNodes.item(7).innerHTML = calculatedTopper.price + "€";
+        recommendedTopperItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedTopper.name;
+        recommendedTopperItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
+        recommendedTopperItem.childNodes.item(3).childNodes.item(13).innerHTML = "weich";
+        recommendedTopperItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedTopper.price + "€";
     }
 
-    recommendedMattressItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedMattress.name;
-    recommendedMattressItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
-    recommendedMattressItem.childNodes.item(5).childNodes.item(11).innerHTML = recommendedMattressSide;
-    recommendedMattressItem.childNodes.item(7).innerHTML = calculatedMattress.price + "€";
+    recommendedMattressItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedMattress.name;
+    recommendedMattressItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
+    recommendedMattressItem.childNodes.item(3).childNodes.item(13).innerHTML = recommendedMattressSide;
+    recommendedMattressItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedMattress.price + "€";
     
-    recommendedBlanketItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedBlanket.name;
-    recommendedBlanketItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
-    recommendedBlanketItem.childNodes.item(5).childNodes.item(11).innerHTML = calculatedBlanket.material;
-    recommendedBlanketItem.childNodes.item(7).innerHTML = calculatedBlanket.price + "€";
+    recommendedBlanketItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedBlanket.name;
+    recommendedBlanketItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
+    recommendedBlanketItem.childNodes.item(3).childNodes.item(13).innerHTML = calculatedBlanket.material;
+    recommendedBlanketItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedBlanket.price + "€";
 
-    recommendedPillowItem.childNodes.item(5).childNodes.item(7).innerHTML = calculatedPillowOptions[0].name;
-    recommendedPillowItem.childNodes.item(5).childNodes.item(9).innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
-    recommendedPillowItem.childNodes.item(5).childNodes.item(11).innerHTML = calculatedPillowOptions[0].material;
-    recommendedPillowItem.childNodes.item(7).innerHTML = calculatedPillowOptions[0].price + 0.00 + "€";
+    recommendedPillowItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedPillowOptions[0].name;
+    recommendedPillowItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
+    recommendedPillowItem.childNodes.item(3).childNodes.item(13).innerHTML = calculatedPillowOptions[0].material;
+    recommendedPillowItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedPillowOptions[0].price + 0.00 + "€";
 
 
 
@@ -379,10 +383,59 @@ function calculateBMI (bodyWeight, bodyHeight) {
 }
 
 
+function isFloat(n){
+    return Number(n) === n && n % 1 !== 0;
+}
+
+filterInt = function (value) {
+    if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
+      return Number(value);
+    return NaN;
+}
 
 
+function validateBodyHeightInput () {
+    if (filterInt(bodyHeightInput.value)) {
+        bodyHeightInput.classList.remove("is-invalid");
+        bodyHeightInput.classList.add("is-valid");
+        bodyHeightInputError.style.visibility = "hidden";
+        return true;
+    } else {
+        bodyHeightInput.classList.remove("is-valid");
+        bodyHeightInput.classList.add("is-invalid");
+        bodyHeightInputError.style.visibility = "visible";
+        return false;
+    }
+}
+function validateBodyWeightInput () {
+    if (isFloat(parseFloat(bodyWeightInput.value.replace(",", "."))) || filterInt(parseInt(bodyWeightInput.value))) {
+        bodyWeightInput.classList.remove("is-invalid");
+        bodyWeightInput.classList.add("is-valid");
+        bodyWeightInputError.style.visibility = "hidden";
+        return true;
+    } else {
+        bodyWeightInput.classList.remove("is-valid");
+        bodyWeightInput.classList.add("is-invalid");
+        bodyWeightInputError.style.visibility = "visible";
+        return false;
+    }
+}
+
+function validateBodyIndexInput () {
+    validateBodyHeightInput();
+    validateBodyWeightInput();
+    if (validateBodyHeightInput() && validateBodyWeightInput()) {
+        showNextSite();
+    } else {
+        console.log("wrong");
+    }
+}
 
 
+bodyHeightInput.addEventListener('focusout', validateBodyHeightInput);
+bodyWeightInput.addEventListener('focusout', validateBodyWeightInput);
+
+allNextButtons[1].addEventListener('click', validateBodyIndexInput);
 
 /*
  * -------------------------- EVENT LISTENERS --------------------------------
@@ -390,7 +443,9 @@ function calculateBMI (bodyWeight, bodyHeight) {
 
 
 for (let i = 0; i < allNextButtons.length; i++) {
-    allNextButtons[i].addEventListener('click', showNextSite);
+    if (i != 1) {
+        allNextButtons[i].addEventListener('click', showNextSite);
+    }
 }
 
 for (let i = 0; i < allBackButtons.length; i++) {
