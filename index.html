@@ -16,58 +16,66 @@
         <div class="bedconfig-container bedconfig-container-big" id="bedconfig-page-0">
             <div class="container text-center flex-column">
                 <h1>Der Betten Konfigurator</h1>
-                <div class="bedconfig-text-wrapper lightblue container p-3 text-left">
+                <div class="col-12 lightblue bedconfig-intro-image my-md-5">
+                </div>
+                <div class="bedconfig-text-wrapper container p-3">
                     <p class="m-2">
                         Wir helfen Dir mit unserem Betten Konfigurator, damit Du die perfekten Gelegenheiten zum schlafen hast. 
                         Beantworte in den kommenden 3 Schritten die Fragen zu Deinem Körper, Schlafgewohnheiten und gegebenfalls
                         aufkommenden Schmerzen im Schlaf.
                     </p>
                 </div>
-                <div class="bedconfig-input-wrapper container">
-                    <a class="bedconfig-button bedconfig-next-button">Los geht's</a>
+                <div class="bedconfig-input-wrapper container col-md-6 col-sm-8 col-10">
+                    <a class="btn bedconfig-button bedconfig-next-button px-4 py-3">Los geht's</a>
                 </div>
             </div>
         </div>
 
-        <div class="bedconfig-container container text-center p-md-5" id="bedconfig-page-1">
+        <div class="bedconfig-container container text-center row" id="bedconfig-page-1">
             <h1>Der Betten Konfigurator</h1>
             <div class="bedconfig-index my-4 ">
-                <div class="bedconfig-index-number bedconfig-index-number-active p-1">
+                <div class="bedconfig-index-number bedconfig-index-number-active">
                     <h2 class="d-inline m-0">1</h2>
                 </div>
-                <div class="bedconfig-white-line"> </div>
-                <div class="bedconfig-index-number p-1">
+                <div class="bedconfig-white-line px-1"> </div>
+                <div class="bedconfig-index-number">
                     <h2 class="d-inline m-0">2</h2>
                 </div>                
-                <div class="bedconfig-white-line"> </div>
-                <div class="bedconfig-index-number p-1">
+                <div class="bedconfig-white-line px-1"> </div>
+                <div class="bedconfig-index-number">
                     <h2 class="d-inline m-0">3</h2>
                 </div>            
             </div>
-            <div class="bedconfig-input-wrapper container lightblue p-5">
-                <label for="height">Deine Körpergröße:</label>
+            <div class="bedconfig-input-wrapper container lightblue p-md-5 p-3">
+                <label class="bedconfig-label" for="height">Deine Körpergröße:</label>
                 <input class="form-control bedconfig-input" type="text" name="height" id="bedconfig-height-input" placeholder="Angabe in cm">
                     <div id="bedconfig-height-input-error" class="bedconfig-input-error">
-                        not an int
+                        Bitte geb deine Körpergröße in cm an. Z.B. 175 für 1 Meter und 75 Zentimeter.
                     </div>  
                 </input>
-                <label for="weight">Dein Gewicht:</label>
+                <label class="bedconfig-label mt-md-5 mt-4" for="weight">Dein Gewicht:</label>
                 <input class="form-control bedconfig-input" type="text" name="weight" id="bedconfig-weight-input" placeholder="Angabe in kg">
                     <div id="bedconfig-weight-input-error" class="bedconfig-input-error">
-                        not an int or float
+                        Bitte geb dein Gewicht in Kilogramm an. Z.B. 75 für 75 Kilogramm.
                     </div>
                 </input>
             </div>
-            <div>
-                <a class="bedconfig-button bedconfig-back-button">zurück</a>
-                <a class="bedconfig-button bedconfig-next-button">weiter</a>
+            <div class="container-fluid mt-md-5 mt-4">
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn bedconfig-button bedconfig-back-button px-4 py-3">zurück</a>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn bedconfig-button bedconfig-next-button px-4 py-3">weiter</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="bedconfig-container container text-center p-md-5" id="bedconfig-page-2">
             <h1>Der Betten Konfigurator</h1>
             <div class="bedconfig-index my-4 ">
-                <div class="bedconfig-index-number p-1">
+                <div class="bedconfig-index-number bedconfig-index-number-done p-1">
                     <h2 class="d-inline m-0">1</h2>
                 </div>
                 <div class="bedconfig-white-line"> </div>
@@ -79,9 +87,9 @@
                     <h2 class="d-inline m-0">3</h2>
                 </div>            
             </div>
-            <div class="bedconfig-form-wrapper container lightblue p-5">
-                <label class="bedconfig-label">Deine Schlafposition:</label>
-                <div class="bedconfig-radio-wrapper">
+            <div class="bedconfig-form-wrapper container lightblue p-md-5 p-3">
+                <label class="bedconfig-label">Deine Schlafposition</label>
+                <div class="bedconfig-radio-wrapper justify-content-between">
                     <label class="bedconfig-radio-label">
                         <input type="radio" id="bedconfig-sleeping-position-input" name="sleepingposition" class="bedconfig-radio-button" value="rueckenschlaefer" checked="checked">
                         <span class="bedconfig-radio-span">Rücken</span>
@@ -95,7 +103,7 @@
                         <span class="bedconfig-radio-span">Seiten</span>
                     </label>
                 </div>
-                <label class="bedconfig-label">Die Größe Deines Bettes:</label>
+                <label class="bedconfig-label mt-4 mt-sm-5">Die Größe Deines Bettes</label>
                 <select class="bedconfig-select" id="bedconfig-bed-size-input">
                     <option value="70x200cm">70x200cm</option>
                     <option value="80x200cm">80x200cm</option>
@@ -115,8 +123,8 @@
                     <option value="200x220cm">200x220cm</option>
                     <option value="120x200cm">120x200cm</option>
                 </select>
-                <label class="bedconfig-label">Bevorzugst du Federn oder Synthetik?:</label>
-                <div class="bedconfig-radio-wrapper">
+                <label class="bedconfig-label mt-4 mt-sm-5">Bevorzugst du Federn oder Synthetik?</label>
+                <div class="bedconfig-radio-wrapper justify-content-between">
                     <label class="bedconfig-radio-label">
                         <input type="radio" id="bedconfig-material-preference-input" name="material-preference" class="bedconfig-radio-button" value="federn" checked="checked">
                         <span class="bedconfig-radio-span">Federn</span>
@@ -128,20 +136,26 @@
                 </div>
 
             </div>
-            <div>
-                <a class="bedconfig-button bedconfig-back-button">zurück</a>
-                <a class="bedconfig-button bedconfig-next-button">weiter</a>
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn bedconfig-button bedconfig-back-button px-4 py-3">zurück</a>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn bedconfig-button bedconfig-next-button px-4 py-3">weiter</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="bedconfig-container container text-center p-md-5" id="bedconfig-page-3">
             <h1>Der Betten Konfigurator</h1>
             <div class="bedconfig-index my-4 ">
-                <div class="bedconfig-index-number p-1">
+                <div class="bedconfig-index-number bedconfig-index-number-done p-1">
                     <h2 class="d-inline m-0">1</h2>
                 </div>
                 <div class="bedconfig-white-line"> </div>
-                <div class="bedconfig-index-number p-1">
+                <div class="bedconfig-index-number bedconfig-index-number-done p-1">
                     <h2 class="d-inline m-0">2</h2>
                 </div>                
                 <div class="bedconfig-white-line"> </div>
@@ -149,7 +163,7 @@
                     <h2 class="d-inline m-0">3</h2>
                 </div>            
             </div>
-            <div class="bedconfig-form-wrapper container lightblue p-5">
+            <div class="bedconfig-form-wrapper container lightblue p-md-5 p-3">
                 <label class="bedconfig-label">Hast Du Schmerzen beim Schlafen?</label>
                 <div class="bedconfig-radio-wrapper">
                     <label class="bedconfig-radio-label">
@@ -165,58 +179,44 @@
                         <span class="bedconfig-radio-span">Verspannung</span>
                     </label>
                 </div>
-                <label class="bedconfig-label bedconfig-label-disabled">In welchem Bereich verspürst Du Schmerzen?</label>
+                <label class="bedconfig-label bedconfig-label-disabled mt-4 mt-sm-5">In welchem Bereich verspürst Du Schmerzen?</label>
                 <select class="bedconfig-select bedconfig-select-disabled" id="bedconfig-pain-area-input" disabled>
                     <option value="lordose-huefte">Lordose / Hüfte</option>
                     <option value="nacken-schulter">Nacken / Schulter</option>
                 </select>
             </div>
-            <div>
-                <a class="bedconfig-button bedconfig-back-button">zurück</a>
-                <a class="bedconfig-button bedconfig-next-button">Produkte zusammenstellen</a>
+            <div class="container-fluid mt-5">
+                <div class="row">
+                    <div class="col-6">
+                        <a class="btn bedconfig-button bedconfig-back-button px-4 py-3">zurück</a>
+                    </div>
+                    <div class="col-6">
+                        <a class="btn bedconfig-button bedconfig-next-button px-4 py-3">weiter</a>
+                    </div>
+                </div>
             </div>
         </div>
 
         <div class="bedconfig-container bedconfig-container-big container" id="bedconfig-page-4">
-            <h1 class="text-center">Deine perfekte Bettausstattung.</h1>
-            <div class="bedconfig-cart-wrapper row text-nowrap">
-                <div class="bedconfig-cart-item row lightblue my-3 m-md-3 d-flex p-1 p-md-4 col-12">
-                    <div class="bedconfig-image-container col-12 col-md-4">
-                        <img src="img/die_matratze.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="bedconfig-cart-item-info col-12 col-md-5 row">
-                        <h2 class="col-12">DIE MATRATZE</h2>
-                        <span class="col-6">Produkt:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Größe:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Seite:</span>
-                        <span class="col-6">placeholder</span>
-                    </div>
-                    <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
-                        <span class="bedconfig-cart-item-price">459 €</span>
-                    </div>
-                </div>
-                <!--
-                    <div class="bedconfig-plus-sign col-sm-12 col-xl-auto">
-                        <span class="bedconfig-plus-sign-inner">+</span>
-                    </div>
-                -->
-                <div class="bedconfig-cart-item col-12 row lightblue my-3 m-md-3 d-flex p-1 p-md-4">
-                    <div class="bedconfig-image-container col-md-4">
-                        <img src="img/der_topper.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="bedconfig-cart-item-info col-12 col-md-5 row">
-                        <h2 class="col-12">DER TOPPER</h2>
-                        <span class="col-6">Produkt:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Größe:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Seite:</span>
-                        <span class="col-6">placeholder</span>
-                    </div>
-                    <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
-                        <span class="bedconfig-cart-item-price">459 €</span>
+            <h1 class="text-center mt-5">Deine perfekte Bettausstattung.</h1>
+            <div class="bedconfig-cart-wrapper row text-nowrap justify-content-center">
+                <div class="col-12">
+                    <div class="bedconfig-cart-item lightblue my-3 m-md-3 d-flex p-1 p-md-4 row">
+                        <div class="bedconfig-image-container col-12 col-md-4">
+                            <img src="img/die_matratze.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="bedconfig-cart-item-info col-12 col-md-5 row">
+                            <h2 class="col-12">DIE MATRATZE</h2>
+                            <span class="col-6">Produkt:</span>
+                            <span class="col-6">placeholder</span>
+                            <span class="col-6">Größe:</span>
+                            <span class="col-6">placeholder</span>
+                            <span class="col-6">Seite:</span>
+                            <span class="col-6">placeholder</span>
+                        </div>
+                        <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
+                            <span class="bedconfig-cart-item-price">459 €</span>
+                        </div>                        
                     </div>
                 </div>
                 <!--
@@ -224,21 +224,25 @@
                         <span class="bedconfig-plus-sign-inner">+</span>
                     </div>
                 -->
-                <div class="bedconfig-cart-item col-12 row lightblue my-3 m-md-3 d-flex p-1 p-md-4">
-                    <div class="bedconfig-image-container col-md-4">
-                        <img src="img/das_kissen.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="bedconfig-cart-item-info col-12 col-md-5 row">
-                        <h2 class="col-12">DAS KISSEN</h2>
-                        <span class="col-6">Produkt:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Größe:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Seite:</span>
-                        <span class="col-6">placeholder</span>
-                    </div>
-                    <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
-                        <span class="bedconfig-cart-item-price">459 €</span>
+                <div class="col-12">
+                    <div class="bedconfig-cart-item lightblue my-3 m-md-3 d-flex p-1 p-md-4 row">
+                        <div class="bedconfig-image-container col-md-4">
+                            <img src="img/der_topper.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="bedconfig-cart-item-info col-12 col-md-5 row">
+                            <h2 class="col-12">DER TOPPER</h2>
+                            <span class="col-6">Produkt:</span>
+                            <span class="col-6">placeholder</span>
+                            <span class="col-6">Größe:</span>
+                            <span class="col-6">placeholder</span>
+                            <!--
+                                <span class="col-6">Seite:</span>
+                                <span class="col-6">placeholder</span>
+                            -->
+                        </div>
+                        <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
+                            <span class="bedconfig-cart-item-price">459 €</span>
+                        </div>
                     </div>
                 </div>
                 <!--
@@ -246,25 +250,53 @@
                         <span class="bedconfig-plus-sign-inner">+</span>
                     </div>
                 -->
-                <div class="bedconfig-cart-item col-12 row lightblue my-3 m-md-3 d-flex p-1 p-md-4">
-                    <div class="bedconfig-image-container col-12 col-md-4">
-                        <img src="img/die_decke.png" alt="" class="img-fluid">
+                <div class="col-12">
+                    <div class="bedconfig-cart-item lightblue my-3 m-md-3 d-flex p-1 p-md-4 row">
+                        <div class="bedconfig-image-container col-md-4">
+                            <img src="img/das_kissen.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="bedconfig-cart-item-info col-12 col-md-5 row">
+                            <h2 class="col-12">DAS KISSEN</h2>
+                            <span class="col-6">Produkt:</span>
+                            <span class="col-6">placeholder</span>
+                            <span class="col-6">Größe:</span>
+                            <span class="col-6">placeholder</span>
+                            <span class="col-6">Füllung:</span>
+                            <span class="col-6">placeholder</span>
+                        </div>
+                        <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
+                            <span class="bedconfig-cart-item-price">459 €</span>
+                        </div>
                     </div>
-                    <div class="bedconfig-cart-item-info col-12 col-md-5 row">
-                        <h2 class="col-12">DIE DECKE</h2>
-                        <span class="col-6">Produkt:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Größe:</span>
-                        <span class="col-6">placeholder</span>
-                        <span class="col-6">Seite:</span>
-                        <span class="col-6">placeholder</span>
+                </div>
+                <!--
+                    <div class="bedconfig-plus-sign col-sm-12 col-xl-auto">
+                        <span class="bedconfig-plus-sign-inner">+</span>
                     </div>
-                    <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
-                        <span class="bedconfig-cart-item-price">459 €</span>
+                -->
+                <div class="col-12">
+                    <div class="bedconfig-cart-item lightblue mt-3 m-md-3 d-flex p-1 p-md-4 row">
+                        <div class="bedconfig-image-container col-12 col-md-4">
+                            <img src="img/die_decke.png" alt="" class="img-fluid">
+                        </div>
+                        <div class="bedconfig-cart-item-info col-12 col-md-5 row">
+                            <h2 class="col-12">DIE DECKE</h2>
+                            <span class="col-6">Produkt:</span>
+                            <span class="col-6">placeholder</span>
+                            <span class="col-6">Größe:</span>
+                            <span class="col-6">placeholder</span>
+                            <span class="col-6">Füllung:</span>
+                            <span class="col-6">placeholder</span>
+                        </div>
+                        <div class="col-12 col-md-3 container-fluid d-flex align-items-end justify-content-end">
+                            <span class="bedconfig-cart-item-price">459 €</span>
+                        </div>
                     </div>
+                </div>
+                <div class="col-12 col-md-6 my-4">
+                    <a class="btn bedconfig-button px-4 py-3" id="bedconfig-buy-button">Jetzt kaufen</a>
                 </div>
             </div>
-            <a class="bedconfig-button" id="bedconfig-buy-button">Jetzt kaufen</a>
         </div>
     </div>
     <script src="js/bedconfig.js"></script>

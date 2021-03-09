@@ -105,64 +105,64 @@ class Topper {
 
 // all pillow options
 var pillows = [
-    new Pillow("Das Kissen normal-weich", 22, 0.90, 80, 40, "Federfüllung"),
-    new Pillow("Das Kissen extra pral", 23, 0.90, 80, 40, "Federfüllung"),
-    new Pillow("Das Kissen normal-weich", 24, 10.90, 80, 80, "Federfüllung"),
-    new Pillow("Das Kissen extra pral", 25, 10.90, 80, 80, "Federfüllung"),
-    new Pillow("Das Kissen normal-weich", 119, 0.00, 80, 40, "Synthetikfüllung"),
-    new Pillow("Das Kissen extra pral", 120, 0.00, 80, 40, "Synthetikfüllung"),
-    new Pillow("Das Kissen normal-weich", 121, 10.00, 80, 80, "Synthetikfüllung"),
-    new Pillow("Das Kissen extra pral", 122, 10.00, 80, 80, "Synthetikfüllung")
+    new Pillow("Das Kissen normal-weich", 22, "0.90", 80, 40, "Federfüllung"),
+    new Pillow("Das Kissen extra pral", 23, "0.90", 80, 40, "Federfüllung"),
+    new Pillow("Das Kissen normal-weich", 24, "10.90", 80, 80, "Federfüllung"),
+    new Pillow("Das Kissen extra pral", 25, "10.90", 80, 80, "Federfüllung"),
+    new Pillow("Das Kissen normal-weich", 119, "0", 80, 40, "Synthetikfüllung"),
+    new Pillow("Das Kissen extra pral", 120, "0", 80, 40, "Synthetikfüllung"),
+    new Pillow("Das Kissen normal-weich", 121, "10", 80, 80, "Synthetikfüllung"),
+    new Pillow("Das Kissen extra pral", 122, "10", 80, 80, "Synthetikfüllung")
 ];
 
 // all blanket options
 var blankets = [
-    new Blanket("Die Decke / Ganzjahr", 123, 40.00, 135, 200, "Federfüllung"),
-    new Blanket("Die Decke / Ganzjahr", 124, 80.00, 155, 220, "Federfüllung"),
-    new Blanket("Die Decke / Ganzjahr", 216, 80.00, 155, 220, "Synthetikfüllung"),
-    new Blanket("Die Decke / Ganzjahr", 217, 80.00, 135, 200, "Synthetikfüllung"),
+    new Blanket("Die Decke / Ganzjahr", 123, "40", 135, 200, "Federfüllung"),
+    new Blanket("Die Decke / Ganzjahr", 124, "80", 155, 220, "Federfüllung"),
+    new Blanket("Die Decke / Ganzjahr", 216, "80", 155, 220, "Synthetikfüllung"),
+    new Blanket("Die Decke / Ganzjahr", 217, "80", 135, 200, "Synthetikfüllung"),
 ];
 
 // all mattress options
 var mattresses = [
-    new Mattress("DIE MATRATZE 24cm", 23, 279.00, 70, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 24, 279.00, 80, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 25, 279.00, 90, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 26, 299.00, 100, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 27, 409.00, 140, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 28, 509.00, 160, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 29, 529.00, 180, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 30, 579.00, 200, 200, 24),
-    new Mattress("DIE MATRATZE 18cm", 31, 179.00, 70, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 33, 179.00, 90, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 34, 199.00, 100, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 35, 309.00, 140, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 36, 409.00, 160, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 37, 429.00, 180, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 38, 479.00, 200, 200, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße", 39, 279.00, 80, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße", 40, 279.00, 90, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 41, 279.00, 90, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 42, 279.00, 100, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 43, 279.00, 100, 220, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 44, 579.00, 200, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 45, 529.00, 180, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 46, 579.00, 200, 220, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 56, 309.00, 120, 200, 18),
+    new Mattress("DIE MATRATZE 24cm", 23, "279", 70, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 24, "279", 80, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 25, "279", 90, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 26, "299", 100, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 27, "409", 140, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 28, "509", 160, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 29, "529", 180, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 30, "579", 200, 200, 24),
+    new Mattress("DIE MATRATZE 18cm", 31, "179", 70, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 33, "179", 90, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 34, "199", 100, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 35, "309", 140, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 36, "409", 160, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 37, "429", 180, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 38, "479", 200, 200, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 39, "279", 80, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 40, "279", 90, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 41, "279", 90, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 42, "279", 100, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 43, "279", 100, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 44, "579", 200, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 45, "529", 180, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 46, "579", 200, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 56, "309", 120, 200, 18),
 ];
 
 // all topper options
 var toppers = [
     new Topper("Kein Topper"),
-    new Topper("Der Topper", 222, 0.00, 90, 190),
-    new Topper("Der Topper", 223, 0.00, 80, 200),
-    new Topper("Der Topper", 224, 10.00, 90, 200),
-    new Topper("Der Topper", 225, 20.00, 100, 200),
-    new Topper("Der Topper", 226, 30.00, 120, 200),
-    new Topper("Der Topper", 227, 50.00, 140, 200),
-    new Topper("Der Topper", 228, 70.00, 160, 200),
-    new Topper("Der Topper", 229, 100.00, 180, 200),
-    new Topper("Der Topper", 230, 120.00, 200, 200),
+    new Topper("Der Topper", 222, "0", 90, 190),
+    new Topper("Der Topper", 223, "0", 80, 200),
+    new Topper("Der Topper", 224, "10", 90, 200),
+    new Topper("Der Topper", 225, "20", 100, 200),
+    new Topper("Der Topper", 226, "30", 120, 200),
+    new Topper("Der Topper", 227, "50", 140, 200),
+    new Topper("Der Topper", 228, "70", 160, 200),
+    new Topper("Der Topper", 229, "100", 180, 200),
+    new Topper("Der Topper", 230, "120", 200, 200),
 ];
 
 
@@ -269,7 +269,6 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     } else {
         recommendedTopperItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedTopper.name;
         recommendedTopperItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
-        recommendedTopperItem.childNodes.item(3).childNodes.item(13).innerHTML = "weich";
         recommendedTopperItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedTopper.price + "€";
     }
 
@@ -286,7 +285,7 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     recommendedPillowItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedPillowOptions[0].name;
     recommendedPillowItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowItem.childNodes.item(3).childNodes.item(13).innerHTML = calculatedPillowOptions[0].material;
-    recommendedPillowItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedPillowOptions[0].price + 0.00 + "€";
+    recommendedPillowItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedPillowOptions[0].price + "€";
 
 
 
