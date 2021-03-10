@@ -266,6 +266,12 @@ function calculateMatress (schmerzArt, bedSize, bmi) {
             }
         }
     }
+    
+    for (let i = 0; i < mattresses.length; i++) {
+        if (mattresses[i].width + "x" + mattresses[i].length + "cm" == bedSize) {
+            return mattresses[i];
+        }
+    }
 }
 
 
@@ -445,6 +451,12 @@ function validateBodyIndexInput () {
     validateBodyHeightInput();
     validateBodyWeightInput();
     if (validateBodyHeightInput() && validateBodyWeightInput()) {
+        showNextSite();
+    }
+}
+
+function validateBodySizeInput () {
+    if (bedSizeInput) {
         showNextSite();
     }
 }
