@@ -14,6 +14,7 @@
  * 
  */
 
+const closeButton = document.querySelector('.bedconfig-close-button');
 
 const allNextButtons = document.querySelectorAll('.bedconfig-next-button');
 
@@ -46,6 +47,26 @@ const buyButton = document.querySelector('#bedconfig-buy-button');
 const allCartItems = document.querySelectorAll('.bedconfig-cart-item');
 
 const recommendedMattressItem = allCartItems[0];
+
+const recommendedMattressNameSpan = document.querySelector('#mattress-name-span');
+const recommendedMattressSizeSpan = document.querySelector('#mattress-size-span');
+const recommendedMattressSideSpan = document.querySelector('#mattress-side-span');
+const recommendedMattressPriceSpan = document.querySelector('#mattress-price-span');
+
+const recommendedTopperNameSpan = document.querySelector('#topper-name-span');
+const recommendedTopperSizeSpan = document.querySelector('#topper-size-span');
+const recommendedTopperPriceSpan = document.querySelector('#topper-price-span');
+
+const recommendedPillowNameSpan = document.querySelector('#pillow-name-span');
+const recommendedPillowSizeSpan = document.querySelector('#pillow-size-span');
+const recommendedPillowMaterialSpan = document.querySelector('#pillow-material-span');
+const recommendedPillowPriceSpan = document.querySelector('#pillow-price-span');
+
+const recommendedBlanketNameSpan = document.querySelector('#blanket-name-span');
+const recommendedBlanketSizeSpan = document.querySelector('#blanket-size-span');
+const recommendedBlanketMaterialSpan = document.querySelector('#blanket-material-span');
+const recommendedBlanketPriceSpan = document.querySelector('#blanket-price-span');
+
 
 const recommendedTopperItem = allCartItems[1];
 
@@ -105,10 +126,10 @@ class Topper {
 
 // all pillow options
 var pillows = [
-    new Pillow("Das Kissen normal-weich", 22, "0.90", 80, 40, "Federfüllung"),
-    new Pillow("Das Kissen extra pral", 23, "0.90", 80, 40, "Federfüllung"),
-    new Pillow("Das Kissen normal-weich", 24, "10.90", 80, 80, "Federfüllung"),
-    new Pillow("Das Kissen extra pral", 25, "10.90", 80, 80, "Federfüllung"),
+    new Pillow("Das Kissen normal-weich", 22, "0,90", 80, 40, "Federfüllung"),
+    new Pillow("Das Kissen extra pral", 23, "0,90", 80, 40, "Federfüllung"),
+    new Pillow("Das Kissen normal-weich", 24, "10,90", 80, 80, "Federfüllung"),
+    new Pillow("Das Kissen extra pral", 25, "10,90", 80, 80, "Federfüllung"),
     new Pillow("Das Kissen normal-weich", 119, "0", 80, 40, "Synthetikfüllung"),
     new Pillow("Das Kissen extra pral", 120, "0", 80, 40, "Synthetikfüllung"),
     new Pillow("Das Kissen normal-weich", 121, "10", 80, 80, "Synthetikfüllung"),
@@ -243,7 +264,7 @@ function calculateMatress (schmerzArt, bedSize, bmi) {
             if (bmi <= 24 && mattresses[i].height == 18 || bmi > 24 && mattresses[i].height == 24) {
                 return mattresses[i];
             }
-        }   
+        }
     }
 }
 
@@ -267,25 +288,25 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
         recommendedTopperItem.style.display = "none";
         recommendedTopperItem.classList.remove("d-flex");
     } else {
-        recommendedTopperItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedTopper.name;
-        recommendedTopperItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
-        recommendedTopperItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedTopper.price + "€";
+        recommendedTopperNameSpan.innerHTML = calculatedTopper.name;
+        recommendedTopperSizeSpan.innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
+        recommendedTopperPriceSpan.innerHTML = calculatedTopper.price + "€";
     }
 
-    recommendedMattressItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedMattress.name;
-    recommendedMattressItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
-    recommendedMattressItem.childNodes.item(3).childNodes.item(13).innerHTML = recommendedMattressSide;
-    recommendedMattressItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedMattress.price + "€";
+    recommendedMattressNameSpan.innerHTML = calculatedMattress.name;
+    recommendedMattressSizeSpan.innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
+    recommendedMattressSideSpan.innerHTML = recommendedMattressSide;
+    recommendedMattressPriceSpan.innerHTML = calculatedMattress.price + "€";
     
-    recommendedBlanketItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedBlanket.name;
-    recommendedBlanketItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
-    recommendedBlanketItem.childNodes.item(3).childNodes.item(13).innerHTML = calculatedBlanket.material;
-    recommendedBlanketItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedBlanket.price + "€";
+    recommendedBlanketNameSpan.innerHTML = calculatedBlanket.name;
+    recommendedBlanketSizeSpan.innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
+    recommendedBlanketMaterialSpan.innerHTML = calculatedBlanket.material;
+    recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price + "€";
 
-    recommendedPillowItem.childNodes.item(3).childNodes.item(5).innerHTML = calculatedPillowOptions[0].name;
-    recommendedPillowItem.childNodes.item(3).childNodes.item(9).innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
-    recommendedPillowItem.childNodes.item(3).childNodes.item(13).innerHTML = calculatedPillowOptions[0].material;
-    recommendedPillowItem.childNodes.item(5).childNodes.item(1).innerHTML = calculatedPillowOptions[0].price + "€";
+    recommendedPillowNameSpan.innerHTML = calculatedPillowOptions[0].name;
+    recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
+    recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
+    recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
 
 
 
@@ -425,8 +446,6 @@ function validateBodyIndexInput () {
     validateBodyWeightInput();
     if (validateBodyHeightInput() && validateBodyWeightInput()) {
         showNextSite();
-    } else {
-        console.log("wrong");
     }
 }
 
@@ -481,3 +500,7 @@ if (getSelectedRadioButton(painTypeInput).value === "kein") {
 
 
 submitButton.addEventListener('click', handleSubmit);
+
+closeButton.addEventListener('click', () => {
+    window.history.back();
+});
