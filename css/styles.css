@@ -50,10 +50,11 @@
 .bedconfig-close-button {
     width: 40px;
     height: 40px;
-    position: fixed;
+    position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
+    z-index: 999;
 }
 
 .bedconfig-close-button-inner {
@@ -282,6 +283,8 @@
     }
 }
 
-@media (max-height: 610px) {
-
+@media (max-width: 400px) {
+    h1 {
+        font-size: 2rem;
+    }
 }
