@@ -28,6 +28,8 @@ const sleepingPositionInput = document.querySelectorAll('#bedconfig-sleeping-pos
 
 const painAreaInput = document.querySelector('#bedconfig-pain-area-input');
 
+const painAreaInputError = document.querySelector('#bedconfig-pain-area-input-error');
+
 const bodyWeightInput = document.querySelector('#bedconfig-weight-input');
 
 const bodyWeightInputError = document.querySelector('#bedconfig-weight-input-error');
@@ -37,6 +39,8 @@ const bodyHeightInput = document.querySelector('#bedconfig-height-input');
 const bodyHeightInputError = document.querySelector('#bedconfig-height-input-error');
 
 const bedSizeInput = document.querySelector('#bedconfig-bed-size-input');
+
+const bedSizeInputError = document.querySelector('#bedconfig-bed-size-input-error');
 
 const materialPreferenceInput = document.querySelectorAll('#bedconfig-material-preference-input');
 
@@ -455,17 +459,51 @@ function validateBodyIndexInput () {
     }
 }
 
-function validateBodySizeInput () {
-    if (bedSizeInput) {
-        showNextSite();
+function validateBedSizeInput () {
+    if (bedSizeInput.value != "") {
+        bedSizeInputError.style.visibility = "hidden";
+        bedSizeInput.classList.remove("is-invalid");
+        bedSizeInput.classList.add("is-valid");
+        return true;
+    } else {
+        bedSizeInputError.style.visibility = "visible";
+        bedSizeInput.classList.remove("is-valid");
+        bedSizeInput.classList.add("is-invalid");
+        return false;
+    }
+}
+
+function validatePainAreaInput () {
+    if (painAreaInput.value != "" && painTypeInput.value != "kein") {
+        painAreaInputError.style.visibility = "hidden";
+        painAreaInput.classList.remove("is-invalid");
+        painAreaInput.classList.add("is-valid");
+        return true;
+    } else {
+        painAreaInputError.style.visibility = "visible";
+        painAreaInput.classList.remove("is-valid");
+        painAreaInput.classList.add("is-invalid");
+        return false;
     }
 }
 
 
 bodyHeightInput.addEventListener('focusout', validateBodyHeightInput);
 bodyWeightInput.addEventListener('focusout', validateBodyWeightInput);
+bedSizeInput.addEventListener('focusout', validateBedSizeInput);
+painAreaInput.addEventListener('focusout', validatePainAreaInput);
 
 allNextButtons[1].addEventListener('click', validateBodyIndexInput);
+allNextButtons[2].addEventListener('click', () => {
+    if (validateBedSizeInput()) {
+        showNextSite();
+    }
+});
+allNextButtons[3].addEventListener('click', () => {
+    if (validatePainAreaInput()) {
+        showNextSite();
+    }
+});
 
 /*
  * -------------------------- EVENT LISTENERS --------------------------------
@@ -473,7 +511,7 @@ allNextButtons[1].addEventListener('click', validateBodyIndexInput);
 
 
 for (let i = 0; i < allNextButtons.length; i++) {
-    if (i != 1) {
+    if (i != 1 && i != 2 && i != 3) {
         allNextButtons[i].addEventListener('click', showNextSite);
     }
 }

@@ -130,6 +130,9 @@
                     <option value="200x220cm">200x220cm</option>
                     <option value="120x200cm">120x200cm</option>
                 </select>
+                <div id="bedconfig-bed-size-input-error" class="bedconfig-input-error">
+                    Bitte wähle die Größe deines Bettes aus.
+                </div>
                 <label class="bedconfig-label mt-4 mt-sm-5">Bevorzugst du Federn oder Synthetik?</label>
                 <div class="bedconfig-radio-wrapper justify-content-between">
                     <label class="bedconfig-radio-label mr-1">
@@ -188,10 +191,13 @@
                 </div>
                 <label class="bedconfig-label bedconfig-label-disabled mt-4 mt-sm-5">In welchem Bereich verspürst Du Schmerzen?</label>
                 <select class="bedconfig-select bedconfig-select-disabled custom-select" id="bedconfig-pain-area-input" disabled>
-                    <option selected>Bereich auswählen</option>
+                    <option value="" selected>Bereich auswählen</option>
                     <option value="lordose-huefte">Lordose / Hüfte</option>
                     <option value="nacken-schulter">Nacken / Schulter</option>
                 </select>
+                <div id="bedconfig-pain-area-input-error" class="bedconfig-input-error">
+                    Bitte wähle den Bereich des Schmerzes aus.
+                </div>
             </div>
             <div class="container-fluid mt-md-5 mt-4">
                 <div class="row">
