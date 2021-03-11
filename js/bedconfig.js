@@ -14,6 +14,8 @@
  * 
  */
 
+const backgroundDiv = document.querySelector('.bedconfig-background');
+
 const closeButton = document.querySelector('.bedconfig-close-button');
 
 const allNextButtons = document.querySelectorAll('.bedconfig-next-button');
@@ -202,6 +204,11 @@ function showNextSite () {
         site.style.display = "none";
     });
     allSites[currentSite].style.display = "block";
+    if (currentSite != 0) {
+        backgroundDiv.classList.add("bedconfig-background-blur");
+    } else {
+        backgroundDiv.classList.remove("bedconfig-background-blur");
+    }
 }
 
 
@@ -211,6 +218,11 @@ function showPreviousSite () {
         site.style.display = "none";
     });
     allSites[currentSite].style.display = "block";
+    if (currentSite != 0) {
+        backgroundDiv.classList.add("bedconfig-background-blur");
+    } else {
+        backgroundDiv.classList.remove("bedconfig-background-blur");
+    }
 }
 
 

@@ -44,11 +44,11 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    filter: brightness(70%) opacity(60%) blur(30px); 
+    filter: brightness(70%) opacity(60%);
 }
 
-.bedconfig-background:first-child {
-    filter: brightness(70%) opacity(40%);
+.bedconfig-background-blur {
+    filter: brightness(70%) opacity(60%) blur(30px);
 }
 
 .bedconfig-close-button {
@@ -285,14 +285,11 @@
 
 @media (max-width: 400px) {
     .bedconfig-radio-wrapper {
-        xflex-direction: column;
-
     }
     .bedconfig-radio-label {
         margin-left: 0 !important;
     }
     .bedconfig-buy-button-wrapper {
-        xflex-direction: column;
     }
 }
 
