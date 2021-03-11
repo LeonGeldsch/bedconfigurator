@@ -429,13 +429,25 @@ function isFloat(n){
     return Number(n) === n && n % 1 !== 0;
 }
 
-/*
-filterInt = function (value) {
-    if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
-      return true;//Number(value);
-    return false;
+function animateErrorIn(error) {
+    console.log("test");
+    error.style.visibility = "none";
+    error.style.position = "absolute";
+    error.style.transition = "none";
+    error.style.height = "auto";
+    let errorHeight = error.offsetHeight;
+    error.style.height = "0";
+    error.style.position = "relative";
+    error.style.visibility = "visible";
+    error.style.overflow = "shown";
+    error.style.transition = "height 0.3s ease-in-out";
+    setTimeout( () => {
+        error.style.height = errorHeight + "px";
+    }, 10);
 }
-*/
+
+function animateErrorOut(error) {
+}
 
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -447,7 +459,6 @@ function validateBodyHeightInput () {
         bodyHeightInput.classList.remove("is-invalid");
         bodyHeightInput.classList.add("is-valid");
         bodyHeightInputError.style.height = "0";
-        bodyHeightInputError.style.width = "0";
         if (bodyHeightInput.value.slice(-2) != "cm") {
             bodyHeightInput.value = bodyHeightInput.value + "cm";
         }
@@ -455,8 +466,9 @@ function validateBodyHeightInput () {
     } else {
         bodyHeightInput.classList.remove("is-valid");
         bodyHeightInput.classList.add("is-invalid");
-        bodyHeightInputError.style.height = "1rem";
-        bodyHeightInputError.style.width = "100%";
+        if (bodyHeightInputError.style.height === "0px" || bodyHeightInputError.style.height == 0) {
+            animateErrorIn(bodyHeightInputError);
+        }
         return false;
     }
 }
@@ -465,7 +477,6 @@ function validateBodyWeightInput () {
         bodyWeightInput.classList.remove("is-invalid");
         bodyWeightInput.classList.add("is-valid");
         bodyWeightInputError.style.height = "0";
-        bodyWeightInputError.style.width = "0";
         if (bodyWeightInput.value.slice(-2) != "kg") {
             bodyWeightInput.value = bodyWeightInput.value + "kg";
         }
@@ -473,8 +484,9 @@ function validateBodyWeightInput () {
     } else {
         bodyWeightInput.classList.remove("is-valid");
         bodyWeightInput.classList.add("is-invalid");
-        bodyWeightInputError.style.height = "1rem";
-        bodyWeightInputError.style.width = "100%";
+        if (bodyWeightInputError.style.height === "0px" || bodyWeightInputError.style.height == 0) {
+            animateErrorIn(bodyWeightInputError);
+        }
         return false;
     }
 }
@@ -490,13 +502,13 @@ function validateBodyIndexInput () {
 function validateBedSizeInput () {
     if (bedSizeInput.value != "") {
         bedSizeInputError.style.height = "0";
-        bedSizeInputError.style.width = "0";
         bedSizeInput.classList.remove("is-invalid");
         bedSizeInput.classList.add("is-valid");
         return true;
     } else {
-        bedSizeInputError.style.height = "1rem";
-        bedSizeInputError.style.width = "100%";
+        if (bedSizeInputError.style.height === "0px" || bedSizeInputError.style.height == 0) {
+            animateErrorIn(bedSizeInputError);
+        }
         bedSizeInput.classList.remove("is-valid");
         bedSizeInput.classList.add("is-invalid");
         return false;
@@ -506,13 +518,13 @@ function validateBedSizeInput () {
 function validatePainAreaInput () {
     if (painAreaInput.value != "" || getSelectedRadioButton(painTypeInput).value == "kein") {
         painAreaInputError.style.height = "0";
-        painAreaInputError.style.width = "0";
         painAreaInput.classList.remove("is-invalid");
         painAreaInput.classList.add("is-valid");
         return true;
     } else {
-        painAreaInputError.style.height = "1rem";
-        painAreaInputError.style.width = "100%";
+        if (painAreaInputError.style.height === "0px" || painAreaInputError.style.height == 0) {
+            animateErrorIn(painAreaInputError);
+        }
         painAreaInput.classList.remove("is-valid");
         painAreaInput.classList.add("is-invalid");
         return false;
