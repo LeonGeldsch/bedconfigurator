@@ -31,6 +31,7 @@
     min-height: 100vh;
     color: #fff;
     font-family: 'Montserrat', sans-serif;
+    padding: 50px 15px;
 }
 
 .bedconfig-background {
@@ -43,9 +44,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    filter: brightness(70%) opacity(40%);
+    filter: brightness(70%) opacity(40%) blur(20px); 
 }
 
+.bedconfig-background:first-child {
+    filter: brightness(70%) opacity(40%);
+}
 
 .bedconfig-close-button {
     width: 40px;
