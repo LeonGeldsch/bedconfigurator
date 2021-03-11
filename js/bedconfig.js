@@ -254,13 +254,13 @@ function calculateTopper (schmerzArt, bedSize) {
 
 function calculateMatress (schmerzArt, bedSize, bmi) {
     if (schmerzArt == "druckschmerz") {
-        recommendedMattressSide = "Weiche Seite";
+        recommendedMattressSide = "Weichere Seite (H3)";
     }
     if (schmerzArt == "verspannung") {
-        recommendedMattressSide = "Harte Seite";
+        recommendedMattressSide = "Festere Seite (H4)";
     }
     if (schmerzArt == "kein") {
-        recommendedMattressSide = "Harte Seite";
+        recommendedMattressSide = "Festere Seite (H4)";
     }
 
     for (let i = 0; i < mattresses.length; i++) {
@@ -419,16 +419,23 @@ function isFloat(n){
 
 filterInt = function (value) {
     if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
-      return Number(value);
-    return NaN;
+      return true;//Number(value);
+    return false;
+}
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 
 function validateBodyHeightInput () {
-    if (filterInt(bodyHeightInput.value)) {
+    if (isNumber(bodyHeightInput.value) || (isNumber(bodyHeightInput.value.substring(-1, bodyHeightInput.value.length - 2)) && bodyHeightInput.value.slice(-2) === "cm")) {
         bodyHeightInput.classList.remove("is-invalid");
         bodyHeightInput.classList.add("is-valid");
         bodyHeightInputError.style.visibility = "hidden";
+        if (bodyHeightInput.value.slice(-2) != "cm") {
+            bodyHeightInput.value = bodyHeightInput.value + "cm";
+        }
         return true;
     } else {
         bodyHeightInput.classList.remove("is-valid");
@@ -438,10 +445,13 @@ function validateBodyHeightInput () {
     }
 }
 function validateBodyWeightInput () {
-    if (isFloat(parseFloat(bodyWeightInput.value.replace(",", "."))) || filterInt(parseInt(bodyWeightInput.value))) {
+    if (isNumber(bodyWeightInput.value.replace(",", ".")) || (isNumber(bodyWeightInput.value.replace(",", ".").substring(-1, bodyWeightInput.value.length - 2)) && bodyWeightInput.value.slice(-2) === "kg")) {
         bodyWeightInput.classList.remove("is-invalid");
         bodyWeightInput.classList.add("is-valid");
         bodyWeightInputError.style.visibility = "hidden";
+        if (bodyWeightInput.value.slice(-2) != "kg") {
+            bodyWeightInput.value = bodyWeightInput.value + "kg";
+        }
         return true;
     } else {
         bodyWeightInput.classList.remove("is-valid");
@@ -474,7 +484,7 @@ function validateBedSizeInput () {
 }
 
 function validatePainAreaInput () {
-    if (painAreaInput.value != "" && painTypeInput.value != "kein") {
+    if (painAreaInput.value != "" || getSelectedRadioButton(painTypeInput).value == "kein") {
         painAreaInputError.style.visibility = "hidden";
         painAreaInput.classList.remove("is-invalid");
         painAreaInput.classList.add("is-valid");
