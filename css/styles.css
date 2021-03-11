@@ -143,7 +143,7 @@
 }
 
 .bedconfig-index-number-inner {
-    font-size: 30px;
+    font-size: 24px;
 }
 
 .bedconfig-index-number-active {
@@ -151,9 +151,11 @@
     background-color: #fff;
 }
 
+/*
 .bedconfig-index-number-done {
     background-color: #0092d4;
 }
+*/
 
 .bedconfig-white-line {
     background-color: #fff;
@@ -177,8 +179,12 @@
 
 .bedconfig-input-error {
     color: red;
-    visibility: hidden;
+    text-align: left;
     font-size: 13px;
+    overflow: hidden;
+    height: 0;
+    width: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 

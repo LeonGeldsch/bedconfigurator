@@ -132,22 +132,22 @@ class Topper {
 
 // all pillow options
 var pillows = [
-    new Pillow("Das Kissen normal-weich", 22, "0,90", 80, 40, "Federfüllung"),
-    new Pillow("Das Kissen extra pral", 23, "0,90", 80, 40, "Federfüllung"),
-    new Pillow("Das Kissen normal-weich", 24, "10,90", 80, 80, "Federfüllung"),
-    new Pillow("Das Kissen extra pral", 25, "10,90", 80, 80, "Federfüllung"),
-    new Pillow("Das Kissen normal-weich", 119, "0", 80, 40, "Synthetikfüllung"),
-    new Pillow("Das Kissen extra pral", 120, "0", 80, 40, "Synthetikfüllung"),
-    new Pillow("Das Kissen normal-weich", 121, "10", 80, 80, "Synthetikfüllung"),
-    new Pillow("Das Kissen extra pral", 122, "10", 80, 80, "Synthetikfüllung")
+    new Pillow("Normal Weich", 22, "0,90", 80, 40, "Federfüllung"),
+    new Pillow("Extra Prall", 23, "0,90", 80, 40, "Federfüllung"),
+    new Pillow("Normal Weich", 24, "10,90", 80, 80, "Federfüllung"),
+    new Pillow("Extra Prall", 25, "10,90", 80, 80, "Federfüllung"),
+    new Pillow("Normal Weich", 119, "0", 80, 40, "Synthetikfüllung"),
+    new Pillow("Extra Prall", 120, "0", 80, 40, "Synthetikfüllung"),
+    new Pillow("Normal Weich", 121, "10", 80, 80, "Synthetikfüllung"),
+    new Pillow("Extra Prall", 122, "10", 80, 80, "Synthetikfüllung")
 ];
 
 // all blanket options
 var blankets = [
-    new Blanket("Die Decke / Ganzjahr", 123, "40", 135, 200, "Federfüllung"),
-    new Blanket("Die Decke / Ganzjahr", 124, "80", 155, 220, "Federfüllung"),
-    new Blanket("Die Decke / Ganzjahr", 216, "80", 155, 220, "Synthetikfüllung"),
-    new Blanket("Die Decke / Ganzjahr", 217, "80", 135, 200, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 123, "40", 135, 200, "Federfüllung"),
+    new Blanket("Ganzjahr", 124, "80", 155, 220, "Federfüllung"),
+    new Blanket("Ganzjahr", 216, "80", 155, 220, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 217, "80", 135, 200, "Synthetikfüllung"),
 ];
 
 // all mattress options
@@ -230,25 +230,25 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
     if (schmerzArt == "druckschmerz") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "rueckenschlaefer" || schlafposition == "bauchschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
     if (schmerzArt == "verspannung") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "seitenschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Synthetikfüllung")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Synthetikfüllung")];
             }
             if (schlafposition == "bauchschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "Das Kissen normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
-    if (materialPreference === "federn") return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Federfüllung")];
-    else return [pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Das Kissen extra pral" && element.length == 40 && element.material == "Synthetikfüllung")];
+    if (materialPreference === "federn") return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Federfüllung")];
+    else return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Synthetikfüllung")];
 }
 
 
@@ -310,12 +310,12 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
         recommendedTopperItem.style.display = "none";
         recommendedTopperItem.classList.remove("d-flex");
     } else {
-        recommendedTopperNameSpan.innerHTML = calculatedTopper.name;
+        //recommendedTopperNameSpan.innerHTML = calculatedTopper.name;
         recommendedTopperSizeSpan.innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
         recommendedTopperPriceSpan.innerHTML = calculatedTopper.price + "€";
     }
 
-    recommendedMattressNameSpan.innerHTML = calculatedMattress.name;
+    recommendedMattressNameSpan.innerHTML = calculatedMattress.height + "cm";
     recommendedMattressSizeSpan.innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
     recommendedMattressSideSpan.innerHTML = recommendedMattressSide;
     recommendedMattressPriceSpan.innerHTML = calculatedMattress.price + "€";
@@ -400,8 +400,8 @@ function handleSubmit () {
     let schmerzBereich = painAreaInput.value;
     let schlafposition = getSelectedRadioButton(sleepingPositionInput).value;
     let bedSize = bedSizeInput.value;
-    let bodyWeight = bodyWeightInput.value;
-    let bodyHeight = bodyHeightInput.value;
+    let bodyWeight = parseFloat(bodyWeightInput.value.replace(",", "."));
+    let bodyHeight = parseFloat(bodyHeightInput.value.replace(",", "."));
     let bmi = calculateBMI(bodyWeight, bodyHeight);
     let materialPreference = getSelectedRadioButton(materialPreferenceInput).value;
 
@@ -429,11 +429,13 @@ function isFloat(n){
     return Number(n) === n && n % 1 !== 0;
 }
 
+/*
 filterInt = function (value) {
     if(/^(\-|\+)?([0-9]+|Infinity)$/.test(value))
       return true;//Number(value);
     return false;
 }
+*/
 
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -444,7 +446,8 @@ function validateBodyHeightInput () {
     if (isNumber(bodyHeightInput.value) || (isNumber(bodyHeightInput.value.substring(-1, bodyHeightInput.value.length - 2)) && bodyHeightInput.value.slice(-2) === "cm")) {
         bodyHeightInput.classList.remove("is-invalid");
         bodyHeightInput.classList.add("is-valid");
-        bodyHeightInputError.style.visibility = "hidden";
+        bodyHeightInputError.style.height = "0";
+        bodyHeightInputError.style.width = "0";
         if (bodyHeightInput.value.slice(-2) != "cm") {
             bodyHeightInput.value = bodyHeightInput.value + "cm";
         }
@@ -452,7 +455,8 @@ function validateBodyHeightInput () {
     } else {
         bodyHeightInput.classList.remove("is-valid");
         bodyHeightInput.classList.add("is-invalid");
-        bodyHeightInputError.style.visibility = "visible";
+        bodyHeightInputError.style.height = "1rem";
+        bodyHeightInputError.style.width = "100%";
         return false;
     }
 }
@@ -460,7 +464,8 @@ function validateBodyWeightInput () {
     if (isNumber(bodyWeightInput.value.replace(",", ".")) || (isNumber(bodyWeightInput.value.replace(",", ".").substring(-1, bodyWeightInput.value.length - 2)) && bodyWeightInput.value.slice(-2) === "kg")) {
         bodyWeightInput.classList.remove("is-invalid");
         bodyWeightInput.classList.add("is-valid");
-        bodyWeightInputError.style.visibility = "hidden";
+        bodyWeightInputError.style.height = "0";
+        bodyWeightInputError.style.width = "0";
         if (bodyWeightInput.value.slice(-2) != "kg") {
             bodyWeightInput.value = bodyWeightInput.value + "kg";
         }
@@ -468,7 +473,8 @@ function validateBodyWeightInput () {
     } else {
         bodyWeightInput.classList.remove("is-valid");
         bodyWeightInput.classList.add("is-invalid");
-        bodyWeightInputError.style.visibility = "visible";
+        bodyWeightInputError.style.height = "1rem";
+        bodyWeightInputError.style.width = "100%";
         return false;
     }
 }
@@ -483,12 +489,14 @@ function validateBodyIndexInput () {
 
 function validateBedSizeInput () {
     if (bedSizeInput.value != "") {
-        bedSizeInputError.style.visibility = "hidden";
+        bedSizeInputError.style.height = "0";
+        bedSizeInputError.style.width = "0";
         bedSizeInput.classList.remove("is-invalid");
         bedSizeInput.classList.add("is-valid");
         return true;
     } else {
-        bedSizeInputError.style.visibility = "visible";
+        bedSizeInputError.style.height = "1rem";
+        bedSizeInputError.style.width = "100%";
         bedSizeInput.classList.remove("is-valid");
         bedSizeInput.classList.add("is-invalid");
         return false;
@@ -497,12 +505,14 @@ function validateBedSizeInput () {
 
 function validatePainAreaInput () {
     if (painAreaInput.value != "" || getSelectedRadioButton(painTypeInput).value == "kein") {
-        painAreaInputError.style.visibility = "hidden";
+        painAreaInputError.style.height = "0";
+        painAreaInputError.style.width = "0";
         painAreaInput.classList.remove("is-invalid");
         painAreaInput.classList.add("is-valid");
         return true;
     } else {
-        painAreaInputError.style.visibility = "visible";
+        painAreaInputError.style.height = "1rem";
+        painAreaInputError.style.width = "100%";
         painAreaInput.classList.remove("is-valid");
         painAreaInput.classList.add("is-invalid");
         return false;
@@ -552,6 +562,10 @@ painTypeInput.forEach(option => {
             painAreaInput.disabled = true;
             painAreaInput.classList.add('bedconfig-select-disabled');
             painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
+            painAreaInputError.style.height = "0";
+            painAreaInputError.style.width = "0";
+            painAreaInput.classList.remove("is-invalid");
+            painAreaInput.classList.add("is-valid");    
         } else {
             painAreaInput.disabled = false;
             painAreaInput.classList.remove('bedconfig-select-disabled');
