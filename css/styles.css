@@ -285,9 +285,24 @@
 
 @media (max-width: 400px) {
     .bedconfig-radio-wrapper {
-        flex-direction: column;
+        xflex-direction: column;
+
     }
     .bedconfig-radio-label {
         margin-left: 0 !important;
+    }
+    .bedconfig-buy-button-wrapper {
+        xflex-direction: column;
+    }
+}
+
+@media (max-width: 410px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+@media (max-width: 350px) {
+    h1 {
+        font-size: 1.5rem;
     }
 }
