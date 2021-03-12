@@ -63,11 +63,13 @@ const recommendedTopperNameSpan = document.querySelector('#topper-name-span');
 const recommendedTopperSizeSpan = document.querySelector('#topper-size-span');
 const recommendedTopperPriceSpan = document.querySelector('#topper-price-span');
 
+const recommendedPillowHeadline = document.querySelector('#pillow-title');
 const recommendedPillowNameSpan = document.querySelector('#pillow-name-span');
 const recommendedPillowSizeSpan = document.querySelector('#pillow-size-span');
 const recommendedPillowMaterialSpan = document.querySelector('#pillow-material-span');
 const recommendedPillowPriceSpan = document.querySelector('#pillow-price-span');
 
+const recommendedBlanketHeadline = document.querySelector('#blanket-title');
 const recommendedBlanketNameSpan = document.querySelector('#blanket-name-span');
 const recommendedBlanketSizeSpan = document.querySelector('#blanket-size-span');
 const recommendedBlanketMaterialSpan = document.querySelector('#blanket-material-span');
@@ -311,9 +313,14 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     if (calculatedMattress.width >= 140) {
         recommendedBlanketPriceSpan.innerHTML = "2x " + calculatedBlanket.price + "€";
         recommendedPillowPriceSpan.innerHTML = "2x " + calculatedPillowOptions[0].price + "€";
+        recommendedPillowHeadline.innerHTML = "2x DAS KISSEN";
+        recommendedBlanketHeadline.innerHTML = "2x DIE DECKE";
     } else {
         recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price + "€";
         recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
+        recommendedPillowHeadline.innerHTML = "DAS KISSEN";
+        recommendedBlanketHeadline.innerHTML = "DIE DECKE";
+
     }
 
     if (calculatedTopper.name === "Kein Topper") {
