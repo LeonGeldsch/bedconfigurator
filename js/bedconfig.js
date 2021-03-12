@@ -82,6 +82,8 @@ const recommendedBlanketItem = allCartItems[3];
 
 var currentSite = 0;
 
+var buyButtonEventListener = false;
+
 
 class Pillow {
     constructor(name, sizeId, price, width, length, material) {
@@ -259,7 +261,6 @@ function calculateTopper (schmerzArt, bedSize) {
     if (schmerzArt == "verspannung") {
         return toppers[0];
     }
-    console.log("couldn't calculate topper.. choosing no topper as default");
     return toppers[0];
 }
 
@@ -303,13 +304,10 @@ function calculateBlanket (bodyHeight, materialPreference) {
 
 
 function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
-
-    console.log(calculatedPillowOptions);
-
     if (calculatedTopper.name === "Kein Topper") {
         recommendedTopperItem.style.display = "none";
-        recommendedTopperItem.classList.remove("d-flex");
     } else {
+        recommendedTopperItem.style.display = "flex";
         recommendedTopperSizeSpan.innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
         recommendedTopperPriceSpan.innerHTML = calculatedTopper.price + "€";
     }
@@ -374,18 +372,16 @@ function handleSubmit () {
     let bodyHeight = parseFloat(bodyHeightInput.value.replace(",", "."));
     let bmi = calculateBMI(bodyWeight, bodyHeight);
     let materialPreference = getSelectedRadioButton(materialPreferenceInput).value;
-
-    console.log(schmerzArt, schmerzBereich, schlafposition, bedSize, bodyWeight, bodyHeight, bmi, materialPreference);
-
     let calculatedMattress = calculateMatress(schmerzArt, bedSize, bmi);
     let calculatedTopper = calculateTopper(schmerzArt, bedSize);
     let calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition, materialPreference);
     let calculatedBlanket = calculateBlanket(bodyHeight, materialPreference);
     
-    console.log(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
-
     createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
-    buyButton.addEventListener('click', buyItems.bind(event, calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket));
+    if (!buyButtonEventListener) {
+        buyButton.addEventListener('click', buyItems.bind(event, calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket));
+        buyButtonEventListener = true;
+    }
 }
 
 
@@ -395,12 +391,7 @@ function calculateBMI (bodyWeight, bodyHeight) {
 }
 
 
-function isFloat(n){
-    return Number(n) === n && n % 1 !== 0;
-}
-
 function animateErrorIn(error) {
-    console.log("test");
     error.style.visibility = "none";
     error.style.position = "absolute";
     error.style.transition = "none";
@@ -416,8 +407,6 @@ function animateErrorIn(error) {
     }, 10);
 }
 
-function animateErrorOut(error) {
-}
 
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
