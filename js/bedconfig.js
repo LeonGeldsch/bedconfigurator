@@ -163,6 +163,7 @@ var mattresses = [
     new Mattress("DIE MATRATZE 24cm", 29, "599", 180, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 30, "659", 200, 200, 24),
     new Mattress("DIE MATRATZE 18cm", 31, "179", 70, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 32, "179", 80, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 33, "198", 90, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 34, "219", 100, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 56, "329", 120, 200, 18),
@@ -183,11 +184,11 @@ var mattresses = [
 // all topper options
 var toppers = [
     new Topper("Kein Topper"),
-    new Topper("Der Topper", 222, "0", 90, 190),
+    new Topper("Der Topper", 222, "129", 70, 200),
     new Topper("Der Topper", 223, "129", 80, 200),
     new Topper("Der Topper", 224, "129", 90, 200),
     new Topper("Der Topper", 225, "129", 100, 200),
-    new Topper("Der Topper", 226, "30", 120, 200),
+    new Topper("Der Topper", 226, "249", 120, 200),
     new Topper("Der Topper", 227, "249", 140, 200),
     new Topper("Der Topper", 228, "249", 160, 200),
     new Topper("Der Topper", 229, "249", 180, 200),
