@@ -84,6 +84,8 @@ var currentSite = 0;
 
 var buyButtonEventListener = false;
 
+var pillowBlanketNumber = "";
+
 
 class Pillow {
     constructor(name, sizeId, price, width, length, material) {
@@ -158,13 +160,12 @@ var mattresses = [
     new Mattress("DIE MATRATZE 24cm", 24, "298", 80, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 25, "298", 90, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 26, "339", 100, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 57, "399", 120, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 27, "459", 140, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 28, "529", 160, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 29, "599", 180, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 30, "659", 200, 200, 24),
     new Mattress("DIE MATRATZE 18cm", 31, "179", 70, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 32, "179", 80, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 32, "189", 80, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 33, "198", 90, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 34, "219", 100, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 56, "329", 120, 200, 18),
@@ -189,6 +190,7 @@ var toppers = [
     new Topper("Der Topper", 223, "129", 80, 200),
     new Topper("Der Topper", 224, "129", 90, 200),
     new Topper("Der Topper", 225, "129", 100, 200),
+    new Topper("Der Topper", 226, "249", 120, 200),
     new Topper("Der Topper", 227, "249", 140, 200),
     new Topper("Der Topper", 228, "249", 160, 200),
     new Topper("Der Topper", 229, "249", 180, 200),
@@ -305,6 +307,15 @@ function calculateBlanket (bodyHeight, materialPreference) {
 
 
 function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
+
+    if (calculatedMattress.width >= 140) {
+        recommendedBlanketPriceSpan.innerHTML = "2x " + calculatedBlanket.price + "€";
+        recommendedPillowPriceSpan.innerHTML = "2x " + calculatedPillowOptions[0].price + "€";
+    } else {
+        recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price + "€";
+        recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
+    }
+
     if (calculatedTopper.name === "Kein Topper") {
         recommendedTopperItem.style.display = "none";
     } else {
@@ -321,35 +332,41 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     recommendedBlanketNameSpan.innerHTML = calculatedBlanket.name;
     recommendedBlanketSizeSpan.innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
     recommendedBlanketMaterialSpan.innerHTML = calculatedBlanket.material;
-    recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price + "€";
 
     recommendedPillowNameSpan.innerHTML = calculatedPillowOptions[0].name;
     recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
-    recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
 }
 
 
 function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
     var calculatedPillow = calculatedPillowOptions[0];
+    let link;
+
+    if (calculatedMattress.width >= 140) {
+        pillowBlanketNumber = 2;
+    } else {
+        pillowBlanketNumber = 1;
+    }
+
 
     if (calculatedTopper.name === "Kein Topper") {
-        let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
-        + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
-        + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId;
+        link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
+        + calculatedPillow.id + "_" + pillowBlanketNumber + "_" + calculatedPillow.sizeId + "-" 
+        + calculatedBlanket.id + "_" + pillowBlanketNumber + "_" + calculatedBlanket.sizeId;
 
-        //console.log(link);
+        console.log(link);
 
-        window.location.href = link;
+        //window.location.href = link;
     } else {
-        let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
-        + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
-        + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId + "-" 
+        link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
+        + calculatedPillow.id + "_" + pillowBlanketNumber + "_" + calculatedPillow.sizeId + "-" 
+        + calculatedBlanket.id + "_" + pillowBlanketNumber + "_" + calculatedBlanket.sizeId + "-" 
         + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
     
-        //console.log(link);
+        console.log(link);
     
-        window.location.href = link;
+        //window.location.href = link;
     }
 }
 

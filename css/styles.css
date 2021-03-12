@@ -52,14 +52,22 @@
 }
 
 .bedconfig-close-button {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 20px;
     right: 20px;
     cursor: pointer;
     z-index: 999;
+    transition: all ease-in-out 0.2s;
+    transform-origin: center;
 }
+
+.bedconfig-close-button:hover {
+    transform: rotate(90deg);
+}
+
+
 
 .bedconfig-close-button-inner {
     width: 100%;
@@ -98,14 +106,14 @@
 
 .bedconfig-button {
     font-weight: 600;
-    background-color: #0092d4;
-    border-radius: 999px;
+    background-color: #feb904;
+    border-radius: 5px;
     transition: all ease-in-out .2s;
     width: 100%;
 }
 
 #bedconfig-page-0 .bedconfig-button {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .bedconfig-button:hover {
@@ -132,7 +140,7 @@
 .bedconfig-index-number {
     height: 50px;
     width: 50px;
-    background-color: #2c3148;
+    background-color: transparent;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -169,7 +177,7 @@
 }
 
 .bedconfig-input {
-    border-radius: 999px;
+    border-radius: 5px;
     border: 1px solid #222639;
 }
 
@@ -209,7 +217,8 @@
 
 .bedconfig-radio-button:checked + span {
     color: #fff;
-    background: #222639;
+    background: #feb904;
+    border: 2px solid #feb904;
 }
 
 .bedconfig-radio-label {
@@ -223,15 +232,16 @@
     background: #fff;
     display: inline-block;
     border: 1px solid #fff;
-    border-radius: 30px;
+    border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     width: 100%;
     border: 2px solid #222639;
+    transition: all ease-in-out 0.3s;
 }
 
 .bedconfig-select {
-    border-radius: 999px;
+    border-radius: 5px;
     border: 1px solid #222639;
     height: auto;
 }
