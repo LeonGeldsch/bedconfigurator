@@ -132,64 +132,64 @@ class Topper {
 
 // all pillow options
 var pillows = [
-    new Pillow("Normal Weich", 22, "0,90", 80, 40, "Federfüllung"),
-    new Pillow("Extra Prall", 23, "0,90", 80, 40, "Federfüllung"),
-    new Pillow("Normal Weich", 24, "10,90", 80, 80, "Federfüllung"),
-    new Pillow("Extra Prall", 25, "10,90", 80, 80, "Federfüllung"),
-    new Pillow("Normal Weich", 119, "0", 80, 40, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 120, "0", 80, 40, "Synthetikfüllung"),
-    new Pillow("Normal Weich", 121, "10", 80, 80, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 122, "10", 80, 80, "Synthetikfüllung")
+    new Pillow("Normal Weich", 22, "39", 80, 40, "Federfüllung"),
+    new Pillow("Extra Prall", 23, "39", 80, 40, "Federfüllung"),
+    new Pillow("Normal Weich", 24, "49", 80, 80, "Federfüllung"),
+    new Pillow("Extra Prall", 25, "49,90", 80, 80, "Federfüllung"),
+    new Pillow("Normal Weich", 119, "39", 80, 40, "Synthetikfüllung"),
+    new Pillow("Extra Prall", 120, "39,90", 80, 40, "Synthetikfüllung"),
+    new Pillow("Normal Weich", 121, "49", 80, 80, "Synthetikfüllung"),
+    new Pillow("Extra Prall", 122, "49,90", 80, 80, "Synthetikfüllung")
 ];
 
 // all blanket options
 var blankets = [
-    new Blanket("Ganzjahr", 123, "40", 135, 200, "Federfüllung"),
-    new Blanket("Ganzjahr", 124, "80", 155, 220, "Federfüllung"),
-    new Blanket("Ganzjahr", 216, "80", 155, 220, "Synthetikfüllung"),
-    new Blanket("Ganzjahr", 217, "80", 135, 200, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 123, "129", 135, 200, "Federfüllung"),
+    new Blanket("Ganzjahr", 124, "179", 155, 220, "Federfüllung"),
+    new Blanket("Ganzjahr", 216, "169", 155, 220, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 217, "129", 135, 200, "Synthetikfüllung"),
 ];
 
 // all mattress options
 var mattresses = [
-    new Mattress("DIE MATRATZE 24cm", 23, "279", 70, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 24, "279", 80, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 25, "279", 90, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 26, "299", 100, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 27, "409", 140, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 28, "509", 160, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 29, "529", 180, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 30, "579", 200, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 23, "298", 70, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 24, "298", 80, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 25, "298", 90, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 26, "339", 100, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 27, "459", 140, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 28, "529", 160, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 29, "599", 180, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 30, "659", 200, 200, 24),
     new Mattress("DIE MATRATZE 18cm", 31, "179", 70, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 33, "179", 90, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 34, "199", 100, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 35, "309", 140, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 36, "409", 160, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 37, "429", 180, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 38, "479", 200, 200, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße", 39, "279", 80, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße", 40, "279", 90, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 41, "279", 90, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 42, "279", 100, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 43, "279", 100, 220, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 44, "579", 200, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 45, "529", 180, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 46, "579", 200, 220, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 56, "309", 120, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 33, "198", 90, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 34, "219", 100, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 56, "329", 120, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 35, "339", 140, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 36, "429", 160, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 37, "449", 180, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 38, "499", 200, 200, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 39, "198", 80, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 40, "198", 90, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 41, "299", 90, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 42, "329", 100, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 43, "298", 100, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 44, "549", 200, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 45, "489", 180, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 46, "599", 200, 220, 18),
 ];
 
 // all topper options
 var toppers = [
     new Topper("Kein Topper"),
     new Topper("Der Topper", 222, "0", 90, 190),
-    new Topper("Der Topper", 223, "0", 80, 200),
-    new Topper("Der Topper", 224, "10", 90, 200),
-    new Topper("Der Topper", 225, "20", 100, 200),
+    new Topper("Der Topper", 223, "129", 80, 200),
+    new Topper("Der Topper", 224, "129", 90, 200),
+    new Topper("Der Topper", 225, "129", 100, 200),
     new Topper("Der Topper", 226, "30", 120, 200),
-    new Topper("Der Topper", 227, "50", 140, 200),
-    new Topper("Der Topper", 228, "70", 160, 200),
-    new Topper("Der Topper", 229, "100", 180, 200),
-    new Topper("Der Topper", 230, "120", 200, 200),
+    new Topper("Der Topper", 227, "249", 140, 200),
+    new Topper("Der Topper", 228, "249", 160, 200),
+    new Topper("Der Topper", 229, "249", 180, 200),
+    new Topper("Der Topper", 230, "249", 200, 200),
 ];
 
 
@@ -310,7 +310,6 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
         recommendedTopperItem.style.display = "none";
         recommendedTopperItem.classList.remove("d-flex");
     } else {
-        //recommendedTopperNameSpan.innerHTML = calculatedTopper.name;
         recommendedTopperSizeSpan.innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
         recommendedTopperPriceSpan.innerHTML = calculatedTopper.price + "€";
     }
@@ -329,58 +328,29 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
     recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
-
-
-
-
-    /*
-    if (calculatedPillowOptions.length >= 2) {
-        recommendedPillowItem.style.display = "none";
-        pillowSelectWrapper.style.display = "list-item";
-        allPillowSelectRadios[0].previousElementSibling.innerHTML = calculatedPillowOptions[0].name;
-        allPillowSelectRadios[0].value = calculatedPillowOptions[0].name;
-        allPillowSelectRadios[1].previousElementSibling.innerHTML = calculatedPillowOptions[1].name;
-        allPillowSelectRadios[1].value = calculatedPillowOptions[1].name;
-    } else {
-        recommendedPillowItem.style.display = "list-item";
-        recommendedPillowItem.innerHTML = calculatedPillowOptions[0].name;
-        pillowSelectWrapper.style.display = "none";
-    }
-    */
-
-    //cartWrapper.style.display = "block";
 }
 
 
 function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
     var calculatedPillow = calculatedPillowOptions[0];
-    /*
-    if (calculatedPillowOptions.length >= 2) {
-        calculatedPillow = pillows.find(element => element.name == (getSelectedRadioButton(allPillowSelectRadios).previousElementSibling.innerHTML));
-        console.log(calculatedPillow);
-    } else {
-        calculatedPillow = calculatedPillowOptions[0];
-        console.log(calculatedPillow);
-    }
-    */
 
     if (calculatedTopper.name === "Kein Topper") {
         let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
         + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
         + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId;
 
-        console.log(link);
+        //console.log(link);
 
-        //window.location.href = link;
+        window.location.href = link;
     } else {
         let link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
         + calculatedPillow.id + "_1_" + calculatedPillow.sizeId + "-" 
         + calculatedBlanket.id + "_1_" + calculatedBlanket.sizeId + "-" 
         + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
     
-        console.log(link);
+        //console.log(link);
     
-        //window.location.href = link;
+        window.location.href = link;
     }
 }
 
@@ -575,7 +545,6 @@ painTypeInput.forEach(option => {
             painAreaInput.classList.add('bedconfig-select-disabled');
             painAreaInput.previousElementSibling.classList.add('bedconfig-label-disabled');
             painAreaInputError.style.height = "0";
-            painAreaInputError.style.width = "0";
             painAreaInput.classList.remove("is-invalid");
             painAreaInput.classList.add("is-valid");    
         } else {
