@@ -52,6 +52,10 @@ const buyButton = document.querySelector('#bedconfig-buy-button');
 
 const allCartItems = document.querySelectorAll('.bedconfig-cart-item');
 
+const allCartAddRemoveButtons = document.querySelectorAll('.bedconfig-add-remove-button');
+
+const allCartFilters = document.querySelectorAll('.bedconfig-cart-item-filter');
+
 const recommendedMattressItem = allCartItems[0];
 
 const recommendedMattressNameSpan = document.querySelector('#mattress-name-span');
@@ -87,6 +91,13 @@ var currentSite = 0;
 var buyButtonEventListener = false;
 
 var pillowBlanketNumber = "";
+
+var addToCartLink = "";
+
+var mattressActive = true;
+var topperActive = true;
+var pillowActive = true;
+var blanketActive = true;
 
 
 class Pillow {
@@ -348,7 +359,6 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
 
 function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
     var calculatedPillow = calculatedPillowOptions[0];
-    let link;
 
     if (calculatedMattress.width >= 140) {
         pillowBlanketNumber = 2;
@@ -356,25 +366,11 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
         pillowBlanketNumber = 1;
     }
 
-
-    if (calculatedTopper.name === "Kein Topper") {
-        link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
-        + calculatedPillow.id + "_" + pillowBlanketNumber + "_" + calculatedPillow.sizeId + "-" 
-        + calculatedBlanket.id + "_" + pillowBlanketNumber + "_" + calculatedBlanket.sizeId;
-
-        console.log(link);
-
-        //window.location.href = link;
-    } else {
-        link = 'https://www.weltbett.de/dpa/add/tocart/id/' + calculatedMattress.id + "_1_" + calculatedMattress.sizeId + "-" 
-        + calculatedPillow.id + "_" + pillowBlanketNumber + "_" + calculatedPillow.sizeId + "-" 
-        + calculatedBlanket.id + "_" + pillowBlanketNumber + "_" + calculatedBlanket.sizeId + "-" 
-        + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
-    
-        console.log(link);
-    
-        //window.location.href = link;
-    }
+    addToCartLink = 'https://www.weltbett.de/dpa/add/tocart/id/';
+    if (mattressActive) addToCartLink += calculatedMattress.id + "_1_" + calculatedMattress.sizeId;
+    if (topperActive && calculatedTopper.name != "Kein Topper") addToCartLink += "-" + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
+    if (pillowActive) addToCartLink += "-" + calculatedPillow.id + "_" + pillowBlanketNumber + "_" + calculatedPillow.sizeId;
+    if (blanketActive) addToCartLink += "-" + calculatedBlanket.id + "_" + pillowBlanketNumber + "_" + calculatedBlanket.sizeId;
 }
 
 
@@ -413,6 +409,38 @@ function handleSubmit () {
 function calculateBMI (bodyWeight, bodyHeight) {
     let calculatedBMI = bodyWeight / (Math.pow((bodyHeight/100), 2));
     return calculatedBMI;
+}
+
+
+function toggleCartItem (index) {
+    switch(index) {
+        case 0:
+            console.log("mattress");
+            mattressActive = !mattressActive;
+            break;
+        case 1:
+            console.log("topper");
+            topperActive = !topperActive;
+
+            break;
+        case 2:
+            console.log("pillow");
+            pillowActive = !pillowActive;
+            break;
+        case 3:
+            console.log("blanket");
+            blanketActive = !blanketActive;
+            break;
+        }
+    allCartAddRemoveButtons[index].children[0].classList.toggle('d-none');
+    allCartAddRemoveButtons[index].children[1].classList.toggle('d-none');
+    allCartAddRemoveButtons[index].classList.toggle('bedconfig-add-remove-button-yellow');
+    allCartFilters[index].classList.toggle('d-none');
+}
+
+
+for (let i = 0; i < allCartAddRemoveButtons.length; i++) {
+    allCartAddRemoveButtons[i].addEventListener('click', toggleCartItem.bind(event, i));
 }
 
 
@@ -516,6 +544,11 @@ function validatePainAreaInput () {
 }
 
 
+/*
+ * -------------------------- EVENT LISTENERS --------------------------------
+ */
+
+
 bodyHeightInput.addEventListener('focusout', validateBodyHeightInput);
 bodyWeightInput.addEventListener('focusout', validateBodyWeightInput);
 bedSizeInput.addEventListener('focusout', validateBedSizeInput);
@@ -532,11 +565,6 @@ allNextButtons[3].addEventListener('click', () => {
         showNextSite();
     }
 });
-
-/*
- * -------------------------- EVENT LISTENERS --------------------------------
- */
-
 
 for (let i = 0; i < allNextButtons.length; i++) {
     if (i != 1 && i != 2 && i != 3) {

@@ -5,8 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Betten Konfigurator</title>
-    <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -22,12 +20,8 @@
         <div class="bedconfig-container bedconfig-container-big" id="bedconfig-page-0">
             <div class="container text-center flex-column">
                 <h1>DER <br>WELTBETT-BERATER</h1>
-                <!--
-                    <div class="col-12 lightblue bedconfig-intro-image my-md-5">
-                    </div>
-                -->
                 <div class="bedconfig-text-wrapper container">
-                    <p class="">
+                    <p>
                         Welche Produkte sind perfekt für mich?
                     </p>
                 </div>
@@ -146,7 +140,6 @@
                         <span class="bedconfig-radio-span">Synthetisch</span>
                     </label>
                 </div>
-
             </div>
             <div class="container-fluid mt-md-5 mt-4">
                 <div class="row">
@@ -222,10 +215,11 @@
             <div class="bedconfig-cart-wrapper row justify-content-center">
                 <div class="col-12">
                     <div class="bedconfig-cart-item lightblue my-3 row">
+                        <div class="bedconfig-cart-item-filter my-3 d-none"></div>
                         <div class="bedconfig-image-container col-12 col-md-4 text-center">
                             <img src="img/die_matratze.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
-                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-6 p-3">
+                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-5 p-3">
                             <div class="d-flex justify-content-between flex-column h-100">
                                 <h2 class="font-weight-bold">DIE MATRATZE</h2>
                                 <div class="row">
@@ -238,20 +232,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white col-12 col-md-2 pr-0 pb-1">
-                            <div class="container-fluid d-flex align-items-end justify-content-end h-100">
+                        <div class="bg-white col-12 col-md-3 pr-0 py-1">
+                            <div class="container-fluid d-flex align-items-end justify-content-between h-100 flex-column">
+                                <div class="bedconfig-add-remove-button mt-2">
+                                    <img src="img/plus.svg" alt="" class="d-none bedconfig-plus-sign">
+                                    <img src="img/minus.svg" alt="">
+                                </div>
                                 <span class="bedconfig-cart-item-price text-nowrap" id="mattress-price-span">459 €</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--
-                    <div class="bedconfig-plus-sign col-sm-12 col-xl-auto">
-                        <span class="bedconfig-plus-sign-inner">+</span>
-                    </div>
-                -->
+
                 <div class="col-12">
                     <div class="bedconfig-cart-item lightblue my-3 row">
+                        <div class="bedconfig-cart-item-filter my-3 d-none"></div>
                         <div class="bedconfig-image-container col-md-4 text-center">
                             <img src="img/der_topper.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
@@ -259,33 +254,26 @@
                             <div class="d-flex justify-content-between flex-column h-100">
                                 <h2 class="font-weight-bold">DER TOPPER</h2>
                                 <div class="row">
-                                    <!--
-                                        <span class="col-4">Produkt:</span>
-                                        <span class="col-8" id="topper-name-span">placeholder</span>
-                                    -->
                                     <span class="col-4">Größe:</span>
                                     <span class="col-8" id="topper-size-span">placeholder</span>
                                 </div>
                             </div>
-                            <!--
-                                <span class="col-6">Seite:</span>
-                                <span class="col-6">placeholder</span>
-                            -->
                         </div>
-                        <div class="bg-white col-12 col-md-2 pr-0 pb-1">
-                            <div class="container-fluid d-flex align-items-end justify-content-end h-100">
+                        <div class="bg-white col-12 col-md-2 pr-0 py-1">
+                            <div class="container-fluid d-flex align-items-end justify-content-between h-100 flex-column">
+                                <div class="bedconfig-add-remove-button mt-2">
+                                    <img src="img/plus.svg" alt="" class="d-none">
+                                    <img src="img/minus.svg" alt="">
+                                </div>
                                 <span class="bedconfig-cart-item-price text-nowrap" id="topper-price-span">459 €</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--
-                    <div class="bedconfig-plus-sign col-sm-12 col-xl-auto">
-                        <span class="bedconfig-plus-sign-inner">+</span>
-                    </div>
-                -->
+
                 <div class="col-12">
                     <div class="bedconfig-cart-item lightblue my-3 row">
+                        <div class="bedconfig-cart-item-filter my-3 d-none"></div>
                         <div class="bedconfig-image-container col-md-4 text-center">
                             <img src="img/das_kissen.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
@@ -302,20 +290,21 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white col-12 col-md-2 pr-0 pb-1">
-                            <div class="container-fluid d-flex align-items-end justify-content-end h-100">
+                        <div class="bg-white col-12 col-md-2 pr-0 py-1">
+                            <div class="container-fluid d-flex align-items-end justify-content-between h-100 flex-column">
+                                <div class="bedconfig-add-remove-button mt-2">
+                                    <img src="img/plus.svg" alt="" class="d-none">
+                                    <img src="img/minus.svg" alt="">
+                                </div>
                                 <span class="bedconfig-cart-item-price text-nowrap" id="pillow-price-span">459 €</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--
-                    <div class="bedconfig-plus-sign col-sm-12 col-xl-auto">
-                        <span class="bedconfig-plus-sign-inner">+</span>
-                    </div>
-                -->
+
                 <div class="col-12">
                     <div class="bedconfig-cart-item lightblue my-3 row">
+                        <div class="bedconfig-cart-item-filter my-3 d-none"></div>
                         <div class="bedconfig-image-container col-12 col-md-4 text-center">
                             <img src="img/die_decke.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
@@ -332,18 +321,18 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white col-12 col-md-2 pr-0 pb-1">
-                            <div class="container-fluid d-flex align-items-end justify-content-end h-100">
+                        <div class="bg-white col-12 col-md-2 pr-0 py-1">
+                            <div class="container-fluid d-flex align-items-end justify-content-between h-100 flex-column">
+                                <div class="bedconfig-add-remove-button mt-2">
+                                    <img src="img/plus.svg" alt="" class="d-none">
+                                    <img src="img/minus.svg" alt="">
+                                </div>
                                 <span class="bedconfig-cart-item-price text-nowrap" id="blanket-price-span">459 €</span>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!--
-                    <div class="col-12 col-md-6 my-4">
-                        <a class="btn bedconfig-button px-4 py-3" id="bedconfig-buy-button">Jetzt kaufen</a>
-                    </div>
-                -->
+
                 <div class="container-fluid mt-4 col-12 col-sm-10 col-md-8">
                     <div class="row">
                         <div class="col-12 col-sm-6 order-2 order-sm-1">
