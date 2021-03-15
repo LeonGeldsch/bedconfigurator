@@ -371,7 +371,7 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
     if (topperActive && calculatedTopper.name != "Kein Topper") addToCartLink += "-" + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
     if (pillowActive) addToCartLink += "-" + calculatedPillow.id + "_" + pillowBlanketNumber + "_" + calculatedPillow.sizeId;
     if (blanketActive) addToCartLink += "-" + calculatedBlanket.id + "_" + pillowBlanketNumber + "_" + calculatedBlanket.sizeId;
-    window.location.href = link;
+    window.location.href = addToCartLink;
 }
 
 
