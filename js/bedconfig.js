@@ -53,6 +53,9 @@ const buyButton = document.querySelector('#bedconfig-buy-button');
 const allCartItems = document.querySelectorAll('.bedconfig-cart-item');
 
 const allCartAddRemoveButtons = document.querySelectorAll('.bedconfig-add-remove-button');
+const allCartRemoveButtons = document.querySelectorAll('.bedconfig-remove-button');
+const allCartAddButtons = document.querySelectorAll('.bedconfig-add-button');
+const allCartAddRemoveButtonsInner = document.querySelectorAll('.bedconfig-add-remove-button-inner');
 
 const allCartFilters = document.querySelectorAll('.bedconfig-cart-item-filter');
 
@@ -98,6 +101,11 @@ var mattressActive = true;
 var topperActive = true;
 var pillowActive = true;
 var blanketActive = true;
+
+var mattressAmount = 1;
+var topperAmount = 1;
+var pillowAmount = 1;
+var blanketAmount = 1;
 
 
 class Pillow {
@@ -322,16 +330,31 @@ function calculateBlanket (bodyHeight, materialPreference) {
 function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
 
     if (calculatedMattress.width >= 140) {
-        recommendedBlanketPriceSpan.innerHTML = "2x " + calculatedBlanket.price + "€";
-        recommendedPillowPriceSpan.innerHTML = "2x " + calculatedPillowOptions[0].price + "€";
-        recommendedPillowHeadline.innerHTML = "2x DAS KISSEN";
-        recommendedBlanketHeadline.innerHTML = "2x DIE DECKE";
+        incrementItemAmount(0);
+        mattressAmount = 2;
+        decrementItemAmount(0);
+        incrementItemAmount(1);
+        topperAmount = 2;
+        decrementItemAmount(1);
+        incrementItemAmount(2);
+        pillowAmount = 3;
+        decrementItemAmount(2);
+        incrementItemAmount(3);
+        blanketAmount = 3;
+        decrementItemAmount(3);
     } else {
-        recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price + "€";
-        recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
-        recommendedPillowHeadline.innerHTML = "DAS KISSEN";
-        recommendedBlanketHeadline.innerHTML = "DIE DECKE";
-
+        incrementItemAmount(0);
+        mattressAmount = 2;
+        decrementItemAmount(0);
+        incrementItemAmount(1);
+        topperAmount = 2;
+        decrementItemAmount(1);
+        incrementItemAmount(2);
+        pillowAmount = 2;
+        decrementItemAmount(2);
+        incrementItemAmount(3);
+        blanketAmount = 2;
+        decrementItemAmount(3);
     }
 
     if (calculatedTopper.name === "Kein Topper") {
@@ -350,28 +373,27 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
     recommendedBlanketNameSpan.innerHTML = calculatedBlanket.name;
     recommendedBlanketSizeSpan.innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
     recommendedBlanketMaterialSpan.innerHTML = calculatedBlanket.material;
+    recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price + "€";
 
     recommendedPillowNameSpan.innerHTML = calculatedPillowOptions[0].name;
     recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
+    recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
 }
 
 
 function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
     var calculatedPillow = calculatedPillowOptions[0];
 
-    if (calculatedMattress.width >= 140) {
-        pillowBlanketNumber = 2;
-    } else {
-        pillowBlanketNumber = 1;
-    }
+
 
     addToCartLink = 'https://www.weltbett.de/dpa/add/tocart/id/';
-    if (mattressActive) addToCartLink += calculatedMattress.id + "_1_" + calculatedMattress.sizeId;
-    if (topperActive && calculatedTopper.name != "Kein Topper") addToCartLink += "-" + calculatedTopper.id + "_1_" + calculatedTopper.sizeId;
-    if (pillowActive) addToCartLink += "-" + calculatedPillow.id + "_" + pillowBlanketNumber + "_" + calculatedPillow.sizeId;
-    if (blanketActive) addToCartLink += "-" + calculatedBlanket.id + "_" + pillowBlanketNumber + "_" + calculatedBlanket.sizeId;
-    window.location.href = addToCartLink;
+    if (mattressAmount != 0) addToCartLink += calculatedMattress.id + "_" + mattressAmount + "_" + calculatedMattress.sizeId;
+    if (topperAmount != 0 && calculatedTopper.name != "Kein Topper") addToCartLink += "-" + calculatedTopper.id + "_" + topperAmount + "_" + calculatedTopper.sizeId;
+    if (pillowAmount != 0) addToCartLink += "-" + calculatedPillow.id + "_" + pillowAmount + "_" + calculatedPillow.sizeId;
+    if (blanketAmount != 0) addToCartLink += "-" + calculatedBlanket.id + "_" + blanketAmount + "_" + calculatedBlanket.sizeId;
+    //window.location.href = addToCartLink;
+    console.log(addToCartLink);
 }
 
 
@@ -414,34 +436,100 @@ function calculateBMI (bodyWeight, bodyHeight) {
 
 
 function toggleCartItem (index) {
+    /*
     switch(index) {
         case 0:
-            console.log("mattress");
             mattressActive = !mattressActive;
             break;
         case 1:
-            console.log("topper");
             topperActive = !topperActive;
 
             break;
         case 2:
-            console.log("pillow");
             pillowActive = !pillowActive;
             break;
         case 3:
-            console.log("blanket");
             blanketActive = !blanketActive;
             break;
         }
-    allCartAddRemoveButtons[index].children[0].classList.toggle('d-none');
-    allCartAddRemoveButtons[index].children[1].classList.toggle('d-none');
+    */
     allCartAddRemoveButtons[index].classList.toggle('bedconfig-add-remove-button-yellow');
     allCartFilters[index].classList.toggle('d-none');
 }
 
 
-for (let i = 0; i < allCartAddRemoveButtons.length; i++) {
-    allCartAddRemoveButtons[i].addEventListener('click', toggleCartItem.bind(event, i));
+function incrementItemAmount (index) {
+    switch(index) {
+        case 0:
+            mattressAmount++;
+            if (mattressAmount === 1) {
+                toggleCartItem(index);
+            }
+            allCartAddRemoveButtonsInner[index].innerHTML = mattressAmount;
+            break;
+        case 1:
+            topperAmount++;
+            if (topperAmount === 1) {
+                toggleCartItem(index);
+            }
+            allCartAddRemoveButtonsInner[index].innerHTML = topperAmount;
+            break;
+        case 2:
+            pillowAmount++;
+            if (pillowAmount === 1) {
+                toggleCartItem(index);
+            }
+            allCartAddRemoveButtonsInner[index].innerHTML = pillowAmount;
+            break;
+        case 3:
+            blanketAmount++;
+            if (blanketAmount === 1) {
+                toggleCartItem(index);
+            }
+            allCartAddRemoveButtonsInner[index].innerHTML = blanketAmount;
+            break;
+    }
+}
+
+function decrementItemAmount (index) {
+    switch(index) {
+        case 0:
+            if (mattressAmount === 1) {
+                toggleCartItem(index);
+            }
+            if (mattressAmount > 0) mattressAmount--;
+            allCartAddRemoveButtonsInner[index].innerHTML = mattressAmount;
+            break;
+        case 1:
+            if (topperAmount === 1) {
+                toggleCartItem(index);
+            }
+            if (topperAmount > 0) topperAmount--;
+            allCartAddRemoveButtonsInner[index].innerHTML = topperAmount;
+            break;
+        case 2:
+            if (pillowAmount === 1) {
+                toggleCartItem(index);
+            }
+            if (pillowAmount > 0) pillowAmount--;
+            allCartAddRemoveButtonsInner[index].innerHTML = pillowAmount;
+            break;
+        case 3:
+            if (blanketAmount === 1) {
+                toggleCartItem(index);
+            }
+            if (blanketAmount > 0) blanketAmount--;
+            allCartAddRemoveButtonsInner[index].innerHTML = blanketAmount;
+            break;
+    }
+}
+
+
+for (let i = 0; i < allCartRemoveButtons.length; i++) {
+    allCartRemoveButtons[i].addEventListener('click', decrementItemAmount.bind(event, i));
+}
+for (let i = 0; i < allCartAddButtons.length; i++) {
+    allCartAddButtons[i].addEventListener('click', incrementItemAmount.bind(event, i));
 }
 
 
