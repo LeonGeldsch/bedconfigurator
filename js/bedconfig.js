@@ -392,8 +392,8 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
     if (topperAmount != 0 && calculatedTopper.name != "Kein Topper") addToCartLink += "-" + calculatedTopper.id + "_" + topperAmount + "_" + calculatedTopper.sizeId;
     if (pillowAmount != 0) addToCartLink += "-" + calculatedPillow.id + "_" + pillowAmount + "_" + calculatedPillow.sizeId;
     if (blanketAmount != 0) addToCartLink += "-" + calculatedBlanket.id + "_" + blanketAmount + "_" + calculatedBlanket.sizeId;
-    //window.location.href = addToCartLink;
-    console.log(addToCartLink);
+    window.location.href = addToCartLink;
+    //console.log(addToCartLink);
 }
 
 
