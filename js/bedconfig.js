@@ -89,6 +89,11 @@ const recommendedPillowItem = allCartItems[2];
 
 const recommendedBlanketItem = allCartItems[3];
 
+var calculatedMattress;
+var calculatedTopper;
+var calculatedPillowOptions;
+var calculatedBlanket;
+
 var currentSite = 0;
 
 var buyButtonEventListener = false;
@@ -157,65 +162,65 @@ class Topper {
 
 // all pillow options
 var pillows = [
-    new Pillow("Normal Weich", 22, "39", 80, 40, "Federfüllung"),
-    new Pillow("Extra Prall", 23, "39", 80, 40, "Federfüllung"),
-    new Pillow("Normal Weich", 24, "49", 80, 80, "Federfüllung"),
-    new Pillow("Extra Prall", 25, "49,90", 80, 80, "Federfüllung"),
-    new Pillow("Normal Weich", 119, "39", 80, 40, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 120, "39,90", 80, 40, "Synthetikfüllung"),
-    new Pillow("Normal Weich", 121, "49", 80, 80, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 122, "49,90", 80, 80, "Synthetikfüllung")
+    new Pillow("Normal Weich", 22, 39, 80, 40, "Federfüllung"),
+    new Pillow("Extra Prall", 23, 39, 80, 40, "Federfüllung"),
+    new Pillow("Normal Weich", 24, 49, 80, 80, "Federfüllung"),
+    new Pillow("Extra Prall", 25, 49.90, 80, 80, "Federfüllung"),
+    new Pillow("Normal Weich", 119, 39, 80, 40, "Synthetikfüllung"),
+    new Pillow("Extra Prall", 120, 39,90, 80, 40, "Synthetikfüllung"),
+    new Pillow("Normal Weich", 121, 49, 80, 80, "Synthetikfüllung"),
+    new Pillow("Extra Prall", 122, 49,90, 80, 80, "Synthetikfüllung")
 ];
 
 // all blanket options
 var blankets = [
-    new Blanket("Ganzjahr", 123, "129", 135, 200, "Federfüllung"),
-    new Blanket("Ganzjahr", 124, "179", 155, 220, "Federfüllung"),
-    new Blanket("Ganzjahr", 216, "169", 155, 220, "Synthetikfüllung"),
-    new Blanket("Ganzjahr", 217, "129", 135, 200, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 123, 129, 135, 200, "Federfüllung"),
+    new Blanket("Ganzjahr", 124, 179, 155, 220, "Federfüllung"),
+    new Blanket("Ganzjahr", 216, 169, 155, 220, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 217, 129, 135, 200, "Synthetikfüllung"),
 ];
 
 // all mattress options
 var mattresses = [
-    new Mattress("DIE MATRATZE 24cm", 23, "298", 70, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 24, "298", 80, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 25, "298", 90, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 26, "339", 100, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 27, "459", 140, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 28, "529", 160, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 29, "599", 180, 200, 24),
-    new Mattress("DIE MATRATZE 24cm", 30, "659", 200, 200, 24),
-    new Mattress("DIE MATRATZE 18cm", 31, "179", 70, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 32, "189", 80, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 33, "198", 90, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 34, "219", 100, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 56, "329", 120, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 35, "339", 140, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 36, "429", 160, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 37, "449", 180, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 38, "499", 200, 200, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße", 39, "198", 80, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Sondergröße", 40, "198", 90, 190, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 41, "299", 90, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 42, "329", 100, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 43, "298", 100, 220, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 44, "549", 200, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 45, "489", 180, 210, 18),
-    new Mattress("DIE MATRATZE 18cm Überlänge", 46, "599", 200, 220, 18),
+    new Mattress("DIE MATRATZE 24cm", 23, 298, 70, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 24, 298, 80, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 25, 298, 90, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 26, 339, 100, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 27, 459, 140, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 28, 529, 160, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 29, 599, 180, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 30, 659, 200, 200, 24),
+    new Mattress("DIE MATRATZE 18cm", 31, 179, 70, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 32, 189, 80, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 33, 198, 90, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 34, 219, 100, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 56, 329, 120, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 35, 339, 140, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 36, 429, 160, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 37, 449, 180, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 38, 499, 200, 200, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 39, 198, 80, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Sondergröße", 40, 198, 90, 190, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 41, 299, 90, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 42, 329, 100, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 43, 298, 100, 220, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 44, 549, 200, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 45, 489, 180, 210, 18),
+    new Mattress("DIE MATRATZE 18cm Überlänge", 46, 599, 200, 220, 18),
 ];
 
 // all topper options
 var toppers = [
     new Topper("Kein Topper"),
-    new Topper("Der Topper", 222, "129", 70, 200),
-    new Topper("Der Topper", 223, "129", 80, 200),
-    new Topper("Der Topper", 224, "129", 90, 200),
-    new Topper("Der Topper", 225, "129", 100, 200),
-    new Topper("Der Topper", 226, "249", 120, 200),
-    new Topper("Der Topper", 227, "249", 140, 200),
-    new Topper("Der Topper", 228, "249", 160, 200),
-    new Topper("Der Topper", 229, "249", 180, 200),
-    new Topper("Der Topper", 230, "249", 200, 200),
+    new Topper("Der Topper", 222, 129, 70, 200),
+    new Topper("Der Topper", 223, 129, 80, 200),
+    new Topper("Der Topper", 224, 129, 90, 200),
+    new Topper("Der Topper", 225, 129, 100, 200),
+    new Topper("Der Topper", 226, 249, 120, 200),
+    new Topper("Der Topper", 227, 249, 140, 200),
+    new Topper("Der Topper", 228, 249, 160, 200),
+    new Topper("Der Topper", 229, 249, 180, 200),
+    new Topper("Der Topper", 230, 249, 200, 200),
 ];
 
 
@@ -357,28 +362,55 @@ function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptio
         decrementItemAmount(3);
     }
 
+    updateCart();
+
+}
+
+
+function updateCart () {
     if (calculatedTopper.name === "Kein Topper") {
         recommendedTopperItem.style.display = "none";
     } else {
         recommendedTopperItem.style.display = "flex";
         recommendedTopperSizeSpan.innerHTML = calculatedTopper.width + "x" + calculatedTopper.length + "cm";
-        recommendedTopperPriceSpan.innerHTML = calculatedTopper.price + "€";
+        if (isFloat(calculatedTopper.price) && topperAmount > 0) {
+            recommendedTopperPriceSpan.innerHTML =  (calculatedTopper.price * topperAmount).toFixed(2).replace(".", ",") + "€";
+        } else {
+            recommendedTopperPriceSpan.innerHTML = calculatedTopper.price * topperAmount + "€";
+        }
     }
 
     recommendedMattressNameSpan.innerHTML = calculatedMattress.height + "cm";
     recommendedMattressSizeSpan.innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
     recommendedMattressSideSpan.innerHTML = recommendedMattressSide;
-    recommendedMattressPriceSpan.innerHTML = calculatedMattress.price + "€";
+    if (isFloat(calculatedMattress.price) && mattressAmount > 0) {
+        recommendedMattressPriceSpan.innerHTML =  (calculatedMattress.price * mattressAmount).toFixed(2).replace(".", ",") + "€";
+    } else {
+        recommendedMattressPriceSpan.innerHTML = calculatedMattress.price * mattressAmount + "€";
+    }
     
     recommendedBlanketNameSpan.innerHTML = calculatedBlanket.name;
     recommendedBlanketSizeSpan.innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
     recommendedBlanketMaterialSpan.innerHTML = calculatedBlanket.material;
-    recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price + "€";
+    if (isFloat(calculatedBlanket.price) && blanketAmount > 0) {
+        recommendedBlanketPriceSpan.innerHTML =  (calculatedBlanket.price * blanketAmount).toFixed(2).replace(".", ",") + "€";
+    } else {
+        recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price * blanketAmount + "€";
+    }
 
     recommendedPillowNameSpan.innerHTML = calculatedPillowOptions[0].name;
     recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
-    recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price + "€";
+    if (isFloat(calculatedPillowOptions[0].price) && pillowAmount > 0) {
+        recommendedPillowPriceSpan.innerHTML =  (calculatedPillowOptions[0].price * pillowAmount).toFixed(2).replace(".", ",") + "€";
+    } else {
+        recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price * pillowAmount + "€";
+    }
+}
+
+
+function isFloat(n) {
+    return n === +n && n !== (n|0);
 }
 
 
@@ -416,10 +448,10 @@ function handleSubmit () {
     let bodyHeight = parseFloat(bodyHeightInput.value.replace(",", "."));
     let bmi = calculateBMI(bodyWeight, bodyHeight);
     let materialPreference = getSelectedRadioButton(materialPreferenceInput).value;
-    let calculatedMattress = calculateMatress(schmerzArt, bedSize, bmi);
-    let calculatedTopper = calculateTopper(schmerzArt, bedSize);
-    let calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition, materialPreference);
-    let calculatedBlanket = calculateBlanket(bodyHeight, materialPreference);
+    calculatedMattress = calculateMatress(schmerzArt, bedSize, bmi);
+    calculatedTopper = calculateTopper(schmerzArt, bedSize);
+    calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition, materialPreference);
+    calculatedBlanket = calculateBlanket(bodyHeight, materialPreference);
     
     createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
     if (!buyButtonEventListener) {
@@ -436,23 +468,6 @@ function calculateBMI (bodyWeight, bodyHeight) {
 
 
 function toggleCartItem (index) {
-    /*
-    switch(index) {
-        case 0:
-            mattressActive = !mattressActive;
-            break;
-        case 1:
-            topperActive = !topperActive;
-
-            break;
-        case 2:
-            pillowActive = !pillowActive;
-            break;
-        case 3:
-            blanketActive = !blanketActive;
-            break;
-        }
-    */
     allCartAddRemoveButtons[index].classList.toggle('bedconfig-add-remove-button-yellow');
     allCartFilters[index].classList.toggle('d-none');
 }
@@ -489,6 +504,7 @@ function incrementItemAmount (index) {
             allCartAddRemoveButtonsInner[index].innerHTML = blanketAmount;
             break;
     }
+    updateCart();
 }
 
 function decrementItemAmount (index) {
@@ -522,6 +538,7 @@ function decrementItemAmount (index) {
             allCartAddRemoveButtonsInner[index].innerHTML = blanketAmount;
             break;
     }
+    updateCart();
 }
 
 
