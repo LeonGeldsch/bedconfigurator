@@ -89,10 +89,28 @@ const recommendedPillowItem = allCartItems[2];
 
 const recommendedBlanketItem = allCartItems[3];
 
+const allInfoContainers = document.querySelectorAll('.bedconfig-info-container');
+const allInfoCloseButtons = document.querySelectorAll('.bedconfig-info-close-button');
+const allInfoOpenButtons = document.querySelectorAll('.bedconfig-info-open-button');
+
+const bmiBelow24Text = document.querySelector('#bmi-below-24-text');
+const bmiAbove24Text = document.querySelector('#bmi-above-24-text');
+const hardSideText = document.querySelector('#hard-side-text');
+const softSideText = document.querySelector('#soft-side-text');
+
+const bigPillowText = document.querySelector('#big-pillow-text');
+const smallPillowText = document.querySelector('#small-pillow-text');
+const hardPillowText = document.querySelector('#hard-pillow-text');
+const softPillowText = document.querySelector('#soft-pillow-text');
+const syntheticPillowText = document.querySelector('#synthetic-pillow-text');
+const naturalPillowText = document.querySelector('#natural-pillow-text');
+
 var calculatedMattress;
 var calculatedTopper;
 var calculatedPillowOptions;
 var calculatedBlanket;
+
+var bmi;
 
 var currentSite = 0;
 
@@ -380,6 +398,46 @@ function updateCart () {
         }
     }
 
+    if (bmi >= 24) {
+        bmiBelow24Text.classList.add('d-none');
+        bmiAbove24Text.classList.remove('d-none');
+    } else {
+        bmiBelow24Text.classList.remove('d-none');
+        bmiAbove24Text.classList.add('d-none');
+    }
+
+    if (recommendedMattressSide === "Festere Seite (H4)") {
+        hardSideText.classList.remove('d-none');
+        softSideText.classList.add('d-none');
+    } else {
+        hardSideText.classList.add('d-none');
+        softSideText.classList.remove('d-none');
+    }
+
+    if (recommendedPillowItem.length === 40) {
+        smallPillowText.classList.remove('d-none');
+        bigPillowText.classList.add('d-none');
+    } else {
+        smallPillowText.classList.add('d-none');
+        bigPillowText.classList.remove('d-none');
+    }
+
+    if (calculatedPillowOptions[0].name === "Extra Prall") {
+        hardPillowText.classList.remove('d-none');
+        softPillowText.classList.add('d-none');
+    } else {
+        hardPillowText.classList.add('d-none');
+        softPillowText.classList.remove('d-none');
+    }
+
+    if (calculatedPillowOptions[0].material === "Federfüllung") {
+        syntheticPillowText.classList.add('d-none');
+        naturalPillowText.classList.remove('d-none');
+    } else {
+        syntheticPillowText.classList.remove('d-none');
+        naturalPillowText.classList.add('d-none');
+    }
+
     recommendedMattressNameSpan.innerHTML = calculatedMattress.height + "cm";
     recommendedMattressSizeSpan.innerHTML = calculatedMattress.width + "x" + calculatedMattress.length + "cm";
     recommendedMattressSideSpan.innerHTML = recommendedMattressSide;
@@ -446,7 +504,7 @@ function handleSubmit () {
     let bedSize = bedSizeInput.value;
     let bodyWeight = parseFloat(bodyWeightInput.value.replace(",", "."));
     let bodyHeight = parseFloat(bodyHeightInput.value.replace(",", "."));
-    let bmi = calculateBMI(bodyWeight, bodyHeight);
+    bmi = calculateBMI(bodyWeight, bodyHeight);
     let materialPreference = getSelectedRadioButton(materialPreferenceInput).value;
     calculatedMattress = calculateMatress(schmerzArt, bedSize, bmi);
     calculatedTopper = calculateTopper(schmerzArt, bedSize);
@@ -566,6 +624,15 @@ function animateErrorIn(error) {
     }, 10);
 }
 
+/*
+function animateElementIn (element) {
+    element.classList.add('d-none');
+    element.classList.add('position-fixed');
+    element.classList.add('h-0');
+    error.style.height = "auto";
+}
+*/
+
 
 function isNumber(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -649,6 +716,20 @@ function validatePainAreaInput () {
     }
 }
 
+
+for (let i = 0; i < allInfoOpenButtons.length; i++) {
+    allInfoOpenButtons[i].addEventListener('click', () => {
+        allInfoContainers[i].classList.remove('bedconfig-closed');
+        allInfoOpenButtons[i].classList.add('bedconfig-opacity-0');
+    });
+}
+
+for (let i = 0; i < allInfoCloseButtons.length; i++) {
+    allInfoCloseButtons[i].addEventListener('click', () => {
+        allInfoContainers[i].classList.add('bedconfig-closed');
+        allInfoOpenButtons[i].classList.remove('bedconfig-opacity-0');
+    });
+}
 
 /*
  * -------------------------- EVENT LISTENERS --------------------------------

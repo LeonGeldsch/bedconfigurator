@@ -94,10 +94,6 @@
     font-size: 1.3rem
 }
 
-.bedconfigurator-wrapper p {
-    color: inherit;
-    line-height: 2rem;
-}
 
 .bedconfig-container {
     display: none;
@@ -286,6 +282,29 @@
 
 .bedconfig-add-remove-button-yellow {
     background-color: #feb904;
+}
+
+.bedconfig-info-button {
+    color: #feb904;
+    cursor: pointer;
+    line-height: 0;
+    transition: all ease-in-out 0.3s;
+}
+
+.bedconfig-opacity-0 {
+    opacity: 0;
+    cursor: default;
+}
+
+.bedconfig-info-container {
+    overflow: hidden;
+    max-height: 800px;
+    height: auto;
+    transition: max-height ease-in-out 0.3s;
+}
+
+.bedconfig-closed {
+    max-height: 0px;
 }
 
 .bedconfig-add-remove-button-inner {
