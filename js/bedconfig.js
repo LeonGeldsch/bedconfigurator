@@ -217,8 +217,8 @@ var mattresses = [
     new Mattress("DIE MATRATZE 24cm Überlänge", 52, 759, 200, 210, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 51, 439, 100, 220, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 54, 759, 200, 220, 24),
-    // new Mattress("DIE MATRATZE 24cm Überlänge", id, 559, 140, 220, 24),
-    // new Mattress("DIE MATRATZE 24cm Überlänge", id, 559, 140, 210, 24),
+    new Mattress("DIE MATRATZE 24cm Überlänge", 60, 559, 140, 220, 24),
+    new Mattress("DIE MATRATZE 24cm Überlänge", 59, 559, 140, 210, 24),
 
     new Mattress("DIE MATRATZE 18cm", 31, 179, 70, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 32, 189, 80, 200, 18),
