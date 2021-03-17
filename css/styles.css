@@ -315,8 +315,8 @@
 }
 
 .bedconfig-add-remove-button img {
-    width: 20px;
-    margin: 5px;
+    width: 30px;
+    padding: 2px;
     transition: all ease-in-out 0.2s;
     cursor: pointer;
 }
