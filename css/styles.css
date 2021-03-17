@@ -245,6 +245,27 @@
     overflow: hidden;
 }
 
+.bedconfig-cart-item.bedconfig-cart-item-disabled > div.bedconfig-cart-item-info {
+    opacity: 0.2;
+}
+.bedconfig-cart-item.bedconfig-cart-item-disabled > div.bedconfig-image-container {
+    opacity: 0.2;
+}
+.bedconfig-cart-item.bedconfig-cart-item-disabled > div.bedconfig-cart-amount-container {
+    background: rgba(255,255,255,0.2) !important;
+}
+
+.bedconfig-cart-item.bedconfig-cart-item-disabled span.bedconfig-cart-item-price {
+    opacity: 0.2;
+}
+
+/*color: rgba(34, 38, 57, 0.2);*/
+
+
+.bedconfig-cart-item.bedconfig-cart-item-disabled {
+    border-color: rgba(255,255,255,0.2) !important;
+}
+
 .bedconfig-cart-item-filter {
     width: 100%;
     height: calc(100% - 2rem);

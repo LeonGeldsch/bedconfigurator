@@ -528,7 +528,7 @@ function calculateBMI (bodyWeight, bodyHeight) {
 
 function toggleCartItem (index) {
     allCartAddRemoveButtons[index].classList.toggle('bedconfig-add-remove-button-yellow');
-    allCartFilters[index].classList.toggle('d-none');
+    allCartItems[index].classList.toggle('bedconfig-cart-item-disabled');
 }
 
 
