@@ -398,7 +398,7 @@ function updateCart () {
         }
     }
 
-    if (bmi >= 24) {
+    if (calculatedMattress.height === 24) {
         bmiBelow24Text.classList.add('d-none');
         bmiAbove24Text.classList.remove('d-none');
     } else {

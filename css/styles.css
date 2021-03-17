@@ -287,7 +287,6 @@
 .bedconfig-info-button {
     color: #feb904;
     cursor: pointer;
-    line-height: 0;
     transition: all ease-in-out 0.3s;
 }
 
@@ -298,9 +297,9 @@
 
 .bedconfig-info-container {
     overflow: hidden;
-    max-height: 800px;
+    max-height: 1000px;
     height: auto;
-    transition: max-height ease-in-out 0.3s;
+    transition: max-height ease-in-out 0.5s;
 }
 
 .bedconfig-closed {
