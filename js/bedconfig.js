@@ -204,6 +204,7 @@ var mattresses = [
     new Mattress("DIE MATRATZE 24cm", 24, 298, 80, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 25, 298, 90, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 26, 339, 100, 200, 24),
+    new Mattress("DIE MATRATZE 24cm", 57, 399, 120, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 27, 459, 140, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 28, 529, 160, 200, 24),
     new Mattress("DIE MATRATZE 24cm", 29, 599, 180, 200, 24),
