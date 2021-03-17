@@ -93,6 +93,7 @@ const allInfoContainers = document.querySelectorAll('.bedconfig-info-container')
 const allInfoCloseButtons = document.querySelectorAll('.bedconfig-info-close-button');
 const allInfoOpenButtons = document.querySelectorAll('.bedconfig-info-open-button');
 
+const bmiTitle = document.querySelector('#bmi-title');
 const bmiBelow24Text = document.querySelector('#bmi-below-24-text');
 const bmiAbove24Text = document.querySelector('#bmi-above-24-text');
 const hardSideText = document.querySelector('#hard-side-text');
@@ -410,14 +411,21 @@ function updateCart () {
         }
     }
 
-    if (calculatedMattress.height === 24) {
+    if (calculatedMattress.height === 24 && bmi <= 24) {
+        bmiTitle.classList.add('d-none');
+        bmiBelow24Text.classList.add('d-none');
+        bmiAbove24Text.classList.add('d-none');
+    } else if (calculatedMattress.height === 24) {
+        bmiTitle.classList.remove('d-none');
         bmiBelow24Text.classList.add('d-none');
         bmiAbove24Text.classList.remove('d-none');
     } else {
+        bmiTitle.classList.remove('d-none');
         bmiBelow24Text.classList.remove('d-none');
         bmiAbove24Text.classList.add('d-none');
     }
 
+    
     if (recommendedMattressSide === "Festere Seite (H4)") {
         hardSideText.classList.remove('d-none');
         softSideText.classList.add('d-none');
