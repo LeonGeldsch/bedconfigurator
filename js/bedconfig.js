@@ -644,7 +644,7 @@ function validateBodyHeightInput () {
     if (isNumber(bodyHeightInput.value) || (isNumber(bodyHeightInput.value.substring(-1, bodyHeightInput.value.length - 2)) && bodyHeightInput.value.slice(-2) === "cm")) {
         bodyHeightInput.classList.remove("is-invalid");
         bodyHeightInput.classList.add("is-valid");
-        bodyHeightInputError.style.height = "0";
+        bodyHeightInputError.classList.add('bedconfig-input-error-disabled');
         if (bodyHeightInput.value.slice(-2) != "cm") {
             bodyHeightInput.value = bodyHeightInput.value + "cm";
         }
@@ -652,9 +652,7 @@ function validateBodyHeightInput () {
     } else {
         bodyHeightInput.classList.remove("is-valid");
         bodyHeightInput.classList.add("is-invalid");
-        if (bodyHeightInputError.style.height === "0px" || bodyHeightInputError.style.height == 0) {
-            animateErrorIn(bodyHeightInputError);
-        }
+        bodyHeightInputError.classList.remove('bedconfig-input-error-disabled');
         return false;
     }
 }
@@ -662,7 +660,7 @@ function validateBodyWeightInput () {
     if (isNumber(bodyWeightInput.value.replace(",", ".")) || (isNumber(bodyWeightInput.value.replace(",", ".").substring(-1, bodyWeightInput.value.length - 2)) && bodyWeightInput.value.slice(-2) === "kg")) {
         bodyWeightInput.classList.remove("is-invalid");
         bodyWeightInput.classList.add("is-valid");
-        bodyWeightInputError.style.height = "0";
+        bodyWeightInputError.classList.add('bedconfig-input-error-disabled');
         if (bodyWeightInput.value.slice(-2) != "kg") {
             bodyWeightInput.value = bodyWeightInput.value + "kg";
         }
@@ -670,9 +668,7 @@ function validateBodyWeightInput () {
     } else {
         bodyWeightInput.classList.remove("is-valid");
         bodyWeightInput.classList.add("is-invalid");
-        if (bodyWeightInputError.style.height === "0px" || bodyWeightInputError.style.height == 0) {
-            animateErrorIn(bodyWeightInputError);
-        }
+        bodyWeightInputError.classList.remove('bedconfig-input-error-disabled');
         return false;
     }
 }
@@ -687,14 +683,12 @@ function validateBodyIndexInput () {
 
 function validateBedSizeInput () {
     if (bedSizeInput.value != "") {
-        bedSizeInputError.style.height = "0";
+        bedSizeInputError.classList.add('bedconfig-input-error-disabled');
         bedSizeInput.classList.remove("is-invalid");
         bedSizeInput.classList.add("is-valid");
         return true;
     } else {
-        if (bedSizeInputError.style.height === "0px" || bedSizeInputError.style.height == 0) {
-            animateErrorIn(bedSizeInputError);
-        }
+        bedSizeInputError.classList.remove('bedconfig-input-error-disabled');
         bedSizeInput.classList.remove("is-valid");
         bedSizeInput.classList.add("is-invalid");
         return false;
@@ -703,14 +697,12 @@ function validateBedSizeInput () {
 
 function validatePainAreaInput () {
     if (painAreaInput.value != "" || getSelectedRadioButton(painTypeInput).value == "kein") {
-        painAreaInputError.style.height = "0";
+        painAreaInputError.classList.add('bedconfig-input-error-disabled');
         painAreaInput.classList.remove("is-invalid");
         painAreaInput.classList.add("is-valid");
         return true;
     } else {
-        if (painAreaInputError.style.height === "0px" || painAreaInputError.style.height == 0) {
-            animateErrorIn(painAreaInputError);
-        }
+        painAreaInputError.classList.remove('bedconfig-input-error-disabled');
         painAreaInput.classList.remove("is-valid");
         painAreaInput.classList.add("is-invalid");
         return false;
