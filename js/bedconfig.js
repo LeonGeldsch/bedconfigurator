@@ -1,19 +1,3 @@
-/*
- * BUGS: -not all mattresses available in 24 and 18cm height
- *
- * 
- * Questions: - What side is recommended when there is no pain?
- *            - What mattress is recommended when there is only a 24cm version but you need the 18cm one? e.g. bedSize 80x200cm 
- *            - How are the pillow options gonna be displayed if there are multiple ones?
- *            - Was soll die Festigkeit bei dem Topper?
- * 
- * 
- *  Was noch fehlt: - Validation auf dem Inputs
- *                  - add to cart
- *                  - amount select
- * 
- */
-
 const backgroundDiv = document.querySelector('.bedconfig-background');
 
 const closeButton = document.querySelector('.bedconfig-close-button');
@@ -59,8 +43,6 @@ const allCartAddRemoveButtonsInner = document.querySelectorAll('.bedconfig-add-r
 
 const allCartFilters = document.querySelectorAll('.bedconfig-cart-item-filter');
 
-const recommendedMattressItem = allCartItems[0];
-
 const recommendedMattressNameSpan = document.querySelector('#mattress-name-span');
 const recommendedMattressSizeSpan = document.querySelector('#mattress-size-span');
 const recommendedMattressSideSpan = document.querySelector('#mattress-side-span');
@@ -82,12 +64,23 @@ const recommendedBlanketSizeSpan = document.querySelector('#blanket-size-span');
 const recommendedBlanketMaterialSpan = document.querySelector('#blanket-material-span');
 const recommendedBlanketPriceSpan = document.querySelector('#blanket-price-span');
 
+const recommendedPillowCaseSpan = document.querySelector('#pillow-case-span');
+const recommendedDuvetCoverSpan = document.querySelector('#duvet-cover-span');
+const recommendedBedSheetSpan = document.querySelector('#bed-sheet-span');
+const recommendedBedlinenPriceSpan = document.querySelector('#bedlinen-price-span');
+
+
+
+
+const recommendedMattressItem = allCartItems[0];
 
 const recommendedTopperItem = allCartItems[1];
 
 const recommendedPillowItem = allCartItems[2];
 
 const recommendedBlanketItem = allCartItems[3];
+
+const recommendedBedLinenItem = allCartItems[4];
 
 const allInfoContainers = document.querySelectorAll('.bedconfig-info-container');
 const allInfoCloseButtons = document.querySelectorAll('.bedconfig-info-close-button');
@@ -110,6 +103,11 @@ var calculatedMattress;
 var calculatedTopper;
 var calculatedPillowOptions;
 var calculatedBlanket;
+var calculatedBedLinen = {
+    pillowCase: "",
+    duvetCover: "",
+    bedSheet: ""
+};
 
 var bmi;
 
@@ -125,11 +123,13 @@ var mattressActive = true;
 var topperActive = true;
 var pillowActive = true;
 var blanketActive = true;
+var bedLinenActive = true;
 
 var mattressAmount = 1;
 var topperAmount = 1;
 var pillowAmount = 1;
 var blanketAmount = 1;
+var bedLinenAmount = 1;
 
 
 class Pillow {
@@ -179,6 +179,34 @@ class Topper {
     }
 }
 
+class BedLinen {
+    constructor(name, sizeId, price, width, length) {
+        this.name = name;
+        this.sizeId = sizeId;
+        this.id = 65;
+        this.price = price;
+        this.width = width;
+        this.length = length;
+    }
+}
+
+
+// all bed linen options
+var bedLinen = [
+    new BedLinen("2er Set Kissenbezug", 265, 59, 40, 80),
+    new BedLinen("2er Set Kissenbezug", 266, 69, 80, 80),
+    new BedLinen("2er Set Bettdeckenbezug", 267, 129, 135, 200),
+    new BedLinen("2er Set Bettdeckenbezug", 268, 139, 155, 200),
+    new BedLinen("2er Set Spannbettlaken", 269, 84, 70, 200),
+    new BedLinen("2er Set Spannbettlaken", 269, 84, 80, 200),
+    new BedLinen("2er Set Spannbettlaken", 270, 89, 90, 200),
+    new BedLinen("2er Set Spannbettlaken", 270, 89, 100, 200),
+    new BedLinen("2er Set Spannbettlaken", 271, 99, 120, 200),
+    new BedLinen("2er Set Spannbettlaken", 271, 99, 140, 200),
+    new BedLinen("2er Set Spannbettlaken", 272, 109, 160, 200),
+    new BedLinen("2er Set Spannbettlaken", 272, 109, 180, 200),
+]
+
 // all pillow options
 var pillows = [
     new Pillow("Normal Weich", 22, 39, 80, 40, "Federfüllung"),
@@ -186,9 +214,9 @@ var pillows = [
     new Pillow("Normal Weich", 24, 49, 80, 80, "Federfüllung"),
     new Pillow("Extra Prall", 25, 49.90, 80, 80, "Federfüllung"),
     new Pillow("Normal Weich", 119, 39, 80, 40, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 120, 39,90, 80, 40, "Synthetikfüllung"),
+    new Pillow("Extra Prall", 120, 39.90, 80, 40, "Synthetikfüllung"),
     new Pillow("Normal Weich", 121, 49, 80, 80, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 122, 49,90, 80, 80, "Synthetikfüllung")
+    new Pillow("Extra Prall", 122, 49.90, 80, 80, "Synthetikfüllung")
 ];
 
 // all blanket options
@@ -362,6 +390,40 @@ function calculateBlanket (bodyHeight, materialPreference) {
     }
 }
 
+function calculateBedLinen (calculatedMattress, calculatedPillowOptions, calculatedBlanket) {
+
+    let calculatedPillow = calculatedPillowOptions[0];
+    let closestDuvetCoverWidth = closest(calculatedMattress.width, [70, 80, 90, 100, 120, 140, 160, 180]);
+
+    if (calculatedBlanket.width === 135) {
+        calculatedBedLinen.duvetCover = bedLinen.find(element => element.width === 135 && element.name === "2er Set Bettdeckenbezug");
+    }
+    if (calculatedBlanket.width === 155) {
+        calculatedBedLinen.duvetCover = bedLinen.find(element => element.width === 155 && element.name === "2er Set Bettdeckenbezug");
+    }
+
+    if (calculatedPillow.width === 40) {
+        calculatedBedLinen.pillowCase = bedLinen.find(element => element.width === 40 && element.name === "2er Set Kissenbezug");
+    }
+    if (calculatedPillow.width === 80) {
+        calculatedBedLinen.pillowCase = bedLinen.find(element => element.width === 80 && element.name === "2er Set Kissenbezug");
+    }
+
+    calculatedBedLinen.bedSheet = bedLinen.find(element => element.width === closestDuvetCoverWidth && element.name === "2er Set Spannbettlaken")
+}
+
+function closest (num, arr) {
+    var curr = arr[0];
+    var diff = Math.abs (num - curr);
+    for (var val = 0; val < arr.length; val++) {
+        var newdiff = Math.abs (num - arr[val]);
+        if (newdiff < diff) {
+            diff = newdiff;
+            curr = arr[val];
+        }
+    }
+    return curr;
+}
 
 function createCart (calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket) {
 
@@ -484,6 +546,11 @@ function updateCart () {
     } else {
         recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price * pillowAmount + "€";
     }
+
+    recommendedBedSheetSpan.innerHTML = calculatedBedLinen.bedSheet.name;
+    recommendedPillowCaseSpan.innerHTML = calculatedBedLinen.pillowCase.name;
+    recommendedDuvetCoverSpan.innerHTML = calculatedBedLinen.duvetCover.name;
+    recommendedBedlinenPriceSpan.innerHTML = (calculatedBedLinen.bedSheet.price + calculatedBedLinen.pillowCase.price + calculatedBedLinen.duvetCover.price) * bedLinenAmount + "€";
 }
 
 
@@ -502,8 +569,12 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
     if (topperAmount != 0 && calculatedTopper.name != "Kein Topper") addToCartLink += "-" + calculatedTopper.id + "_" + topperAmount + "_" + calculatedTopper.sizeId;
     if (pillowAmount != 0) addToCartLink += "-" + calculatedPillow.id + "_" + pillowAmount + "_" + calculatedPillow.sizeId;
     if (blanketAmount != 0) addToCartLink += "-" + calculatedBlanket.id + "_" + blanketAmount + "_" + calculatedBlanket.sizeId;
-    window.location.href = addToCartLink;
-    //console.log(addToCartLink);
+    if (bedLinenAmount != 0) addToCartLink += "-" + calculatedBedLinen.bedSheet.id + "_" + bedLinenAmount + "_" + calculatedBedLinen.bedSheet.sizeId;
+    if (bedLinenAmount != 0) addToCartLink += "-" + calculatedBedLinen.duvetCover.id + "_" + bedLinenAmount + "_" + calculatedBedLinen.duvetCover.sizeId;
+    if (bedLinenAmount != 0) addToCartLink += "-" + calculatedBedLinen.pillowCase.id + "_" + bedLinenAmount + "_" + calculatedBedLinen.pillowCase.sizeId;
+
+    //window.location.href = addToCartLink;
+    console.log(addToCartLink);
 }
 
 
@@ -530,8 +601,10 @@ function handleSubmit () {
     calculatedTopper = calculateTopper(schmerzArt, bedSize);
     calculatedPillowOptions = calculatePillow(schmerzArt, schmerzBereich, schlafposition, materialPreference);
     calculatedBlanket = calculateBlanket(bodyHeight, materialPreference);
+
+    calculateBedLinen(calculatedMattress, calculatedPillowOptions, calculatedBlanket);
     
-    createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket);
+    createCart(calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket, calculatedBedLinen);
     if (!buyButtonEventListener) {
         buyButton.addEventListener('click', buyItems.bind(event, calculatedMattress, calculatedTopper, calculatedPillowOptions, calculatedBlanket));
         buyButtonEventListener = true;
@@ -581,6 +654,13 @@ function incrementItemAmount (index) {
             }
             allCartAddRemoveButtonsInner[index].innerHTML = blanketAmount;
             break;
+        case 4:
+            bedLinenAmount++;
+            if (bedLinenAmount === 1) {
+                toggleCartItem(index);
+            }
+            allCartAddRemoveButtonsInner[index].innerHTML = bedLinenAmount;
+            break;
     }
     updateCart();
 }
@@ -614,6 +694,13 @@ function decrementItemAmount (index) {
             }
             if (blanketAmount > 0) blanketAmount--;
             allCartAddRemoveButtonsInner[index].innerHTML = blanketAmount;
+            break;
+        case 4:
+            if (bedLinenAmount === 1) {
+                toggleCartItem(index);
+            }
+            if (bedLinenAmount > 0) bedLinenAmount--;
+            allCartAddRemoveButtonsInner[index].innerHTML = bedLinenAmount;
             break;
     }
     updateCart();
