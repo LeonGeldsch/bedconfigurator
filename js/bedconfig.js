@@ -547,9 +547,9 @@ function updateCart () {
         recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price * pillowAmount + "€";
     }
 
-    recommendedBedSheetSpan.innerHTML = calculatedBedLinen.bedSheet.name;
-    recommendedPillowCaseSpan.innerHTML = calculatedBedLinen.pillowCase.name;
-    recommendedDuvetCoverSpan.innerHTML = calculatedBedLinen.duvetCover.name;
+    recommendedBedSheetSpan.innerHTML = calculatedBedLinen.bedSheet.name + " " + calculatedBedLinen.bedSheet.width + "x" + calculatedBedLinen.bedSheet.length + "cm";
+    recommendedPillowCaseSpan.innerHTML = calculatedBedLinen.pillowCase.name + " " + calculatedBedLinen.pillowCase.width + "x" + calculatedBedLinen.pillowCase.length + "cm";
+    recommendedDuvetCoverSpan.innerHTML = calculatedBedLinen.duvetCover.name + " " + calculatedBedLinen.duvetCover.width + "x" + calculatedBedLinen.duvetCover.length + "cm";
     recommendedBedlinenPriceSpan.innerHTML = (calculatedBedLinen.bedSheet.price + calculatedBedLinen.pillowCase.price + calculatedBedLinen.duvetCover.price) * bedLinenAmount + "€";
 }
 
