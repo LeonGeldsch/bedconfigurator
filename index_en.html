@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Betten Konfigurator</title>
+    <title>Weltbett Configurator</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
@@ -19,20 +19,20 @@
 
         <div class="bedconfig-container bedconfig-container-big" id="bedconfig-page-0">
             <div class="container text-center flex-column">
-                <h1>DER <br>WELTBETT-BERATER</h1>
+                <h1>Configure your own WELTBETT</h1>
                 <div class="bedconfig-text-wrapper container">
                     <p>
-                        Welche Produkte sind perfekt für mich?
+                        Which products are perfect for me?
                     </p>
                 </div>
                 <div class="container col-md-8 col-sm-8 col-10 mt-5">
-                    <a class="btn bedconfig-button bedconfig-next-button py-3">Los geht's</a>
+                    <a class="btn bedconfig-button bedconfig-next-button py-3">Go !</a>
                 </div>
             </div>
         </div>
 
         <div class="bedconfig-container container text-center row p-sm-5 p-2" id="bedconfig-page-1">
-            <h1>DER <br>WELTBETT-BERATER</h1>
+            <h1>Configure your own WELTBETT</h1>
             <div class="bedconfig-index my-4 ">
                 <div class="bedconfig-index-number bedconfig-index-number-active">
                     <div class="bedconfig-index-number-inner">1</div>
@@ -47,33 +47,33 @@
                 </div>            
             </div>
             <div class="bedconfig-input-wrapper container lightblue p-sm-5 px-4 py-5">
-                <label class="bedconfig-label" for="height">Körpergröße:</label>
-                <input class="form-control bedconfig-input py-2 px-4" type="text" name="height" id="bedconfig-height-input" placeholder="Angabe in cm">
+                <label class="bedconfig-label" for="height">Height:</label>
+                <input class="form-control bedconfig-input py-2 px-4" type="text" name="height" id="bedconfig-height-input" placeholder="input in cm">
                     <div id="bedconfig-height-input-error" class="bedconfig-input-error bedconfig-input-error-disabled">
-                        Bitte gib deine Körpergröße in cm an. Z.B. 175 für 1 Meter und 75 Zentimeter.
-                    </div>  
+                        Please enter your height in cm, for example 175 for 1 meter and 75 cm.
+                    </div>
                 </input>
                 <label class="bedconfig-label mt-4" for="weight">Gewicht:</label>
-                <input class="form-control bedconfig-input py-2 px-4" type="text" name="weight" id="bedconfig-weight-input" placeholder="Angabe in kg">
+                <input class="form-control bedconfig-input py-2 px-4" type="text" name="weight" id="bedconfig-weight-input" placeholder="input in kg">
                     <div id="bedconfig-weight-input-error" class="bedconfig-input-error bedconfig-input-error-disabled">
-                        Bitte gib dein Gewicht in Kilogramm an. Z.B. 75 für 75 Kilogramm.
+                        Please enter your weight in kg, for example 75 for 75 kg.
                     </div>
                 </input>
             </div>
             <div class="container-fluid mt-md-5 mt-4">
                 <div class="row">
                     <div class="col-6 pl-0">
-                        <a class="btn bedconfig-button bedconfig-back-button py-3">zurück</a>
+                        <a class="btn bedconfig-button bedconfig-back-button py-3">back</a>
                     </div>
                     <div class="col-6 pr-0">
-                        <a class="btn bedconfig-button bedconfig-next-button py-3">weiter</a>
+                        <a class="btn bedconfig-button bedconfig-next-button py-3">next</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="bedconfig-container container text-center p-sm-5 p-2" id="bedconfig-page-2">
-            <h1>DER <br>WELTBETT-BERATER</h1>
+            <h1>Configure your own WELTBETT</h1>
             <div class="bedconfig-index my-4 ">
                 <div class="bedconfig-index-number bedconfig-index-number-done">
                     <div class="bedconfig-index-number-inner">
@@ -90,9 +90,9 @@
                 </div>            
             </div>
             <div class="bedconfig-input-wrapper container lightblue p-sm-5 p-4">
-                <label class="bedconfig-label">Die Größe Deines Bettes</label>
+                <label class="bedconfig-label">Size of your bed:</label>
                 <select class="bedconfig-select custom-select py-2 px-4" id="bedconfig-bed-size-input">
-                    <option value="" selected>Größe auswählen</option>
+                    <option value="" selected>Choose size</option>
                     <option value="70x200cm">70x200cm</option>
                     <option value="80x200cm">80x200cm</option>
                     <option value="90x200cm">90x200cm</option>
@@ -114,49 +114,49 @@
                     <option value="200x220cm">200x220cm</option>
                 </select>
                 <div id="bedconfig-bed-size-input-error" class="bedconfig-input-error bedconfig-input-error-disabled">
-                    Bitte wähle die Größe deines Bettes aus.
+                    Please choose the size of your bed.
                 </div>
-                <label class="bedconfig-label mt-4">Deine Einschlafposition</label>
+                <label class="bedconfig-label mt-4">How do you fall asleep?</label>
                 <div class="bedconfig-radio-wrapper justify-content-between flex-column flex-sm-row">
                     <label class="bedconfig-radio-label">
                         <input type="radio" id="bedconfig-sleeping-position-input" name="sleepingposition" class="bedconfig-radio-button" value="rueckenschlaefer" checked="checked">
-                        <span class="bedconfig-radio-span">Rücken</span>
+                        <span class="bedconfig-radio-span">back</span>
                     </label>
                     <label class="bedconfig-radio-label mx-sm-2">
                         <input type="radio" id="bedconfig-sleeping-position-input" name="sleepingposition" class="bedconfig-radio-button" value="bauchschlaefer">
-                        <span class="bedconfig-radio-span">Bauch</span>
+                        <span class="bedconfig-radio-span">tummy</span>
                     </label>
                     <label class="bedconfig-radio-label">
                         <input type="radio" id="bedconfig-sleeping-position-input" name="sleepingposition" class="bedconfig-radio-button" value="seitenschlaefer">
-                        <span class="bedconfig-radio-span">Seite</span>
+                        <span class="bedconfig-radio-span">side</span>
                     </label>
                 </div>
-                <label class="bedconfig-label mt-4">Bevorzugte Füllung</label>
+                <label class="bedconfig-label mt-4">preferred filling material:</label>
                 <div class="bedconfig-radio-wrapper justify-content-between">
                     <label class="bedconfig-radio-label mr-1">
                         <input type="radio" id="bedconfig-material-preference-input" name="material-preference" class="bedconfig-radio-button" value="federn" checked="checked">
-                        <span class="bedconfig-radio-span">Natürlich</span>
+                        <span class="bedconfig-radio-span">natural</span>
                     </label>
                     <label class="bedconfig-radio-label ml-1">
                         <input type="radio" id="bedconfig-material-preference-input" name="material-preference" class="bedconfig-radio-button" value="synthetik">
-                        <span class="bedconfig-radio-span">Synthetisch</span>
+                        <span class="bedconfig-radio-span">synthetic</span>
                     </label>
                 </div>
             </div>
             <div class="container-fluid mt-md-5 mt-4">
                 <div class="row">
                     <div class="col-6 pl-0">
-                        <a class="btn bedconfig-button bedconfig-back-button py-3">zurück</a>
+                        <a class="btn bedconfig-button bedconfig-back-button py-3">back</a>
                     </div>
                     <div class="col-6 pr-0">
-                        <a class="btn bedconfig-button bedconfig-next-button py-3">weiter</a>
+                        <a class="btn bedconfig-button bedconfig-next-button py-3">next</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="bedconfig-container container text-center p-sm-5 p-2" id="bedconfig-page-3">
-            <h1>DER <br>WELTBETT-BERATER</h1>
+            <h1>Configure your own WELTBETT</h1>
             <div class="bedconfig-index my-4 ">
                 <div class="bedconfig-index-number bedconfig-index-number-done">
                     <div class="bedconfig-index-number-inner">
@@ -175,45 +175,45 @@
                 </div>            
             </div>
             <div class="bedconfig-input-wrapper container lightblue p-sm-5 px-4 py-5">
-                <label class="bedconfig-label">Hast Du Schmerzen beim Schlafen? Wenn ja welche</label>
+                <label class="bedconfig-label">Do you experience back pain in bed?</br>If so, what kind?</label>
                 <div class="bedconfig-radio-wrapper flex-column flex-sm-row">
                     <label class="bedconfig-radio-label">
                         <input type="radio" name="pain" id="bedconfig-pain-type-input" class="bedconfig-radio-button" checked="checked" value="kein">
-                        <span class="bedconfig-radio-span">Keine</span>
+                        <span class="bedconfig-radio-span">none</span>
                     </label>
                     <label class="bedconfig-radio-label mx-sm-2">
                         <input type="radio" name="pain" id="bedconfig-pain-type-input" class="bedconfig-radio-button" value="druckschmerz">
-                        <span class="bedconfig-radio-span">Druck</span>
+                        <span class="bedconfig-radio-span">Pressure</span>
                     </label>
                     <label class="bedconfig-radio-label">
                         <input type="radio" name="pain" id="bedconfig-pain-type-input" class="bedconfig-radio-button" value="verspannung">
-                        <span class="bedconfig-radio-span">Verspannung</span>
+                        <span class="bedconfig-radio-span">Tension</span>
                     </label>
                 </div>
-                <label class="bedconfig-label bedconfig-label-disabled mt-4">In welchem Bereich verspürst Du Schmerzen?</label>
+                <label class="bedconfig-label bedconfig-label-disabled mt-4">Where do you experience the pain?</label>
                 <select class="bedconfig-select bedconfig-select-disabled custom-select py-2 px-4" id="bedconfig-pain-area-input" disabled>
-                    <option value="" selected>Bereich auswählen</option>
-                    <option value="lordose-huefte">Lordose / Hüfte</option>
-                    <option value="nacken-schulter">Nacken / Schulter</option>
+                    <option value="" selected>Choose location</option>
+                    <option value="lordose-huefte">Hip / lower back</option>
+                    <option value="nacken-schulter">Neck / shoulders</option>
                 </select>
                 <div id="bedconfig-pain-area-input-error" class="bedconfig-input-error bedconfig-input-error-disabled">
-                    Bitte wähle den Bereich des Schmerzes aus.
+                    Choose the points where you experience the pain.
                 </div>
             </div>
             <div class="container-fluid mt-md-5 mt-4">
                 <div class="row">
                     <div class="col-6 pl-0">
-                        <a class="btn bedconfig-button bedconfig-back-button py-3">zurück</a>
+                        <a class="btn bedconfig-button bedconfig-back-button py-3">back</a>
                     </div>
                     <div class="col-6 pr-0">
-                        <a class="btn bedconfig-button bedconfig-next-button py-3 px-0">Fertigstellen</a>
+                        <a class="btn bedconfig-button bedconfig-next-button py-3 px-0">finish</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="bedconfig-container bedconfig-container-big container" id="bedconfig-page-4">
-            <h1 class="text-center text-break mx-0">Deine perfekte Schlafausstattung</h1>
+            <h1 class="text-center text-break mx-0">Your perfect WELTBETT</h1>
             <div class="bedconfig-cart-wrapper row justify-content-center">
                 <div class="col-12">
                     <div class="bedconfig-cart-item lightblue my-3 row">
@@ -221,23 +221,23 @@
                         <div class="bedconfig-image-container col-12 col-md-4 text-center">
                             <img src="img/die_matratze.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
-                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-5 p-3 px-4">
+                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-6 p-3 px-4">
                             <div class="d-flex justify-content-between flex-column h-100">
                                 <div>
-                                    <h2 class="font-weight-bold m-md-0">DIE MATRATZE</h2>
+                                    <h2 class="font-weight-bold m-md-0">THE MATTRESS</h2>
                                 </div>
                                 <div class="row">
-                                    <span class="col-4">Höhe:</span>
+                                    <span class="col-4">Height:</span>
                                     <span class="col-8" id="mattress-name-span">placeholder</span>
-                                    <span class="col-4">Größe:</span>
+                                    <span class="col-4">Size:</span>
                                     <span class="col-8" id="mattress-size-span">placeholder</span>
-                                    <span class="col-4">Seite:</span>
+                                    <span class="col-4">Firmness:</span>
                                     <span class="col-8" id="mattress-side-span">placeholder</span>
-                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Erklärung zur Auswahl</p>
+                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Background for recommendations:</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white col-12 col-md-3 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
+                        <div class="bg-white col-12 col-md-2 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
                             <div class="container-fluid d-flex align-items-md-end align-items-center justify-content-between h-100 flex-md-column px-0">
                                 <div class="bedconfig-add-remove-button">
                                     <img class="bedconfig-remove-button" src="img/minus.svg" alt="">
@@ -253,18 +253,18 @@
                 <div class="col-12 bedconfig-info-container bedconfig-closed">
                     <div class="row my-3">
                         <div class="col-md-4 col-12">
-                            <h5 class="font-weight-bold">Darum ist DIE MATRATZE richtig für dich:</h5>
+                            <h5 class="font-weight-bold">Why this mattress?</h5>
                         </div>
                         <div class="col-md-8 col-12">
-                            <h5 id="bmi-title" class="font-weight-bold">DIE HÖHE</h5>
-                            <p id="bmi-below-24-text">Dein BMI beträgt 24 oder weniger, damit ist die 18er Matratze für Dich ideal. Sollte Dein Partner einen erheblich höheren BMI haben, kannst Du selbstverständlich auch die 24er Matratze benutzen, aber nur für Dich alleine ist die 18er bereits perfekt. </p>
-                            <p id="bmi-above-24-text">Dein BMI beträgt 24 oder mehr, damit ist die 24er Matratze für Dich ideal. Sollte Dein Partner einen erheblich geringeren BMI haben, kannst Dein Partner selbstverständlich auch auf der 24er Matratze perfekt schlafen. </p>
-                            <h5 class="font-weight-bold">DIE HÄRTE</h5>
-                            <p id="soft-side-text">Für Seiten- und Rückenschläfer mit einer Präferenz für sanftes Einsinken ist die weiche Seite häufig gut geeignet. Der Härtegrad ist aber eine Frage des Geschmacks - sowohl die weiche als auch die feste Seite der WELTBETT-Matratze sind ergonomisch optimiert, probiere unbedingt beide Seiten.</p>
-                            <p id="hard-side-text">Für Bauch- und Rückenschläfer mit einer Präferenz für gute Abstützung ist die feste Seite häufig gut geeignet. Der Härtegrad ist aber eine Frage des Geschmacks - sowohl die weiche als auch die feste Seite der WELTBETT-Matratze sind ergonomisch optimiert, probiere unbedingt beide Seiten.</p>
-                            <h5 class="font-weight-bold">DEINE VORTEILE</h5>
-                            <p><img src="img/check.svg" alt=""> 111 Nächte Probeschlafen<br><img src="img/check.svg" alt=""> 10 Jahre Garantie auf den Matratzenkern<br><img src="img/check.svg" alt=""> Kostenloser Versand</p>
-                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> Ausblenden</p>
+                            <h5 id="bmi-title" class="font-weight-bold">The Height:</h5>
+                            <p id="bmi-below-24-text">Your BMI is 24 or less, hence, the 18cm mattress is perfect for you. Should your partner have a higher BMI and need the 24cm mattress, this would also work for you. But for you alone, the 18cm mattress is perfect.</p>
+                            <p id="bmi-above-24-text">Your BMI is 24 or higher, hence, the 24cm mattress is perfect for you. Should your partner have a lower BMI, your partner can of course also sleep perfectly well on the 24cm mattress.</p>
+                            <h5 class="font-weight-bold">The Firmness:</h5>
+                            <p id="soft-side-text">For side- and backsleepers with a preference for gentle support the medium firmness side is often the most comfortable choice. Firmness is a matter of taste - both sides have been optimized ergonomically, please make sure you try both before settling for your favorite.</p>
+                            <p id="hard-side-text">For tummy- and backsleepers with a preference for a more supportive mattress, the firm side is often the most comfortable choice. Firmness is a matter of taste - both sides have been optimized ergonomically, please make sure you try both before settling for your favorite.</p>
+                            <h5 class="font-weight-bold">Your advantages</h5>
+                            <p><img src="img/check.svg" alt=""> 111 nights risk-free trial<br><img src="img/check.svg" alt=""> 10 years warranty on the mattress core<br><img src="img/check.svg" alt=""> free shipping</p>
+                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> hide</p>
                         </div>
                     </div>
                 </div>
@@ -275,19 +275,19 @@
                         <div class="bedconfig-image-container col-md-4 text-center">
                             <img src="img/der_topper.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
-                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-5 p-3 px-4">
+                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-6 p-3 px-4">
                             <div class="d-flex justify-content-between flex-column h-100">
                                 <div>
-                                    <h2 class="font-weight-bold m-md-0">DER TOPPER</h2>
+                                    <h2 class="font-weight-bold m-md-0">The Topper</h2>
                                 </div>
                                 <div class="row">
-                                    <span class="col-4">Größe:</span>
+                                    <span class="col-4">Size:</span>
                                     <span class="col-8" id="topper-size-span">placeholder</span>
-                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Erklärung zur Auswahl</p>
+                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Background for recommendations:</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white col-12 col-md-3 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
+                        <div class="bg-white col-12 col-md-2 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
                             <div class="container-fluid d-flex align-items-md-end align-items-center justify-content-between h-100 flex-md-column px-0">
                                 <div class="bedconfig-add-remove-button">
                                     <img class="bedconfig-remove-button" src="img/minus.svg" alt="">
@@ -303,11 +303,11 @@
                 <div class="col-12 bedconfig-info-container bedconfig-closed">
                     <div class="row my-3">
                         <div class="col-md-4 col-12">
-                            <h5 class="font-weight-bold">Darum ist DER TOPPER richtig für dich:</h5>
+                            <h5 class="font-weight-bold">Why The Topper?</h5>
                         </div>
                         <div class="col-md-8 col-12">
-                            <p>Ein Topper wirkt druckentlastend und kann so Druckschmerzen effektiv entgegen wirken. Topper sind aber auch als reines Luxus- und Lifestyle-Element geeignet: Sie beeinflussen die grundsätzliche ergonomische Einstellung der Matratze nicht, sind aber herrlich luxuriös. </p>
-                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> Ausblenden</p>
+                            <p>A toper can relieve pressure and counter pressure pains effectively. Topper are also pure luxury- and lifestyle-products: They do not have an effect on the ergonomics of the mattress, but they just make it feel more luxurious.</p>
+                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> hide</p>
                         </div>
                     </div>
                 </div>
@@ -319,23 +319,23 @@
                         <div class="bedconfig-image-container col-md-4 text-center">
                             <img src="img/das_kissen.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
-                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-5 p-3 px-4">
+                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-6 p-3 px-4">
                             <div class="d-flex justify-content-between flex-column h-100">
                                 <div>
-                                    <h2 class="font-weight-bold m-md-0" id="pillow-title">DAS KISSEN</h2>
+                                    <h2 class="font-weight-bold m-md-0" id="pillow-title">The Pillow</h2>
                                 </div>
                                 <div class="row">
-                                    <span class="col-4">Füllstärke:</span>
+                                    <span class="col-4">Support:</span>
                                     <span class="col-8" id="pillow-name-span">placeholder</span>
-                                    <span class="col-4">Größe:</span>
+                                    <span class="col-4">Size:</span>
                                     <span class="col-8" id="pillow-size-span">placeholder</span>
-                                    <span class="col-4">Füllung:</span>
+                                    <span class="col-4">Filling:</span>
                                     <span class="col-8" id="pillow-material-span">placeholder</span>
-                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Erklärung zur Auswahl</p>
+                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Background for recommendations:</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white col-12 col-md-3 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
+                        <div class="bg-white col-12 col-md-2 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
                             <div class="container-fluid d-flex align-items-md-end align-items-center justify-content-between h-100 flex-md-column px-0">
                                 <div class="bedconfig-add-remove-button">
                                     <img class="bedconfig-remove-button" src="img/minus.svg" alt="">
@@ -351,19 +351,19 @@
                 <div class="col-12 bedconfig-info-container bedconfig-closed">
                     <div class="row my-3">
                         <div class="col-md-4 col-12">
-                            <h5 class="font-weight-bold">Darum ist DAS KISSEN richtig für dich:</h5>
+                            <h5 class="font-weight-bold">Why the pillow?</h5>
                         </div>
                         <div class="col-md-8 col-12">
-                            <h5 class="font-weight-bold">DIE GRÖẞE</h5>
-                            <p id="big-pillow-text">Diese Größe ist der Klassiker in Deutschland, umgibt nicht nur den Kopf und Nacken, sondern potenziell auch die Schultern und den oberen Rücken und sorgt so für ein herrliches Liegegefühl. </p>
-                            <p id="small-pillow-text">Diese Größe findet immer mehr Verbreitung, da sie gezielt nur Nacken und Kopf umgibt, also keinen Einfluss auf die Schulterpartie nimmt.</p>
-                            <h5 class="font-weight-bold">DIE HÄRTE</h5>
-                            <p id="hard-pillow-text">Zum Loungen und Lesen im Bett, sowie bei Seitenschläfern auch zur Unterstützung des Nackens geeignet.  </p>
-                            <p id="soft-pillow-text">Knautschbar für genau DEIN richtiges Maß an Unterstützung, das Du suchst und das für Dich angenehm ist. Herrlich flauschig-sanft, für das vollendete Luxus-Schlafgefühl. Für mehr als 90% die empfohlene Variante zum erholsamen Schlafen. </p>
-                            <h5 class="font-weight-bold">DIE FÜLLUNG</h5>
-                            <p id="synthetic-pillow-text">Hypo-allergen und damit die sanft-luxuriöse Füllung, die wir empfehlen.</p>
-                            <p id="natural-pillow-text">Atmungsaktiv und rein natürlich sorgt dieses Kissen für ein trockenes, nicht zu warmes Schlafklima.</p>
-                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> Ausblenden</p>
+                            <h5 class="font-weight-bold">The size:</h5>
+                            <p id="big-pillow-text">This size is the classic choice in Germany; it surrounds not only head and neck, but potentially also your shoulders and upper back and thereby provides a wonderfully luxurious feel.</p>
+                            <p id="small-pillow-text">This size is becoming ever more popular as it targets only the neck and head, it does not impact your shoulders directly.</p>
+                            <h5 class="font-weight-bold">The Firmness:</h5>
+                            <p id="hard-pillow-text">For lounging and reading in bed, as well as neck support for side sleepers.</p>
+                            <p id="soft-pillow-text">Moldable for the exact support that YOU need and that is most comfortable for you. Wonderfully fluffy and gentle, for the perfect luxury feel. For more than 90% of all people the recommended choice for restful sleep.</p>
+                            <h5 class="font-weight-bold">The filling</h5>
+                            <p id="synthetic-pillow-text">Hypoallergenic and thus the gentle-luxurious filling that we recommend.</p>
+                            <p id="natural-pillow-text">Breathable and 100% natural, this pillow generates a dry and not too warm sleep climate.</p>
+                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> hide</p>
                         </div>
                     </div>
                 </div>
@@ -375,23 +375,23 @@
                         <div class="bedconfig-image-container col-12 col-md-4 text-center">
                             <img src="img/die_decke.png" alt="" class="img-fluid bedconfig-cart-image">
                         </div>
-                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-5 p-3 px-4">
+                        <div class="bg-white bedconfig-cart-item-info col-12 col-md-6 p-3 px-4">
                             <div class="d-flex justify-content-between flex-column h-100">
                                 <div>
-                                    <h2 class="font-weight-bold m-md-0" id="blanket-title">DIE DECKE</h2>
+                                    <h2 class="font-weight-bold m-md-0" id="blanket-title">The Duvet</h2>
                                 </div>
                                 <div class="row">
-                                    <span class="col-4">Saison:</span>
+                                    <span class="col-4">Season:</span>
                                     <span class="col-8" id="blanket-name-span">placeholder</span>
-                                    <span class="col-4">Größe:</span>
+                                    <span class="col-4">Size:</span>
                                     <span class="col-8" id="blanket-size-span">placeholder</span>
-                                    <span class="col-4">Füllung:</span>
+                                    <span class="col-4">Filling:</span>
                                     <span class="col-8" id="blanket-material-span">placeholder</span>
-                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Erklärung zur Auswahl</p>
+                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Background for recommendations:</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="bg-white col-12 col-md-3 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
+                        <div class="bg-white col-12 col-md-2 pr-md-3 py-1 px-4 pb-3 pb-md-2 pt-md-3 bedconfig-cart-amount-container">
                             <div class="container-fluid d-flex align-items-md-end align-items-center justify-content-between h-100 flex-md-column px-0">
                                 <div class="bedconfig-add-remove-button">
                                     <img class="bedconfig-remove-button" src="img/minus.svg" alt="">
@@ -407,11 +407,11 @@
                 <div class="col-12 bedconfig-info-container bedconfig-closed">
                     <div class="row my-3">
                         <div class="col-md-4 col-12">
-                            <h5 class="font-weight-bold">Darum ist DIE DECKE richtig für dich:</h5>
+                            <h5 class="font-weight-bold">Why The Duvet?</h5>
                         </div>
                         <div class="col-md-8 col-12">
-                            <p>Wusstest Du, dass guter Schlaf nur zu ca. 30% durch Ergonomie, und über 60% durch das richtige Schlafklima beeinflusst wird? Diese Decke liefert das ganze Jahr lang ein konstant trockenes, gesundes Schlafklima mit idealen Temperaturen.</p>
-                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> Ausblenden</p>
+                            <p>Did you know that good sleep is only 30% impacted by ergonomics, but more than 60% by the sleep climate? This duvet provides a year-round, constantly dry and healthy sleep climate with ideal temperatures.</p>
+                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> hide</p>
                         </div>
                     </div>
                 </div>
@@ -426,7 +426,7 @@
                         <div class="bg-white bedconfig-cart-item-info col-12 col-md-6 p-3 px-4">
                             <div class="d-flex justify-content-between flex-column h-100">
                                 <div>
-                                    <h2 class="font-weight-bold m-md-0" id="blanket-title">DIE BETTWÄSCHE</h2>
+                                    <h2 class="font-weight-bold m-md-0" id="blanket-title">The Linens</h2>
                                 </div>
                                 <div class="row">
                                     <!-- <span class="col-md-4 col-12">Kissenbezug:</span> -->
@@ -435,7 +435,7 @@
                                     <span class="col-12 mb-2 mb-md-0" id="duvet-cover-span">placeholder</span>
                                     <!-- <span class="col-md-4 col-12">Bettlaken:</span> -->
                                     <span class="col-12" id="bed-sheet-span">placeholder</span>
-                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Erklärung zur Auswahl</p>
+                                    <p class="font-weight-bold m-0 col-12 bedconfig-info-button bedconfig-info-open-button"><img src="img/arrow-right.svg" alt=""> Background for recommendations:</p>
                                 </div>
                             </div>
                         </div>
@@ -455,11 +455,11 @@
                 <div class="col-12 bedconfig-info-container bedconfig-closed">
                     <div class="row my-3">
                         <div class="col-md-4 col-12">
-                            <h5 class="font-weight-bold">Darum ist DIE BETTWÄSCHE richtig für dich:</h5>
+                            <h5 class="font-weight-bold">Why the linens?</h5>
                         </div>
                         <div class="col-md-8 col-12">
-                            <p>Wusstest Du, dass guter Schlaf nur zu ca. 30% durch Ergonomie, und über 60% durch das richtige Schlafklima beeinflusst wird? Diese atmungsaktive Bettwäsche aus 100% natürlichem Baumwoll-Satin bietet ein elegant-zeitloses Luxushotel-Design mit perfekter Weltbett-Passform.</p>
-                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> Ausblenden</p>
+                            <p>Did you know that good sleep is only 30% impacted by ergonomics, but more than 60% by the sleep climate? These breathable linens made of 100% natural cotton-satin provide a timelessly elegant luxury hotel design with a perfect WELTBETT fit.</p>
+                            <p class="bedconfig-info-button bedconfig-info-close-button font-weight-bold"><img src="img/arrow-up.svg" alt=""> hide</p>
                         </div>
                     </div>
                 </div>
@@ -469,16 +469,16 @@
                 <div class="container-fluid mt-4 col-12 col-sm-10 col-md-8 p-0">
                     <div class="row">
                         <div class="col-12 col-sm-6 order-2 order-sm-1">
-                            <a class="btn bedconfig-button bedconfig-back-button px-4 py-3">zurück</a>
+                            <a class="btn bedconfig-button bedconfig-back-button px-4 py-3">back</a>
                         </div>
                         <div class="col-12 col-sm-6 mb-3 order-1 order-sm-2">
-                            <a class="btn bedconfig-button bedconfig-next-button px-0 px-sm-4 py-3" id="bedconfig-buy-button">In den Warenkorb</a>
+                            <a class="btn bedconfig-button bedconfig-next-button px-0 px-sm-4 py-3" id="bedconfig-buy-button">add to cart</a>
                         </div>
                     </div>
                 </div>    
             </div>
         </div>
     </div>
-    <script src="js/bedconfig.js"></script>
+    <script src="js/bedconfig_en.js"></script>
 </body>
 </html>

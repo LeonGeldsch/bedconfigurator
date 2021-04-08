@@ -573,8 +573,8 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
     if (bedLinenAmount != 0) addToCartLink += "-" + calculatedBedLinen.duvetCover.id + "_" + bedLinenAmount + "_" + calculatedBedLinen.duvetCover.sizeId;
     if (bedLinenAmount != 0) addToCartLink += "-" + calculatedBedLinen.pillowCase.id + "_" + bedLinenAmount + "_" + calculatedBedLinen.pillowCase.sizeId;
 
-    //window.location.href = addToCartLink;
-    console.log(addToCartLink);
+    window.location.href = addToCartLink;
+    //console.log(addToCartLink);
 }
 
 
