@@ -532,27 +532,38 @@ function updateCart () {
     recommendedBlanketNameSpan.innerHTML = calculatedBlanket.name;
     recommendedBlanketSizeSpan.innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
     recommendedBlanketMaterialSpan.innerHTML = calculatedBlanket.material;
+    if (calculatedBlanket.material === "Synthetikfüllung") {
+        recommendedBlanketMaterialSpan.innerHTML = "Synthetic";
+    } else {
+        recommendedBlanketMaterialSpan.innerHTML = "Natural";
+    }
     if (isFloat(calculatedBlanket.price) && blanketAmount > 0) {
         recommendedBlanketPriceSpan.innerHTML =  (calculatedBlanket.price * blanketAmount).toFixed(2).replace(".", ",") + "€";
     } else {
         recommendedBlanketPriceSpan.innerHTML = calculatedBlanket.price * blanketAmount + "€";
     }
 
-    recommendedPillowNameSpan.innerHTML = calculatedPillowOptions[0].name;
-
-    if (calculatedPillowOptions[0].name === "")
-
+    if (calculatedPillowOptions[0].name === "Extra Prall") {
+        recommendedPillowNameSpan.innerHTML = "Extra firm";
+    } else {
+        recommendedPillowNameSpan.innerHTML = "Normal firmness";
+    }
     recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
+    if (calculatedPillowOptions[0].material === "Synthetikfüllung") {
+        recommendedPillowMaterialSpan.innerHTML = "Synthetic";
+    } else {
+        recommendedPillowMaterialSpan.innerHTML = "Natural";
+    }
     if (isFloat(calculatedPillowOptions[0].price) && pillowAmount > 0) {
         recommendedPillowPriceSpan.innerHTML =  (calculatedPillowOptions[0].price * pillowAmount).toFixed(2).replace(".", ",") + "€";
     } else {
         recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price * pillowAmount + "€";
     }
 
-    recommendedBedSheetSpan.innerHTML = calculatedBedLinen.bedSheet.name + " " + calculatedBedLinen.bedSheet.width + "x" + calculatedBedLinen.bedSheet.length + "cm";
-    recommendedPillowCaseSpan.innerHTML = calculatedBedLinen.pillowCase.name + " " + calculatedBedLinen.pillowCase.width + "x" + calculatedBedLinen.pillowCase.length + "cm";
-    recommendedDuvetCoverSpan.innerHTML = calculatedBedLinen.duvetCover.name + " " + calculatedBedLinen.duvetCover.width + "x" + calculatedBedLinen.duvetCover.length + "cm";
+    recommendedBedSheetSpan.innerHTML = "Set of two bedsheets" + " " + calculatedBedLinen.bedSheet.width + "x" + calculatedBedLinen.bedSheet.length + "cm";
+    recommendedPillowCaseSpan.innerHTML = "Set of two pillowcases" + " " + calculatedBedLinen.pillowCase.width + "x" + calculatedBedLinen.pillowCase.length + "cm";
+    recommendedDuvetCoverSpan.innerHTML = "Set of two duvet covers" + " " + calculatedBedLinen.duvetCover.width + "x" + calculatedBedLinen.duvetCover.length + "cm";
     recommendedBedlinenPriceSpan.innerHTML = (calculatedBedLinen.bedSheet.price + calculatedBedLinen.pillowCase.price + calculatedBedLinen.duvetCover.price) * bedLinenAmount + "€";
 }
 
