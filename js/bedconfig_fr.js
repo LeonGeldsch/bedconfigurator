@@ -221,10 +221,10 @@ var pillows = [
 
 // all blanket options
 var blankets = [
-    new Blanket("All seasons", 123, 129, 135, 200, "Federfüllung"),
-    new Blanket("All seasons", 124, 179, 155, 220, "Federfüllung"),
-    new Blanket("All seasons", 216, 169, 155, 220, "Synthetikfüllung"),
-    new Blanket("All seasons", 217, 129, 135, 200, "Synthetikfüllung"),
+    new Blanket("Couette toutes saisons", 123, 129, 135, 200, "Federfüllung"),
+    new Blanket("Couette toutes saisons", 124, 179, 155, 220, "Federfüllung"),
+    new Blanket("Couette toutes saisons", 216, 169, 155, 220, "Synthetikfüllung"),
+    new Blanket("Couette toutes saisons", 217, 129, 135, 200, "Synthetikfüllung"),
 ];
 
 // all mattress options
@@ -533,9 +533,9 @@ function updateCart () {
     recommendedBlanketSizeSpan.innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
     recommendedBlanketMaterialSpan.innerHTML = calculatedBlanket.material;
     if (calculatedBlanket.material === "Synthetikfüllung") {
-        recommendedBlanketMaterialSpan.innerHTML = "Synthetic";
+        recommendedBlanketMaterialSpan.innerHTML = "Garnissage synthétique";
     } else {
-        recommendedBlanketMaterialSpan.innerHTML = "Natural";
+        recommendedBlanketMaterialSpan.innerHTML = "Garnissage naturel";
     }
     if (isFloat(calculatedBlanket.price) && blanketAmount > 0) {
         recommendedBlanketPriceSpan.innerHTML =  (calculatedBlanket.price * blanketAmount).toFixed(2).replace(".", ",") + "€";
@@ -551,9 +551,9 @@ function updateCart () {
     recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
     if (calculatedPillowOptions[0].material === "Synthetikfüllung") {
-        recommendedPillowMaterialSpan.innerHTML = "Synthetic";
+        recommendedPillowMaterialSpan.innerHTML = "Garnissage synthétique";
     } else {
-        recommendedPillowMaterialSpan.innerHTML = "Natural";
+        recommendedPillowMaterialSpan.innerHTML = "Garnissage naturel";
     }
     if (isFloat(calculatedPillowOptions[0].price) && pillowAmount > 0) {
         recommendedPillowPriceSpan.innerHTML =  (calculatedPillowOptions[0].price * pillowAmount).toFixed(2).replace(".", ",") + "€";
@@ -587,8 +587,8 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
     if (bedLinenAmount != 0) addToCartLink += "-" + calculatedBedLinen.duvetCover.id + "_" + bedLinenAmount + "_" + calculatedBedLinen.duvetCover.sizeId;
     if (bedLinenAmount != 0) addToCartLink += "-" + calculatedBedLinen.pillowCase.id + "_" + bedLinenAmount + "_" + calculatedBedLinen.pillowCase.sizeId;
 
-    window.location.href = addToCartLink;
-    //console.log(addToCartLink);
+    //window.location.href = addToCartLink;
+    console.log(addToCartLink);
 }
 
 
