@@ -209,22 +209,22 @@ var bedLinen = [
 
 // all pillow options
 var pillows = [
-    new Pillow("Normal Weich", 22, 39, 80, 40, "Federfüllung"),
-    new Pillow("Extra Prall", 23, 39, 80, 40, "Federfüllung"),
-    new Pillow("Normal Weich", 24, 49, 80, 80, "Federfüllung"),
-    new Pillow("Extra Prall", 25, 49.90, 80, 80, "Federfüllung"),
-    new Pillow("Normal Weich", 119, 39, 80, 40, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 120, 39.90, 80, 40, "Synthetikfüllung"),
-    new Pillow("Normal Weich", 121, 49, 80, 80, "Synthetikfüllung"),
-    new Pillow("Extra Prall", 122, 49.90, 80, 80, "Synthetikfüllung")
+    new Pillow("normal-weich", 22, 49.00, 80, 40, "Federfüllung"),
+    new Pillow("extra fest", 23, 49.90, 80, 40, "Federfüllung"),
+    new Pillow("normal-weich", 24, 59.00, 80, 80, "Federfüllung"),
+    new Pillow("extra fest", 25, 59.90, 80, 80, "Federfüllung"),
+    new Pillow("normal-weich", 119, 39.00, 80, 40, "Synthetikfüllung"),
+    new Pillow("extra fest", 120, 39.90, 80, 40, "Synthetikfüllung"),
+    new Pillow("normal-weich", 121, 49.00, 80, 80, "Synthetikfüllung"),
+    new Pillow("extra fest", 122, 49.90, 80, 80, "Synthetikfüllung")
 ];
 
 // all blanket options
 var blankets = [
-    new Blanket("Ganzjahr", 123, 129, 135, 200, "Federfüllung"),
-    new Blanket("Ganzjahr", 124, 179, 155, 220, "Federfüllung"),
-    new Blanket("Ganzjahr", 216, 169, 155, 220, "Synthetikfüllung"),
-    new Blanket("Ganzjahr", 217, 129, 135, 200, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 123, 139, 135, 200, "Federfüllung"),
+    new Blanket("Ganzjahr", 124, 189, 155, 220, "Federfüllung"),
+    new Blanket("Ganzjahr", 216, 129, 155, 220, "Synthetikfüllung"),
+    new Blanket("Ganzjahr", 217, 109, 135, 200, "Synthetikfüllung"),
 ];
 
 // all mattress options
@@ -249,8 +249,8 @@ var mattresses = [
     new Mattress("DIE MATRATZE 24cm Überlänge", 60, 559, 140, 220, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 59, 559, 140, 210, 24),
 
-    new Mattress("DIE MATRATZE 18cm", 31, 179, 70, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 32, 189, 80, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 31, 198, 70, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 32, 198, 80, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 33, 198, 90, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 34, 219, 100, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 56, 329, 120, 200, 18),
@@ -320,25 +320,25 @@ function calculatePillow (schmerzArt, schmerzBereich, schlafposition, materialPr
     if (schmerzArt == "druckschmerz") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "rueckenschlaefer" || schlafposition == "bauchschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Synthetikfüllung")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
     if (schmerzArt == "verspannung") {
         if (schmerzBereich == "nacken-schulter") {
             if (schlafposition == "seitenschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Synthetikfüllung")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "extra fest" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "extra fest" && element.length == 40 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "extra fest" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "extra fest" && element.length == 40 && element.material == "Synthetikfüllung")];
             }
             if (schlafposition == "bauchschlaefer") {
-                if (materialPreference === "federn") return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Federfüllung")];
-                else return [pillows.find(element => element.name == "Normal Weich" && element.length == 80 && element.material == "Synthetikfüllung")];
+                if (materialPreference === "federn") return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Federfüllung")];
+                else return [pillows.find(element => element.name == "normal-weich" && element.length == 80 && element.material == "Synthetikfüllung")];
             }
         }
     }
-    if (materialPreference === "federn") return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Federfüllung")];
-    else return [pillows.find(element => element.name == "Extra Prall" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "Extra Prall" && element.length == 40 && element.material == "Synthetikfüllung")];
+    if (materialPreference === "federn") return [pillows.find(element => element.name == "extra fest" && element.length == 80 && element.material == "Federfüllung"), pillows.find(element => element.name == "extra fest" && element.length == 40 && element.material == "Federfüllung")];
+    else return [pillows.find(element => element.name == "extra fest" && element.length == 80 && element.material == "Synthetikfüllung"), pillows.find(element => element.name == "extra fest" && element.length == 40 && element.material == "Synthetikfüllung")];
 }
 
 
@@ -504,7 +504,7 @@ function updateCart () {
         bigPillowText.classList.remove('d-none');
     }
 
-    if (calculatedPillowOptions[0].name === "Extra Prall") {
+    if (calculatedPillowOptions[0].name === "extra fest") {
         hardPillowText.classList.remove('d-none');
         softPillowText.classList.add('d-none');
     } else {
