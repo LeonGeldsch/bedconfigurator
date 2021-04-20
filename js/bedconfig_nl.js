@@ -193,26 +193,26 @@ class BedLinen {
 
 // all bed linen options
 var bedLinen = [
-    new BedLinen("Set de 2 taies d’oreiller", 265, 59, 40, 80),
-    new BedLinen("Set de 2 taies d’oreiller", 266, 69, 80, 80),
-    new BedLinen("Set de 2 housses de couette", 267, 129, 135, 200),
-    new BedLinen("Set de 2 housses de couette", 268, 139, 155, 200),
-    new BedLinen("Set de 2 draps housses", 269, 84, 70, 200),
-    new BedLinen("Set de 2 draps housses", 269, 84, 80, 200),
-    new BedLinen("Set de 2 draps housses", 270, 89, 90, 200),
-    new BedLinen("Set de 2 draps housses", 270, 89, 100, 200),
-    new BedLinen("Set de 2 draps housses", 271, 99, 120, 200),
-    new BedLinen("Set de 2 draps housses", 271, 99, 140, 200),
-    new BedLinen("Set de 2 draps housses", 272, 109, 160, 200),
-    new BedLinen("Set de 2 draps housses", 272, 109, 180, 200),
+    new BedLinen("Set de 2 taies d’oreiller", 265, 69, 40, 80),
+    new BedLinen("Set de 2 taies d’oreiller", 266, 79, 80, 80),
+    new BedLinen("Set de 2 housses de couette", 267, 139, 135, 200),
+    new BedLinen("Set de 2 housses de couette", 268, 159, 155, 200),
+    new BedLinen("Set de 2 draps housses", 269, 89, 70, 200),
+    new BedLinen("Set de 2 draps housses", 269, 89, 80, 200),
+    new BedLinen("Set de 2 draps housses", 270, 99, 90, 200),
+    new BedLinen("Set de 2 draps housses", 270, 99, 100, 200),
+    new BedLinen("Set de 2 draps housses", 271, 109, 120, 200),
+    new BedLinen("Set de 2 draps housses", 271, 109, 140, 200),
+    new BedLinen("Set de 2 draps housses", 272, 119, 160, 200),
+    new BedLinen("Set de 2 draps housses", 272, 119, 180, 200),
 ]
 
 // all pillow options
 var pillows = [
     new Pillow("normal-weich", 22, 59.00, 80, 40, "Federfüllung"),
     new Pillow("extra fest", 23, 59.90, 80, 40, "Federfüllung"),
-    new Pillow("normal-weich", 24, 69.00, 80, 80, "Federfüllung"),
-    new Pillow("extra fest", 25, 69.90, 80, 80, "Federfüllung"),
+    new Pillow("normal-weich", 24, 59.00, 80, 80, "Federfüllung"),
+    new Pillow("extra fest", 25, 59.90, 80, 80, "Federfüllung"),
     new Pillow("normal-weich", 119, 49.00, 80, 40, "Synthetikfüllung"),
     new Pillow("extra fest", 120, 49.90, 80, 40, "Synthetikfüllung"),
     new Pillow("normal-weich", 121, 59.00, 80, 80, "Synthetikfüllung"),
@@ -240,11 +240,11 @@ var mattresses = [
     new Mattress("DIE MATRATZE 24cm", 30, 709, 200, 200, 24),
     new Mattress("DIE MATRATZE 24cm Minderlänge", 47, 348, 80, 190, 24),
     new Mattress("DIE MATRATZE 24cm Minderlänge", 48, 348, 90, 190, 24),
-    //new Mattress("DIE MATRATZE 24cm Überlänge", 49, 609, 90, 210, 24),
-    //new Mattress("DIE MATRATZE 24cm Überlänge", 50, 749, 100, 210, 24),
+    new Mattress("DIE MATRATZE 24cm Überlänge", 49, 399, 90, 210, 24),
+    new Mattress("DIE MATRATZE 24cm Überlänge", 50, 439, 100, 210, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 53, 749, 180, 210, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 52, 809, 200, 210, 24),
-    //new Mattress("DIE MATRATZE 24cm Überlänge", 51, 439, 100, 220, 24),
+    new Mattress("DIE MATRATZE 24cm Überlänge", 51, 439, 100, 220, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 54, 809, 200, 220, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 60, 609, 140, 220, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 59, 609, 140, 210, 24),
@@ -275,9 +275,9 @@ var toppers = [
     new Topper("Der Topper", 223, 139, 80, 200),
     new Topper("Der Topper", 224, 139, 90, 200),
     new Topper("Der Topper", 225, 159, 100, 200),
-    //new Topper("Der Topper", 226, 249, 120, 200),
+    //new Topper("Der Topper", 226, 239, 120, 200),
     new Topper("Der Topper", 227, 239, 140, 200),
-    //new Topper("Der Topper", 228, 249, 160, 200),
+    //new Topper("Der Topper", 228, 289, 160, 200),
     new Topper("Der Topper", 229, 289, 180, 200),
     new Topper("Der Topper", 230, 309, 200, 200),
 ];
@@ -355,13 +355,13 @@ function calculateTopper (schmerzArt, bedSize) {
 
 function calculateMatress (schmerzArt, bedSize, bmi) {
     if (schmerzArt == "druckschmerz") {
-        recommendedMattressSide = "Plus mou (H3)";
+        recommendedMattressSide = "Zachter (H3)";
     }
     if (schmerzArt == "verspannung") {
-        recommendedMattressSide = "Plus dur (H4)";
+        recommendedMattressSide = "Meer solide (H4)";
     }
     if (schmerzArt == "kein") {
-        recommendedMattressSide = "Plus dur (H4)";
+        recommendedMattressSide = "Meer solide (H4)";
     }
 
     for (let i = 0; i < mattresses.length; i++) {
@@ -533,9 +533,9 @@ function updateCart () {
     recommendedBlanketSizeSpan.innerHTML = calculatedBlanket.width + "x" + calculatedBlanket.length + "cm";
     recommendedBlanketMaterialSpan.innerHTML = calculatedBlanket.material;
     if (calculatedBlanket.material === "Synthetikfüllung") {
-        recommendedBlanketMaterialSpan.innerHTML = "Garnissage synthétique";
+        recommendedBlanketMaterialSpan.innerHTML = "Synthetisch";
     } else {
-        recommendedBlanketMaterialSpan.innerHTML = "Garnissage naturel";
+        recommendedBlanketMaterialSpan.innerHTML = "Natuurlijk";
     }
     if (isFloat(calculatedBlanket.price) && blanketAmount > 0) {
         recommendedBlanketPriceSpan.innerHTML =  (calculatedBlanket.price * blanketAmount).toFixed(2).replace(".", ",") + "€";
@@ -544,16 +544,16 @@ function updateCart () {
     }
 
     if (calculatedPillowOptions[0].name === "extra fest") {
-        recommendedPillowNameSpan.innerHTML = "Ultra-dodu";
+        recommendedPillowNameSpan.innerHTML = "Extra stevig";
     } else {
-        recommendedPillowNameSpan.innerHTML = "Normalement moelleux";
+        recommendedPillowNameSpan.innerHTML = "Normaal-zacht";
     }
     recommendedPillowSizeSpan.innerHTML = calculatedPillowOptions[0].width + "x" + calculatedPillowOptions[0].length + "cm";
     recommendedPillowMaterialSpan.innerHTML = calculatedPillowOptions[0].material;
     if (calculatedPillowOptions[0].material === "Synthetikfüllung") {
-        recommendedPillowMaterialSpan.innerHTML = "Garnissage synthétique";
+        recommendedPillowMaterialSpan.innerHTML = "Synthetisch";
     } else {
-        recommendedPillowMaterialSpan.innerHTML = "Garnissage naturel";
+        recommendedPillowMaterialSpan.innerHTML = "Natuurlijk";
     }
     if (isFloat(calculatedPillowOptions[0].price) && pillowAmount > 0) {
         recommendedPillowPriceSpan.innerHTML =  (calculatedPillowOptions[0].price * pillowAmount).toFixed(2).replace(".", ",") + "€";
@@ -561,9 +561,9 @@ function updateCart () {
         recommendedPillowPriceSpan.innerHTML = calculatedPillowOptions[0].price * pillowAmount + "€";
     }
 
-    recommendedBedSheetSpan.innerHTML = "Set de 2 taies d’oreiller" + " " + calculatedBedLinen.bedSheet.width + "x" + calculatedBedLinen.bedSheet.length + "cm";
-    recommendedPillowCaseSpan.innerHTML = "Set de 2 housses de couette" + " " + calculatedBedLinen.pillowCase.width + "x" + calculatedBedLinen.pillowCase.length + "cm";
-    recommendedDuvetCoverSpan.innerHTML = "Set de 2 draps housses" + " " + calculatedBedLinen.duvetCover.width + "x" + calculatedBedLinen.duvetCover.length + "cm";
+    recommendedBedSheetSpan.innerHTML = "Kussenovertrek, set van 2 stuks" + " " + calculatedBedLinen.bedSheet.width + "x" + calculatedBedLinen.bedSheet.length + "cm";
+    recommendedPillowCaseSpan.innerHTML = "Dekbedovertrek, set van 2 stuks" + " " + calculatedBedLinen.pillowCase.width + "x" + calculatedBedLinen.pillowCase.length + "cm";
+    recommendedDuvetCoverSpan.innerHTML = "Spanbedlaken, set van 2 stuks" + " " + calculatedBedLinen.duvetCover.width + "x" + calculatedBedLinen.duvetCover.length + "cm";
     recommendedBedlinenPriceSpan.innerHTML = (calculatedBedLinen.bedSheet.price + calculatedBedLinen.pillowCase.price + calculatedBedLinen.duvetCover.price) * bedLinenAmount + "€";
 }
 
@@ -578,7 +578,7 @@ function buyItems (calculatedMattress, calculatedTopper, calculatedPillowOptions
 
 
 
-    addToCartLink = 'https://www.weltbett.fr/dpa/add/tocart/id/';
+    addToCartLink = 'https://www.weltbett.nl/dpa/add/tocart/id/';
     if (mattressAmount != 0) addToCartLink += calculatedMattress.id + "_" + mattressAmount + "_" + calculatedMattress.sizeId;
     if (topperAmount != 0 && calculatedTopper.name != "Kein Topper") addToCartLink += "-" + calculatedTopper.id + "_" + topperAmount + "_" + calculatedTopper.sizeId;
     if (pillowAmount != 0) addToCartLink += "-" + calculatedPillow.id + "_" + pillowAmount + "_" + calculatedPillow.sizeId;

@@ -209,11 +209,11 @@ var bedLinen = [
 
 // all pillow options
 var pillows = [
-    new Pillow("Normal Weich", 22, 39, 80, 40, "Federfüllung"),
-    new Pillow("Extra Prall", 23, 39, 80, 40, "Federfüllung"),
-    new Pillow("Normal Weich", 24, 49, 80, 80, "Federfüllung"),
-    new Pillow("Extra Prall", 25, 49.90, 80, 80, "Federfüllung"),
-    new Pillow("Normal Weich", 119, 39, 80, 40, "Synthetikfüllung"),
+    new Pillow("Normal Weich", 22, 49.00, 80, 40, "Federfüllung"),
+    new Pillow("Extra Prall", 23, 49.90, 80, 40, "Federfüllung"),
+    new Pillow("Normal Weich", 24, 59.00, 80, 80, "Federfüllung"),
+    new Pillow("Extra Prall", 25, 59.90, 80, 80, "Federfüllung"),
+    new Pillow("Normal Weich", 119, 39.00, 80, 40, "Synthetikfüllung"),
     new Pillow("Extra Prall", 120, 39.90, 80, 40, "Synthetikfüllung"),
     new Pillow("Normal Weich", 121, 49, 80, 80, "Synthetikfüllung"),
     new Pillow("Extra Prall", 122, 49.90, 80, 80, "Synthetikfüllung")
@@ -249,8 +249,8 @@ var mattresses = [
     new Mattress("DIE MATRATZE 24cm Überlänge", 60, 559, 140, 220, 24),
     new Mattress("DIE MATRATZE 24cm Überlänge", 59, 559, 140, 210, 24),
 
-    new Mattress("DIE MATRATZE 18cm", 31, 179, 70, 200, 18),
-    new Mattress("DIE MATRATZE 18cm", 32, 189, 80, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 31, 198, 70, 200, 18),
+    new Mattress("DIE MATRATZE 18cm", 32, 198, 80, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 33, 198, 90, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 34, 219, 100, 200, 18),
     new Mattress("DIE MATRATZE 18cm", 56, 329, 120, 200, 18),
